@@ -1,30 +1,15 @@
-# ProductName (e.g. MediaLibrary 2018)
+# SlashAh
 
 ## Project
 
 ### Team
 
-* Group member 1 name, email
-* Group member 2 name, email
-* Group member 3 name, email
-* Group member 4 name, email
+* Gonçalo Pereira, up201705971@fe.up.pt
+* João Pedro Campos, up201704982@fe.up.pt
+* João Renato Pinto, up201705547@fe.up.pt
+* Leonardo Moura, up201706907@fe.up.pt
 
-### Artefacts
-
-* User Requirements specification
-  * [A1: Project presentation](a1)
-  * [A2: Actors and User stories](a2)
-  * [A3: User Interfaces Prototype](a3)
-* Database specification
-  * [A4: Conceptual Data Model](a4)
-  * [A5: Relational schema, validation and schema refinement](a5)
-  * [A6: Integrity constraints. Indexes, triggers, user functions, transactions and database populated with data](a6)
-* Architecture specification and Prototype
-  * [A7: High-level architecture. Privileges. Web resources specification](a7)
-  * [A8: Vertical Prototype](a8)
-* Product and Presentation
-  * [A9: Product](a9)
-  * [A10: Presentation and discussion](a10)
+**For more information check out the project [Wiki](../wikis/home)**
 
 ***
-GROUP20gg, DD/MM/2020
+GROUP2062, 18/02/2020
