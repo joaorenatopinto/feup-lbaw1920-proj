@@ -19,7 +19,6 @@
             </label>
         </div>
         <div class ="d-flex justify-content-around">
-            <button type="submit" class="btn btn-primary">Log In</button>
             <button type="submit" class="btn btn-primary">Register</button>
         </div>
     </form>
