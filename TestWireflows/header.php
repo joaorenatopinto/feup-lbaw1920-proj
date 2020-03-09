@@ -16,23 +16,15 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-md navbar-light bg-primary">
-      <a class="navbar-brand text-light" href="/">SLASH AH</a>
-
-      <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <form class="form-inline my-2 my-lg-0 align-self-stretch">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          </form>
-          <ul class="nav justify-content-end ">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand text-light" href="/">SLASH AH</a>
+        <div class="d-flex flex-row order-2 order-lg-3">
+          <ul class="navbar-nav flex-row">
             <li class="nav-item">
               <a class="nav-link text-light" href="#">7.75€</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="userprofile.php">João Cages</a>
+              <a class="nav-link text-light" href="#">João Cages</a>
             </li>
             <li class="navbar-nav">
               <a class="navbar-brand" href="userprofile.php">
@@ -44,5 +36,13 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="w-100 d-flex flex-row-reverse">
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
+        </div>
       </nav>
+
     </header>
