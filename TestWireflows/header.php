@@ -27,7 +27,7 @@
             </li>
             <li class="navbar-nav">
               <a class="navbar-brand" href="userprofile.php">
-                <img src="img/cages.png" width="30" height="30" alt="">
+                <img src="img/cages.png" class="rounded-circle" width="35" height="35" alt="">
               </a>
             </li>
           </ul>
