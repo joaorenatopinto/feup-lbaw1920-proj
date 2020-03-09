@@ -25,14 +25,14 @@
       <div class="text-center col-sm-4">
       </div>
       <div class="text-center col-sm-4">
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque unde laborum eveniet tempora ipsum perspiciatis iste velit expedita, labore atque, earum id quae voluptatibus dicta dolorem a at, totam iure!</div>
+        <div>Newbie seller. Still learning the craft. Most interested in muscle cars and antique watches.</div>
       </div>
       <div class="text-center col-sm-4">
       </div>
     </div>
     <div class="center row mt-4">
       <div class="text-center col">
-        <div>Lorem@ipsum.sit</div>
+        <div>kidcages@gmail.com</div>
       </div>
     </div>
   </div>
