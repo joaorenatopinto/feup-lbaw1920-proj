@@ -44,13 +44,5 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="d-flex flex-row-reverse w-100">
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-          </div>
-        </div>
       </nav>
     </header>
