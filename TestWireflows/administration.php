@@ -36,12 +36,39 @@
           </li>
         </ul>
         <div class="tab-content mt-4" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Raw denim you
-            probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master
-            cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-            keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
-            placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi
-            qui.  
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="card mx-auto">
+          <div class="d-flex justify-content-end">
+            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Joao Cages</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Make Mod</a>
+              <a href="#" class="btn btn-primary">Ban</a>
+            </div>
+          </div>
+        </div>
+        <div class="card mx-auto">
+          <div class="d-flex justify-content-end">
+            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Joao Samuel</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Make Mod</a>
+              <a href="#" class="btn btn-primary">Ban</a>
+            </div>
+          </div>
+        </div>
+        <div class="card mx-auto">
+          <div class="d-flex justify-content-end">
+            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Joao Campos</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Make Mod</a>
+              <a href="#" class="btn btn-primary">Ban</a>
+            </div>
+          </div>
+        </div> 
           </div>
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie
             locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit,
