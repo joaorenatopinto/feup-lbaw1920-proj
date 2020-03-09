@@ -10623,3 +10623,17 @@ th {
 .card-title, .card-header {
   color: inherit;
 }
+
+
+/* added  for the footer*/
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
