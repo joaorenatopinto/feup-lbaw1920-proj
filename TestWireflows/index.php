@@ -1,6 +1,6 @@
 <?php include_once 'header.php' ?>
 
-<div id="center" class="d-flex p-2 bd-highlight justify-content-center min-vh-25">
+<div id="center" class="d-flex p-3 bd-highlight justify-content-center min-vh-25">
   <!-- Featured Auctions Carousel -->
   <div id="featuredAuctions" class="carousel slide w-50" data-ride="carousel">
     <ol class="carousel-indicators">

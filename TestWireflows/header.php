@@ -23,7 +23,7 @@
               <a class="nav-link text-light" href="#">7.75€</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">João Cages</a>
+              <a class="nav-link text-light" href="userprofile.php">João Cages</a>
             </li>
             <li class="navbar-nav">
               <a class="navbar-brand" href="userprofile.php">
@@ -35,10 +35,13 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-        <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          </form>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="d-flex flex-row-reverse w-100">
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
         </div>
       </nav>
     </header>
