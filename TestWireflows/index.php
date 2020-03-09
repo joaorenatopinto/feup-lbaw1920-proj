@@ -1,6 +1,7 @@
 <?php include_once 'header.php' ?>
 
-<div id="center" class="d-flex p-2 bd-highlight d-flex justify-content-center">
+<div id="center" class="d-flex p-2 bd-highlight justify-content-center min-vh-25">
+  <!-- Featured Auctions Carousel -->
   <div id="featuredAuctions" class="carousel slide w-50" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#featuredAuctions" data-slide-to="0" class="active"></li>
@@ -40,5 +41,17 @@
     </a>
   </div>
 </div>
+
+<!-- Categories -->
+<div class="container">
+  <div class="row">
+    <div class="col"><a href="/motas.php"><img class="d-block w-100 img-rounded img-fluid" src="img/motos.png" alt="Category Motos"></a></div>
+    <div class="col"><a href="/carros.php"><img class="d-block w-100 img-rounded img-fluid" src="img/cars.png" alt="Category Motos"></a></div>
+    <div class="w-100"></div>
+    <div class="col"><a href="/eletrodomesticos.php"><img class="d-block w-100 img-rounded img-fluid" src="img/motos.png" alt="Category Motos"></a></div>
+    <div class="col"><a href="/carros.php"><img class="d-block w-100 img-rounded img-fluid" src="img/cars.png" alt="Category Motos"></a></div>
+  </div>
+</div>
+
 
 <?php include_once 'footer.php' ?>
