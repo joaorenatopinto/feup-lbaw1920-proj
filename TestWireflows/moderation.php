@@ -6,41 +6,124 @@
     <div class="col">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Users</a>
+          <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users" role="tab" aria-controls="users" aria-selected="true">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Auctions</a>
+          <a class="nav-link" id="auctions-tab" data-toggle="tab" href="#auctions" role="tab" aria-controls="auctions" aria-selected="false">Auctions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Reports</a>
+          <a class="nav-link" id="reports-tab" data-toggle="tab" href="#reports" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
         </li>
       </ul>
-      <div class="tab-content mt-4" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Raw denim you
-          probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master
-          cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-          keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
-          placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi
-          qui.</div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie
-          locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit,
-          blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
-          Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum
-          PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS
-          salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-          sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Etsy mixtape
-          wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack
-          lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard
-          locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify
-          squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie
-          etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog
-          stumptown. Pitchfork sustainable tofu synth chambray yr.</div>
+      <div class="tab-content" id="users">
+        <div class="container">
+          <div class="table-wrapper">
+            <div class="table-title">
+              <div class="row">
+                <div class="col-sm-5">
+                  <h2>User <b>Management</b></h2>
+                </div>
+                <div class="col-sm-7">
+                  <a href="#" class="btn btn-primary"><i class="material-icons"></i> <span>Add New User</span></a>
+                  <a href="#" class="btn btn-primary"><i class="material-icons"></i> <span>Export to Excel</span></a>
+                </div>
+              </div>
+            </div>
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Date Created</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><a href="#"><img src="/examples/images/avatar/1.jpg" class="avatar" alt="Avatar"> Michael Holz</a></td>
+                  <td>04/10/2013</td>
+                  <td>Admin</td>
+                  <td><span class="status text-success">•</span> Active</td>
+                  <td>
+                    <a href="#" class="settings" title="" data-toggle="tooltip" data-original-title="Settings"><i class="material-icons"></i></a>
+                    <a href="#" class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><a href="#"><img src="/examples/images/avatar/2.jpg" class="avatar" alt="Avatar"> Paula Wilson</a></td>
+                  <td>05/08/2014</td>
+                  <td>Publisher</td>
+                  <td><span class="status text-success">•</span> Active</td>
+                  <td>
+                    <a href="#" class="settings" title="" data-toggle="tooltip" data-original-title="Settings"><i class="material-icons"></i></a>
+                    <a href="#" class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><a href="#"><img src="/examples/images/avatar/3.jpg" class="avatar" alt="Avatar"> Antonio Moreno</a></td>
+                  <td>11/05/2015</td>
+                  <td>Publisher</td>
+                  <td><span class="status text-danger">•</span> Suspended</td>
+                  <td>
+                    <a href="#" class="settings" title="" data-toggle="tooltip" data-original-title="Settings"><i class="material-icons"></i></a>
+                    <a href="#" class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><a href="#"><img src="/examples/images/avatar/4.jpg" class="avatar" alt="Avatar"> Mary Saveley</a></td>
+                  <td>06/09/2016</td>
+                  <td>Reviewer</td>
+                  <td><span class="status text-success">•</span> Active</td>
+                  <td>
+                    <a href="#" class="settings" title="" data-toggle="tooltip" data-original-title="Settings"><i class="material-icons"></i></a>
+                    <a href="#" class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td><a href="#"><img src="/examples/images/avatar/5.jpg" class="avatar" alt="Avatar"> Martin Sommer</a></td>
+                  <td>12/08/2017</td>
+                  <td>Moderator</td>
+                  <td><span class="status text-warning">•</span> Inactive</td>
+                  <td>
+                    <a href="#" class="settings" title="" data-toggle="tooltip" data-original-title="Settings"><i class="material-icons"></i></a>
+                    <a href="#" class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="clearfix">
+              <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+              <ul class="pagination">
+                <li class="page-item disabled"><a href="#">Previous</a></li>
+                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                <li class="page-item"><a href="#" class="page-link">Next</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="auctions" role="tabpanel" aria-labelledby="auctions-tab">
+        Penis2
+      </div>
+      <div class="tab-pane fade" id="reports" role="tabpanel" aria-labelledby="reports-tab">
+        Penis3
       </div>
     </div>
-    <div class="col-3"></div>
   </div>
+  <div class="col-3"></div>
 </div>
+
+
 
 <?php include_once 'footer.php' ?>
