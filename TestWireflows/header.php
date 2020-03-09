@@ -6,25 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
 
     <title>SlashAh</title>
   </head>
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">SLASH AH</a>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="mx-auto order-0">
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-          </div>
-        <a class="nav-item nav-link" href="#">7.75€</a>
-        <a class="nav-item nav-link" href="#">João Cages</a>
-        <a class="navbar-brand" href="#">
-          <img src="img/cages.png" width="30" height="30" alt="">
-        </a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand text-light" href="/">SLASH AH</a>
+        <div class="d-flex flex-row order-2 order-lg-3">
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">7.75€</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">João Cages</a>
+            </li>
+            <li class="navbar-nav">
+              <a class="navbar-brand" href="userprofile.php">
+                <img src="img/cages.png" width="30" height="30" alt="">
+              </a>
+            </li>
+          </ul>
+          <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <form class="form-inline mx-auto order-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
       </nav>
     </header>
