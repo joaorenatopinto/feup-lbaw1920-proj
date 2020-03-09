@@ -5,33 +5,29 @@
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="/img/Risinhos.jpg" style="height: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">João Renato Pinto</h5>
+            <a href="#" class="btn btn-primary">Contact</a>
         </div>
     </div>
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="/img/Standby.jpg" style="height: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">Leonardo Moura</h5>
+            <a href="#" class="btn btn-primary">Contact</a>
         </div>
     </div>
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="/img/Patilhas.jpg" style="height: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">João Campos</h5>
+            <a href="#" class="btn btn-primary">Contact</a>
         </div>
     </div>
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="/img/Will.jpg" style="height: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">Gonçalo Pereira</h5>
+            <a href="#" class="btn btn-primary">Contact</a>
         </div>
     </div>
 </div>
