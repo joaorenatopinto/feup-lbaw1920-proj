@@ -1,24 +1,33 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script src="https://kit.fontawesome.com/aac9f57b5f.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
 
-    <title>SlashAh</title>
-  </head>
+  <script src="https://kit.fontawesome.com/aac9f57b5f.js" crossorigin="anonymous"></script>
 
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand text-light" href="/">SLASH AH</a>
-        <div class="d-flex flex-row order-2 order-lg-3">
-          <ul class="navbar-nav flex-row">
+  <title>SlashAh</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light bg-primary">
+      <a class="navbar-brand text-light" href="/">SLASH AH</a>
+
+      <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <form class="form-inline my-2 my-lg-0 align-self-stretch">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+          <ul class="nav justify-content-end ">
             <li class="nav-item">
               <a class="nav-link text-light" href="#">7.75€</a>
             </li>
@@ -31,6 +40,7 @@
               </a>
             </li>
           </ul>
+<<<<<<< HEAD
           <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -45,3 +55,8 @@
         </div>
       </nav>
     </header>
+=======
+      </div>
+    </nav>
+  </header>
+>>>>>>> 16927841f9bcd9ad53249d3975f731f19a0f25ff
