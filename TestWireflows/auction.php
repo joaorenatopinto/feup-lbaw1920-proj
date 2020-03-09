@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="col-sm text-center">
-            <h4>3000£</h4>
+            <h4>2000.34€</h4>
             <button type="button" class="btn btn-danger">Bid <i class="fas fa-coins"></i></button>
         </div>
     </div>

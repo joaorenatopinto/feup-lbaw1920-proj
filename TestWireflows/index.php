@@ -10,7 +10,9 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100 img-rounded img-fluid" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="First slide">
+        <a href="auction.php">
+          <img class="d-block w-100 img-rounded img-fluid" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="First slide">
+        </a>
         <div class="carousel-caption d-none d-md-block">
           <h5 class="text-light">Harley Davidson</h5>
           <p>2000.34€</p>
