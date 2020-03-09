@@ -3,7 +3,7 @@
 
 <div class="d-flex justify-content-center mt-5" >
 <div>
-  <div class="card m-3" style="width: 50rem;">
+  <div class="card m-3 w-50 mx-auto">
     <div class="d-flex justify-content-end">
       <img class="card-img-top w-50" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
       <div class="card-body">
@@ -15,7 +15,7 @@
     </div>
     
   </div>
-  <div class="card m-3" style="width: 50rem;">
+  <div class="card m-3 w-50 mx-auto">
     <div class="d-flex justify-content-end">
       <img class="card-img-top w-50" src="img/yamaha.jpg" alt="Card image cap">
       <div class="card-body">
@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-  <div class="card m-3" style="width: 50rem;">
+  <div class="card m-3 w-50 mx-auto">
     <div class="d-flex justify-content-end">
       <img class="card-img-top w-50" src="img/kawasaki.jpg" alt="Card image cap">
       <div class="card-body">
