@@ -40,7 +40,6 @@
               </a>
             </li>
           </ul>
-<<<<<<< HEAD
           <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -55,8 +54,3 @@
         </div>
       </nav>
     </header>
-=======
-      </div>
-    </nav>
-  </header>
->>>>>>> 16927841f9bcd9ad53249d3975f731f19a0f25ff
