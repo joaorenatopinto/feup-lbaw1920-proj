@@ -1,4 +1,4 @@
-<?php include_once 'header.php' ?>
+<?php include_once 'header_nonauth.php' ?>
 
 <div id="center" class="d-flex p-3 bd-highlight justify-content-center min-vh-25">
   <!-- Featured Auctions Carousel -->
