@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
 
     <title>SlashAh</title>
   </head>
@@ -38,7 +38,7 @@
         <div class="tab-content mt-4" id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="card mx-auto">
           <div class="d-flex justify-content-end">
-            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <img class="card-img-left rounded-circle my-auto" src="/img/cages.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Joao Cages</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -49,7 +49,7 @@
         </div>
         <div class="card mx-auto">
           <div class="d-flex justify-content-end">
-            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <img class="card-img-left rounded-circle my-auto" src="/img/cages.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Joao Samuel</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -60,7 +60,7 @@
         </div>
         <div class="card mx-auto">
           <div class="d-flex justify-content-end">
-            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <img class="card-img-left rounded-circle my-auto" src="/img/cages.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Joao Campos</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

@@ -15,13 +15,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100 img-rounded img-fluid" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="First slide">
+                        <img class="d-block w-100 img-rounded img-fluid" src="/img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="First slide">
                     </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100 img-rounded img-fluid" src="img/harley1.png" alt="Second slide">
+                    <img class="d-block w-100 img-rounded img-fluid" src="/img/harley1.png" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100 img-fluid" src="img/harley2.png" alt="Third slide">
+                    <img class="d-block w-100 img-fluid" src="/img/harley2.png" alt="Third slide">
                 </div>
             </div>
                 <a class="carousel-control-prev" href="#featuredAuctions" role="button" data-slide="prev">
