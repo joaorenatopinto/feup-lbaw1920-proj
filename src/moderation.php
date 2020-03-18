@@ -1,39 +1,96 @@
 <?php include_once 'header.php' ?>
 
-<div class="container-fluid">
-  <div class="row mt-5">
-    <div class="col-3"></div>
-    <div class="col">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users" role="tab" aria-controls="users" aria-selected="true">Users</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="auctions-tab" data-toggle="tab" href="#auctions" role="tab" aria-controls="auctions" aria-selected="false">Auctions</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="reports-tab" data-toggle="tab" href="#reports" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="users">
-        <div class="row">
-          <div class="col-1">#</div>
-          <div class="col-2">Name</div>
-          <div class="col-1">#</div>
-          <div class="col-1">#</div>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Auctions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Reports</a>
+          </li>
+        </ul>
+        <div class="tab-content mt-4" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="card mx-auto">
+          <div class="d-flex justify-content-end">
+            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Joao Cages</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Make Mod</a>
+              <a href="#" class="btn btn-primary">Ban</a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="tab-pane fade" id="auctions" role="tabpanel" aria-labelledby="auctions-tab">
-        Penis2
-      </div>
-      <div class="tab-pane fade" id="reports" role="tabpanel" aria-labelledby="reports-tab">
-        Penis3
+        <div class="card mx-auto">
+          <div class="d-flex justify-content-end">
+            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Joao Samuel</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Make Mod</a>
+              <a href="#" class="btn btn-primary">Ban</a>
+            </div>
+          </div>
+        </div>
+        <div class="card mx-auto">
+          <div class="d-flex justify-content-end">
+            <img class="card-img-left rounded-circle my-auto" src="img/cages.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Joao Campos</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Make Mod</a>
+              <a href="#" class="btn btn-primary">Ban</a>
+            </div>
+          </div>
+        </div> 
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie
+            locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit,
+            blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
+            Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum
+            PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS
+            salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
+            sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+            stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+          </div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="card-deck">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Best Category</h5>
+                  <p class="card-text">This week best selling category is Cars!</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Worst Category</h5>
+                  <p class="card-text">This week worst selling category is Antiques!</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"> Money Flow</h5>
+                  <p class="card-text"> In the last hour 123,770.67€ entered our virtual wallet</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-3"></div>
-</div>
-
-
-
 <?php include_once 'footer.php' ?>
