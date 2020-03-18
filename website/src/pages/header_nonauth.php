@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
 
   <script src="https://kit.fontawesome.com/aac9f57b5f.js" crossorigin="anonymous"></script>
 

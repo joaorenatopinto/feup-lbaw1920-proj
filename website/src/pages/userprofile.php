@@ -18,7 +18,7 @@
     </div>
     <div class="center row mt-1">
       <div class="text-center col">
-      <img src="./img/stars.png" class="img-fluid" alt="...">
+      <img src="./img/stars.png" class="/img-fluid" alt="...">
       </div>
     </div>
     <div class="center row mt-4">

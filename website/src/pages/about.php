@@ -1,10 +1,10 @@
 <?php include_once 'header.php' ?>
-
-<div class="w-100 mt-3 text-center">
+<div class="container">
+<div class="w-100 mt-3">
     <h2>Slash Ah Team</h2>
 </div>
 
-<div class="mt-3 d-flex text-center">
+<div class="mt-3 d-flex">
     <article>
     The online auction market is currently the easiest way to auction some products. The online model shines in the ease and comfort of the possibility to auction a product using only a device with an internet connection from anywhere.
     However, the most popular auction websites share a problem. They have graphical interfaces that are not appealing to the average user at all, combined with an overwhelming quantity of search options and irrelevant products.
@@ -43,5 +43,6 @@
             <a href="#" class="btn btn-primary">Contact</a>
         </div>
     </div>
+</div>
 </div>
 <?php include_once 'footer.php' ?>
