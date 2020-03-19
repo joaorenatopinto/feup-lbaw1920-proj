@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
-
+     <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css">
+     
     <title>SlashAh</title>
   </head>
 
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand text-light" href="/">SLASH AH (Administration)</a>
+        <a class="navbar-brand text-light" href="#">SLASH AH (Administration)</a>
             <li class="nav-item">
               <a class="text-light">9999.99€</a>
             </li>
@@ -38,7 +38,7 @@
         <div class="tab-content mt-4" id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="card mx-auto">
           <div class="d-flex justify-content-end">
-            <img class="card-img-left rounded-circle my-auto p-3" src="img/cages.png" alt="Card image cap">
+            <img class="card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Joao Cages</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -51,7 +51,7 @@
         </div>
         <div class="card mx-auto">
           <div class="d-flex justify-content-end">
-            <img class="card-img-left rounded-circle my-auto p-3" src="img/cages.png" alt="Card image cap">
+            <img class="card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Joao Samuel</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -64,7 +64,7 @@
         </div>
         <div class="card mx-auto">
           <div class="d-flex justify-content-end">
-            <img class="card-img-left rounded-circle my-auto p-3" src="img/cages.png" alt="Card image cap">
+            <img class="card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Joao Campos</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -81,12 +81,12 @@
             <div>
               <div class="card mx-auto">
                 <div class="d-flex justify-content-end">
-                  <img class="card-img-top w-50" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+                  <img class="card-img-top w-50" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">Harley Davidson</h5>
                     <p class="card-text">2008, 1600cc, 6vel, many extras and in immaculate condition. Recent overhaul and new tires.</p>
                     <p class="card-text">00d 22h 25m 17s left</p>
-                    <a href="auction.php" class="btn btn-primary">REMOVE</a>
+                    <a href="#" class="btn btn-primary">REMOVE</a>
                     <a href="#" class="btn btn-primary">CHANGE CATEGORY</a>
                   </div>
                 </div>
@@ -94,7 +94,7 @@
               </div>
               <div class="card mx-auto">
                 <div class="d-flex justify-content-end">
-                  <img class="card-img-top w-50" src="img/yamaha.jpg" alt="Card image cap">
+                  <img class="card-img-top w-50" src="../img/yamaha.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">Yamaha R10M</h5>
                     <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
@@ -106,7 +106,7 @@
               </div>
               <div class="card mx-auto">
                 <div class="d-flex justify-content-end">
-                  <img class="card-img-top w-50" src="img/kawasaki.jpg" alt="Card image cap">
+                  <img class="card-img-top w-50" src="../img/kawasaki.jpg" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">Kawasaki Ninja</h5>
                     <p class="card-text">2015, 1600cc, 7vel,  next-level technology advancements and sharp styling updates.</p>
