@@ -48,14 +48,13 @@
 <div class="d-flex p-2 bd-highlight justify-content-center">
   <div class="container w-50 m-3">
     <div class="row">
-      <div class="col m-2"><a href="/motas.php"><img class="d-block w-100 img-rounded img-fluid" src="/img/motos.png" alt="Category Motos"></a></div>
-      <div class="col m-2"><a href="/carros.php"><img class="d-block w-100 img-rounded img-fluid" src="/img/cars.png" alt="Category Cars"></a></div>
+      <div class="col m-2"><a href="motas.php"><img class="d-block w-100 img-rounded img-fluid" src="/img/motos.png" alt="Category Motos"></a></div>
+      <div class="col m-2"><a href="#"><img class="d-block w-100 img-rounded img-fluid" src="/img/cars.png" alt="Category Cars"></a></div>
       <div class="w-100"></div>
-      <div class="col m-2"><a href="/eletrodomesticos.php"><img class="d-block w-100 img-rounded img-fluid" src="/img/antiques.png" alt="Category antiques"></a></div>
-      <div class="col m-2"><a href="/carros.php"><img class="d-block w-100 img-rounded img-fluid" src="/img/phones.png" alt="Category Phones"></a></div>
+      <div class="col m-2"><a href="#"><img class="d-block w-100 img-rounded img-fluid" src="/img/antiques.png" alt="Category antiques"></a></div>
+      <div class="col m-2"><a href="#"><img class="d-block w-100 img-rounded img-fluid" src="/img/phones.png" alt="Category Phones"></a></div>
     </div>
   </div>
 </div>
-
 
 <?php include_once 'footer.php' ?>
