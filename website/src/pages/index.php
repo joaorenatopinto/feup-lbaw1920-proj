@@ -1,4 +1,6 @@
 <?php include_once 'header_nonauth.php' ?>
+<link rel="stylesheet" type="text/css" href="../stylesheets/name.css">
+
 <div class="container">
   <div id="center" class="d-flex p-3 bd-highlight justify-content-center">
     <!-- Featured Auctions Carousel -->
@@ -13,6 +15,7 @@
           <a href="auction.php">
             <img class="d-block w-100 img-rounded img-fluid" src="/img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="First slide">
           </a>
+          <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-light">Harley Davidson</h5>
             <p>2000.34€</p>
@@ -20,6 +23,7 @@
         </div>
         <div class="carousel-item">
           <img class="d-block w-100 img-rounded img-fluid" src="/img/naom_5dd790964de6c.jpg" alt="Second slide">
+          <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-light">Tesla</h5>
             <p>3000.00€</p>
@@ -27,6 +31,7 @@
         </div>
         <div class="carousel-item">
           <img class="d-block w-100 img-fluid" src="/img/11154232_xxl_v1557372653930.jpg" alt="Third slide">
+          <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-light">Rolex</h5>
             <p>300.00€</p>
