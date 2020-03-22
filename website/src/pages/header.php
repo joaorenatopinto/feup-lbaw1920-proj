@@ -24,7 +24,7 @@
               <a class="nav-link text-light" href="#">7.75€</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">João Cages</a>
+              <a class="nav-link text-light" href="userprofile.php">João Cages</a>
             </li>
             <li class="navbar-nav">
               <a class="navbar-brand" href="userprofile.php">
