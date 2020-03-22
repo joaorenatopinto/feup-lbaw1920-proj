@@ -26,7 +26,7 @@
 
 <div class="container mt-5">
 	<div class="d-flex justify-content-center h-100">
-		<div class="card w-50">
+		<div class="card">
 			<div class="card-header">
 				<h3>Administrator Area</h3>
 			</div>
