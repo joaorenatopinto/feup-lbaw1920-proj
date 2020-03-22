@@ -54,7 +54,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Already have an account?<a href="login.php">Login</a>
+					Already have an account?&nbsp<a href="login.php">Login</a>
 				</div>
 			</div>
 		</div>
