@@ -2,9 +2,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-5 col-md-5">
+    <!-- Image -->
+    <div class="col-xs-5 col-md-3">
       <div class="card">
-        <!-- Image -->
         <div class="center mt-4">
           <div class="text-center"><img src="../img/cages.png" class="rounded-circle img-fluid" alt="..."></div>
         </div>
@@ -26,12 +26,12 @@
               </div>
             </div>
             <div class="center row mt-4">
-              <div class="text-center col-sm-2">
+              <div class="text-center col-sm-4">
               </div>
-              <div class="text-center col-sm-8">
+              <div class="text-center col-sm-4">
                 <div>Newbie seller. Still learning the craft. Most interested in muscle cars and antique watches.</div>
               </div>
-              <div class="text-center col-sm-2">
+              <div class="text-center col-sm-4">
               </div>
             </div>
             <div class="center row mt-4">
@@ -44,7 +44,7 @@
 
       </div>
     </div>
-    <div class="col-xs-9 col-md-7">
+    <div class="col-xs-9 col-md-9">
       <div class="card m-3 mx-auto">
         <div class="d-flex justify-content-end">
           <img class="card-img-top w-50" src="/img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
@@ -104,6 +104,6 @@
       </div>
     </div>
   </div>
-
+  
 </div>
 <?php include_once 'footer.php' ?>
