@@ -41,9 +41,9 @@
         </ul>
         <div class="tab-content mt-4" id="myTabContent">
           <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
-            <div class="card mx-auto">
+            <div class="card mx-auto">  
               <div class="d-flex justify-content-end">
-                <img class="card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
+                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Joao Cages</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -56,7 +56,7 @@
             </div>
             <div class="card mx-auto">
               <div class="d-flex justify-content-end">
-                <img class="card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
+                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Joao Samuel</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -69,7 +69,7 @@
             </div>
             <div class="card mx-auto">
               <div class="d-flex justify-content-end">
-                <img class="card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
+                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Joao Campos</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -85,9 +85,9 @@
             <div class="d-flex justify-content-end mt-5">
               <div>
                 <div class="card mx-auto">
-                  <div class="d-flex justify-content-end">
-                    <img class="card-img-top w-50" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
-                    <div class="card-body">
+                  <div class="row no-gutters">
+                    <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+                    <div class="card-body col-md-7 p-3">
                       <h5 class="card-title">Harley Davidson</h5>
                       <p class="card-text">2008, 1600cc, 6vel, many extras and in immaculate condition. Recent overhaul and new tires.</p>
                       <p class="card-text">00d 22h 25m 17s left</p>
@@ -98,9 +98,9 @@
 
                 </div>
                 <div class="card mx-auto">
-                  <div class="d-flex justify-content-end">
-                    <img class="card-img-top w-50" src="../img/yamaha.jpg" alt="Card image cap">
-                    <div class="card-body">
+                  <div class="row no-gutters">
+                    <img class="card-img col-md-5" src="../img/yamaha.jpg" alt="Card image cap">
+                    <div class="card-body col-md-7 p-3">
                       <h5 class="card-title">Yamaha R10M</h5>
                       <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
                       <p class="card-text">10d 20h 35m 12s left</p>
@@ -110,9 +110,9 @@
                   </div>
                 </div>
                 <div class="card mx-auto">
-                  <div class="d-flex justify-content-end">
-                    <img class="card-img-top w-50" src="../img/kawasaki.jpg" alt="Card image cap">
-                    <div class="card-body">
+                  <div class="row no-gutters">
+                    <img class="card-img col-md-5" src="../img/kawasaki.jpg" alt="Card image cap">
+                    <div class="card-body col-md-7 p-3">
                       <h5 class="card-title">Kawasaki Ninja</h5>
                       <p class="card-text">2015, 1600cc, 7vel, next-level technology advancements and sharp styling updates.</p>
                       <p class="card-text">03d 02h 21m 57s left</p>
