@@ -6,12 +6,17 @@
     <div class="center mt-5">
       <div class="text-center"><img src="../img/cages.png" class="rounded-circle img-fluid" alt="..."></div>
     </div>
+
+    <div class="pt-3 text-center">
+        <a class="text-info" href="#">Edit Profile</a>
+    </div>
+
     <!-- Rating / Name / Age / Desc / Contact -->
-    <div class="d-flex justify-content-center mt-5 mb-5">
+    <div class="d-flex justify-content-center mt-3 mb-5">
       <div class="container mt-4 mx-auto">
         <div class="center row">
           <div class="text-center col">
-            <div>Kid "Colher" Cages</div>
+            <div><h5>Kid "Colher" Cages</h5></div>
           </div>
           <div class="w-100"></div>
           <div class="text-center col">
