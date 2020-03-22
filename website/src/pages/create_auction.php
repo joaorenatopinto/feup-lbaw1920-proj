@@ -1,8 +1,8 @@
 <?php include_once 'header.php' ?>
 
 <div class="container mt-5">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card w-50">
+	<div class="row justify-content-center">
+		<div class="card col-sm-7 col-11"> 
 			<div class="card-header">
 				<h3>New Auction</h3>
 			</div>
