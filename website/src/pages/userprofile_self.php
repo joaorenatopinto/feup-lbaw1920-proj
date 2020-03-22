@@ -68,39 +68,6 @@
       </div>
     </div>
   </div>
-  <div class="card m-3 mx-auto">
-    <div class="row no-gutters">
-      <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
-      <div class="card-body col-md-7 p-3">
-        <h5 class="card-title">Yamaha R10M</h5>
-        <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
-        <p class="card-text">10d 20h 35m 12s left</p>
-        <h3><a href="auction.php" class="btn btn-primary" style="width: 10rem;">BID NOW</a> <span class="badge">1337.69€</span></h3>
-      </div>
-    </div>
-  </div>
-  <div class="card m-3 mx-auto">
-    <div class="row no-gutters">
-      <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
-      <div class="card-body col-md-7 p-3">
-        <h5 class="card-title">Yamaha R10M</h5>
-        <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
-        <p class="card-text">10d 20h 35m 12s left</p>
-        <h3><a href="auction.php" class="btn btn-primary" style="width: 10rem;">BID NOW</a> <span class="badge">1337.69€</span></h3>
-      </div>
-    </div>
-  </div>
-  <div class="card m-3 mx-auto">
-    <div class="row no-gutters">
-      <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
-      <div class="card-body col-md-7 p-3">
-        <h5 class="card-title">Yamaha R10M</h5>
-        <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
-        <p class="card-text">10d 20h 35m 12s left</p>
-        <h3><a href="auction.php" class="btn btn-primary" style="width: 10rem;">BID NOW</a> <span class="badge">1337.69€</span></h3>
-      </div>
-    </div>
-  </div>
 </div>
 
 </div>
