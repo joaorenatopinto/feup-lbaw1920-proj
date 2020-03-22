@@ -17,7 +17,7 @@
           <a class="nav-link" id="auctions-tab" data-toggle="tab" href="#auctions" role="tab" aria-controls="auctions" aria-selected="false">Auctions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Reports</a>
+            <a class="nav-link" id="actions-tab" data-toggle="tab" href="#actions" role="tab" aria-controls="actions" aria-selected="false">My Actions</a>
           </li>
         </ul>
         <div class="tab-content mt-4" id="myTabContent">
@@ -108,33 +108,47 @@
               </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-          <div class="card-deck">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Best Category</h5>
-                  <p class="card-text">This week best selling category is Cars!</p>
+          <div class="tab-pane fade" id="actions" role="tabpanel" aria-labelledby="actions-tab">
+            <div class="d-flex justify-content-end mt-5">
+              <div>
+                <div class="card mx-auto">
+                  <div class="row no-gutters">
+                    <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+                    <div class="card-body col-md-7 p-3">
+                      <h5 class="card-title float-right text-success">OnGOING </h5>
+                      <h5 class="card-title">Harley Davidson</h5>
+                      <p class="card-text">2008, 1600cc, 6vel, many extras and in immaculate condition. Recent overhaul and new tires.</p>
+                      <p class="card-text">00d 22h 25m 17s left</p>
+                      <p class="card-text text-warning">Changed Category from: Phones to Motorcycles, On: 23/03/2020</p>
+                      <a href="#" class="btn btn-primary"> UNDO CHANGE</a>
+                    </div>
+                  </div>
+
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                <div class="card mx-auto">
+                  <div class="row no-gutters">
+                    <img class="card-img col-md-5" src="../img/yamaha.jpg" alt="Card image cap">
+                    <div class="card-body col-md-7 p-3">
+                      <h5 class="card-title float-right text-danger">REMOVED </h5>
+                      <h5 class="card-title">Yamaha R10M</h5>
+                      <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
+                      <p class="card-text">10d 20h 35m 12s left</p>
+                      <p class="card-text text-warning">Removed, On: 22/03/2020</p>
+                      <a href="#" class="btn btn-primary">UNDO REMOVE</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Worst Category</h5>
-                  <p class="card-text">This week worst selling category is Antiques!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title"> Money Flow</h5>
-                  <p class="card-text"> In the last hour 123,770.67€ entered our virtual wallet</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                <div class="card mx-auto">
+                  <div class="d-flex justify-content-end">
+                    <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Joao Samuel</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p class="card-text">-User Registered on: 13/3/17</p>
+                      <p class="card-text"> -Status: Active</p>
+                      <a href="#" class="btn btn-primary">Remove Suggestion</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
