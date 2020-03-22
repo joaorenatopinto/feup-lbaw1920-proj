@@ -53,39 +53,5 @@
             </div>
         </div>
     </div>
-
-
-    <!-- <div class="row">
-        <div class="justify-content-lg-center row">
-            <div class="card col-lg-auto" style="width: 18rem;">
-                <img class="card-img-top" src="/img/Risinhos.jpg" style="height: 30rem;">
-                <div class="card-body text-center">
-                    <h5 class="card-title">João Renato Pinto</h5>
-                    <a href="#" class="btn btn-primary">Contact</a>
-                </div>
-            </div>
-            <div class="card col-lg-auto" style="width: 18rem;">
-                <img class="card-img-top" src="/img/Standby.jpg" style="height: 30rem;">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Leonardo Moura</h5>
-                    <a href="#" class="btn btn-primary">Contact</a>
-                </div>
-            </div>
-            <div class="card col-lg-auto" style="width: 18rem;">
-                <img class="card-img-top" src="/img/Patilhas.jpg" style="height: 30rem;">
-                <div class="card-body text-center">
-                    <h5 class="card-title">João Campos</h5>
-                    <a href="#" class="btn btn-primary">Contact</a>
-                </div>
-            </div>
-            <div class="card col-lg-auto" style="width: 18rem;">
-                <img class="card-img-top" src="/img/Will.jpg" style="height: 30rem;">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Gonçalo Pereira</h5>
-                    <a href="#" class="btn btn-primary">Contact</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </div>
 <?php include_once 'footer.php' ?>
