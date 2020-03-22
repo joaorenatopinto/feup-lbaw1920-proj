@@ -17,14 +17,14 @@
 <body>
   <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand text-light" href="index.php">SLASH AH</a>
+        <a class="navbar-brand text-light" href="index.php"><img src="/img/logo_white.png" width="80" height="60" alt="SLASH AH"></a>
         <div class="d-flex flex-row order-2 order-lg-3">
           <ul class="navbar-nav flex-row">
             <li class="nav-item">
               <a class="nav-link text-light" href="#">7.75€</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">João Cages</a>
+              <a class="nav-link text-light" href="userprofile.php">João Cages</a>
             </li>
             <li class="navbar-nav">
               <a class="navbar-brand" href="userprofile.php">
