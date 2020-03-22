@@ -48,8 +48,12 @@
 					<div class="form-group d-flex p-2 bd-highlight ">
 						<input type="submit" value="Sign Up" class="btn btn-outline-info flex-grow-1">
                     </div>
-                    
-                    
+
+                    <div class="px-2">
+                        <button class="btn btn-block btn-outline-danger">
+                            <i class="fab fa-google"></i> Sign up with Google
+                        </button>
+                    </div>
 				</form>
 			</div>
 			<div class="card-footer">

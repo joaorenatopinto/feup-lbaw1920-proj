@@ -1,6 +1,12 @@
 <?php include_once 'header.php' ?>
 
 <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Moderation</li>
+      </ol>
+    </nav>
     <div class="row">
       <div class="col">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -24,7 +30,7 @@
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   <p class="card-text">-User Registered on: 13/3/17</p>
                   <p class="card-text"> -Status: Active</p>
-                  <a href="#" class="btn btn-primary">Make Mod</a>
+                  <a href="#" class="btn btn-primary">Suggest to Mod</a>
                   <a href="#" class="btn btn-primary">Ban</a>
                 </div>
               </div>
@@ -37,7 +43,7 @@
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   <p class="card-text">-User Registered on: 13/3/17</p>
                   <p class="card-text"> -Status: Active</p>
-                  <a href="#" class="btn btn-primary">Make Mod</a>
+                  <a href="#" class="btn btn-primary">Suggest to Mod</a>
                   <a href="#" class="btn btn-primary">Ban</a>
                 </div>
               </div>
@@ -50,8 +56,8 @@
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   <p class="card-text">-User Registered on: 13/3/17</p>
                   <p class="card-text"> -Status: Banned</p>
-                  <a href="#" class="btn btn-primary">Make Mod</a>
-                  <a href="#" class="btn btn-primary">Unban</a>
+                  <a href="#" class="btn btn-primary">Suggest to Mod</a>
+                  <button type="button" class="btn btn-outline-white">Not Banned by you</button>
                 </div>
               </div>
             </div>

@@ -24,6 +24,12 @@
 					<div class="form-group d-flex p-2 bd-highlight ">
 						<input type="submit" value="Login" class="btn btn-outline-info flex-grow-1">
 					</div>
+						
+                    <div class="px-2">
+                        <button class="btn btn-block btn-outline-danger">
+                            <i class="fab fa-google"></i> Sign In with Google
+                        </button>
+                    </div>
 				</form>
 			</div>
 			<div class="card-footer">
