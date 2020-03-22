@@ -1,27 +1,4 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css">
-
-  <title>SlashAh</title>
-</head>
-
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-      <a class="navbar-brand text-light" href="#">SLASH AH (Administration)</a>
-      <li class="nav-item">
-        <a class="text-light">9999.99€</a>
-      </li>
-    </nav>
-  </header>
-
+<?php include_once 'header_administration.php' ?>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -88,6 +65,7 @@
                   <div class="row no-gutters">
                     <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
+                      <h5 class="card-title float-right text-success">OnGOING </h5>
                       <h5 class="card-title">Harley Davidson</h5>
                       <p class="card-text">2008, 1600cc, 6vel, many extras and in immaculate condition. Recent overhaul and new tires.</p>
                       <p class="card-text">00d 22h 25m 17s left</p>
@@ -101,10 +79,11 @@
                   <div class="row no-gutters">
                     <img class="card-img col-md-5" src="../img/yamaha.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
+                      <h5 class="card-title float-right text-danger">REMOVED </h5>
                       <h5 class="card-title">Yamaha R10M</h5>
                       <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
                       <p class="card-text">10d 20h 35m 12s left</p>
-                      <a href="#" class="btn btn-primary">REMOVE</a>
+                      <a href="#" class="btn btn-primary">UNDO REMOVE</a>
                       <a href="#" class="btn btn-primary">CHANGE CATEGORY</a>
                     </div>
                   </div>
@@ -113,6 +92,7 @@
                   <div class="row no-gutters">
                     <img class="card-img col-md-5" src="../img/kawasaki.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
+                      <h5 class="card-title float-right text-muted">Closed </h5>
                       <h5 class="card-title">Kawasaki Ninja</h5>
                       <p class="card-text">2015, 1600cc, 7vel, next-level technology advancements and sharp styling updates.</p>
                       <p class="card-text">03d 02h 21m 57s left</p>
