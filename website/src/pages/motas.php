@@ -1,9 +1,17 @@
 <?php include_once 'header.php' ?>
 
 <div class="container">
-  <div class="d-flex justify-content-center mt-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+      <li class="breadcrumb-item active "><a href="#">Categories</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Motorcycles</li>
+    </ol>
+  </nav>
+
+  <div class="d-flex justify-content-center">
     <div>
-      <div class="card mx-auto m-3">
+      <div class="card mx-auto m-3 mt-0">
         <div class="row no-gutters">
           <img class="card-img col-md-5" src="/img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
           <div class="card-body col-md-7 p-3">
