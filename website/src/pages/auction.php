@@ -49,20 +49,21 @@
                 <h6 class="align-middle">Auction by <a href="userprofile.php">Kid Cages</a></h6>
             </div>
         </div>
-        <div class="col-sm text-center">
-            <h4>2000.34€</h4>
-            <h5>Quick Bid</h5>
-            <div class="row justify-content-center">
-                <button type="button" class="btn btn-danger mx-1 my-1 mh-25 ">2250.00€</button>
-                <button type="button" class="btn btn-danger mx-1 my-1 mh-25 ">2250.00€</button>
-                <button type="button" class="btn btn-danger mx-1 my-1 mh-25 ">2250.00€</button>
+        <div class="col-sm card text-center p-0">
+            <div class="card-header">
+                <h4>2000.34€</h4>
             </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-eur" aria-hidden="true"></i></span>
+            <h6 class="mt-3 card-title">Quick Bid</h5>
+            <div class="input-group d-flex justify-content-around">
+                <button type="button" class="btn btn-outline-danger">2250.00€</button>
+                <button type="button" class="btn btn-outline-danger">2350.00€</button>
+                <button type="button" class="btn btn-outline-danger">2450.00€</button>
+            </div>
+            <div class="input-group mt-3">
+                <input type="number" class="form-control" placeholder="Place your Bid">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-danger px-5">Bid <i class="fas fa-coins"></i></button>
                 </div>
-                <input type="text" class="form-control" placeholder="Place your Bid">
-                <button type="button" class="btn btn-danger">Bid <i class="fas fa-coins"></i></button>
             </div>
         </div>
     </div>
