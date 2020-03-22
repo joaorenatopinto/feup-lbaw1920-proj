@@ -21,7 +21,6 @@
             <h3><a href="auction.php" class="btn btn-primary" style="width: 10rem;">BID NOW</a> <span class="badge">2000.43€</span></h3>
           </div>
         </div>
-
       </div>
       <div class="card mx-auto m-3">
         <div class="row no-gutters">
