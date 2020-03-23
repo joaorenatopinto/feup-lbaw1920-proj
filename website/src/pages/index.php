@@ -1,4 +1,4 @@
-<?php include_once 'header_nonauth.php' ?>
+<?php include_once 'header.php' ?>
 <link rel="stylesheet" type="text/css" href="../stylesheets/name.css">
 
 <div class="container">
