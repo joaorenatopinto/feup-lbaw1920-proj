@@ -2,7 +2,7 @@
 
 <div class="container mt-5">
 	<div class="d-flex justify-content-center h-100">
-		<div class="card w-50">
+		<div class="card">
 			<div class="card-header">
 				<h3>Sign In</h3>
 			</div>
@@ -24,11 +24,17 @@
 					<div class="form-group d-flex p-2 bd-highlight ">
 						<input type="submit" value="Login" class="btn btn-outline-info flex-grow-1">
 					</div>
+						
+                    <div class="px-2">
+                        <button class="btn btn-block btn-outline-danger">
+                            <i class="fab fa-google"></i> Sign In with Google
+                        </button>
+                    </div>
 				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="register.php">Sign Up</a>
+					Don't have an account? &nbsp<a href="register.php">Sign Up</a>
 				</div>
 			</div>
 		</div>
