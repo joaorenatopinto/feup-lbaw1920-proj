@@ -113,7 +113,7 @@
               <div>
                 <div class="card mx-auto">
                   <div class="row no-gutters">
-                    <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+                    <img class="card-img col-md-5" src="../img  /Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
                       <h5 class="card-title float-right text-success">OnGOING </h5>
                       <h5 class="card-title">Harley Davidson</h5>
