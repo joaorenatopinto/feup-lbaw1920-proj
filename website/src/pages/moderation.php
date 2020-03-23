@@ -123,7 +123,6 @@
                       <a href="#" class="btn btn-primary"> UNDO CHANGE</a>
                     </div>
                   </div>
-
                 </div>
                 <div class="card mx-auto">
                   <div class="row no-gutters">
