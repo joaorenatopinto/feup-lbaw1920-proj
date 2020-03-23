@@ -13,13 +13,13 @@ CREATE TYPE notification_status AS ENUM ('notSeen', 'seen');
 DROP TYPE IF EXISTS report_status CASCADE;
 CREATE TYPE report_status AS ENUM ('notSeen', 'seen', 'closed');
 
-DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS category CASCADE;
 CREATE TABLE category (
 id SERIAL PRIMARY KEY,
 name VARCHAR UNIQUE NOT NULL
 );
 
-DROP TABLE IF EXISTS auctionStatus;
+DROP TABLE IF EXISTS auctionStatus CASCADE;
 CREATE TABLE auctionStatus (
 id SERIAL PRIMARY KEY,
 TYPE auction_status NOT NULL DEFAULT 'ongoing',
@@ -27,7 +27,7 @@ dateChanged DATE DEFAULT now(),
 oldStatus VARCHAR
 );
 
-DROP TABLE IF EXISTS userStatus;
+DROP TABLE IF EXISTS userStatus CASCADE;
 CREATE TABLE userStatus (
 id SERIAL PRIMARY KEY,
 TYPE user_status NOT NULL DEFAULT 'active',
@@ -36,14 +36,14 @@ oldStatus VARCHAR
 );
 
 
-DROP TABLE IF EXISTS "image";
+DROP TABLE IF EXISTS "image" CASCADE;
 CREATE TABLE "image" (
     id SERIAL PRIMARY KEY,
     path VARCHAR UNIQUE NOT NULL,
     alt VARCHAR NOT NULL
 );
 
-DROP TABLE IF EXISTS "user";
+DROP TABLE IF EXISTS "user" CASCADE;
 CREATE TABLE "user" (
     username VARCHAR PRIMARY KEY,
     password VARCHAR NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE "user" (
     status_id INTEGER UNIQUE NOT NULL REFERENCES userStatus(id)
 );
 
-DROP TABLE IF EXISTS auction;
+DROP TABLE IF EXISTS auction CASCADE;
 CREATE TABLE auction (
     id SERIAL PRIMARY KEY,
     title VARCHAR NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE review (
     username VARCHAR NOT NULL REFERENCES "user"(username)
 );
 
-DROP TABLE IF EXISTS reportStatus;
+DROP TABLE IF EXISTS reportStatus CASCADE;
 CREATE TABLE reportStatus (
     id SERIAL PRIMARY KEY,
     TYPE report_status NOT NULL DEFAULT 'notSeen',
@@ -144,7 +144,7 @@ CREATE TABLE "admin" (
     password VARCHAR NOT NULL
 );
 
-DROP TABLE IF EXISTS notificationStatus;
+DROP TABLE IF EXISTS notificationStatus CASCADE;
 CREATE TABLE notificationStatus (
     id SERIAL PRIMARY KEY,
     TYPE notification_status NOT NULL DEFAULT 'notSeen',
