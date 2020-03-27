@@ -4,7 +4,7 @@
   <!-- Image -->
   <div class="card my-4">
     <div class="center mt-5">
-      <div class="text-center"><img src="../img/cages.png" class="rounded-circle img-fluid" alt="..."></div>
+      <div class="text-center"><img src="img/cages.png" class="rounded-circle img-fluid" alt="..."></div>
     </div>
 
     <div class="pt-3 text-center">
@@ -27,7 +27,7 @@
         </div>
         <div class="center row mt-1">
           <div class="text-center col">
-            <img src="../img/stars.png" class="/img-fluid" alt="...">
+            <img src="img/stars.png" class="img-fluid" alt="...">
           </div>
         </div>
         <div class="center row mt-4">
@@ -67,7 +67,7 @@
           <div class="tab-pane fade show active" id="auctions" role="tabpanel" aria-labelledby="auctions-tab">
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title">Harley Davidson</h5>
                   <p class="card-text">2008, 1600cc, 6vel, many extras and in immaculate condition. Recent overhaul and new tires.</p>
@@ -78,7 +78,7 @@
             </div>
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title">Yamaha R10M</h5>
                   <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
@@ -91,7 +91,7 @@
           <div class="tab-pane fade" id="closed-auctions" role="tabpanel" aria-labelledby="closed-auctions-tab">
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title">Harley Davidson</h5>
                   <p class="card-text">2008, 1600cc, 6vel, many extras and in immaculate condition. Recent overhaul and new tires.</p>
@@ -102,7 +102,7 @@
             </div>
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title">Yamaha R10M</h5>
                   <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
@@ -113,7 +113,7 @@
             </div>
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title">Yamaha R10M</h5>
                   <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
@@ -124,7 +124,7 @@
             </div>
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title">Yamaha R10M</h5>
                   <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
@@ -135,7 +135,7 @@
             </div>
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title">Yamaha R10M</h5>
                   <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
@@ -148,7 +148,7 @@
           <div class="tab-pane fade" id="money" role="tabpanel" aria-labelledby="money-tab">
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title"><b>Sold</b> Yamaha R10M</h5>
                   <h3><span class="badge">200.00€</span></h3>
@@ -163,7 +163,7 @@
             </div>
             <div class="card m-3 mx-auto">
               <div class="row no-gutters">
-                <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+                <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                 <div class="card-body col-md-7 p-3">
                   <h5 class="card-title"><b>Bought</b> This website</h5>
                   <h3><span class="badge">300.00€</span></h3>

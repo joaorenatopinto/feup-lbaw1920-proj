@@ -17,7 +17,7 @@
         <div class="row mt-3">
             <div class="col-md-3 col-sm-6 col-xs-12 card">
                 <div class="mt-3">
-                    <img class="card-img-top img-responsive" src="/img/Risinhos.png">
+                    <img class="card-img-top img-responsive" src="img/Risinhos.png">
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">João Pinto</h5>
@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 card">
                 <div class="mt-3">
-                    <img class="card-img-top img-responsive" src="/img/Standby.png">
+                    <img class="card-img-top img-responsive" src="img/Standby.png">
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">Leonardo Moura</h5>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 card">
                 <div class="mt-3">
-                    <img class="card-img-top img-responsive" src="/img/Will.png">
+                    <img class="card-img-top img-responsive" src="img/Will.png">
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">Gonçalo Pereira</h5>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 card">
                 <div class="mt-3">
-                    <img class="card-img-top img-responsive" src="/img/Patilhas.png">
+                    <img class="card-img-top img-responsive" src="img/Patilhas.png">
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">João Campos</h5>

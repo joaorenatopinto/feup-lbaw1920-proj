@@ -4,7 +4,7 @@
   <!-- Image -->
   <div class="card my-4">
     <div class="center mt-5">
-      <div class="text-center"><img src="../img/cages.png" class="rounded-circle img-fluid" alt="..."></div>
+      <div class="text-center"><img src="img/cages.png" class="rounded-circle img-fluid" alt="..."></div>
     </div>
     <!-- Rating / Name / Age / Desc / Contact -->
     <div class="d-flex justify-content-center mt-5 mb-5">
@@ -20,7 +20,7 @@
         </div>
         <div class="center row mt-1">
           <div class="text-center col">
-            <img src="../img/stars.png" class="/img-fluid" alt="...">
+            <img src="img/stars.png" class="img-fluid" alt="...">
           </div>
         </div>
         <div class="center row mt-4">
@@ -43,7 +43,7 @@
   </div>
   <div class="card m-3 mx-auto">
     <div class="row no-gutters">
-      <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+      <img class="card-img col-md-5" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
       <div class="card-body col-md-7 p-3">
         <h5 class="card-title">Harley Davidson</h5>
         <p class="card-text">2008, 1600cc, 6vel, many extras and in immaculate condition. Recent overhaul and new tires.</p>
@@ -54,7 +54,7 @@
   </div>
   <div class="card m-3 mx-auto">
     <div class="row no-gutters">
-      <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+      <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
       <div class="card-body col-md-7 p-3">
         <h5 class="card-title">Yamaha R10M</h5>
         <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>

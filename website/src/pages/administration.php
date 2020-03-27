@@ -23,7 +23,7 @@
           <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
             <div class="card mx-auto">  
               <div class="d-flex justify-content-end">
-                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
+                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="img/cages.png" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Joao Cages</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -36,7 +36,7 @@
             </div>
             <div class="card mx-auto">
               <div class="d-flex justify-content-end">
-                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
+                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="img/cages.png" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Joao Samuel</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -49,7 +49,7 @@
             </div>
             <div class="card mx-auto">
               <div class="d-flex justify-content-end">
-                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
+                <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src=img/cages.png" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Joao Campos</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -66,7 +66,7 @@
               <div>
                 <div class="card mx-auto">
                   <div class="row no-gutters">
-                    <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+                    <img class="card-img col-md-5" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
                       <h5 class="card-title float-right text-success">OnGOING </h5>
                       <h5 class="card-title">Harley Davidson</h5>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="card mx-auto">
                   <div class="row no-gutters">
-                    <img class="card-img col-md-5" src="../img/yamaha.jpg" alt="Card image cap">
+                    <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
                       <h5 class="card-title float-right text-danger">REMOVED </h5>
                       <h5 class="card-title">Yamaha R10M</h5>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="card mx-auto">
                   <div class="row no-gutters">
-                    <img class="card-img col-md-5" src="../img/kawasaki.jpg" alt="Card image cap">
+                    <img class="card-img col-md-5" src="img/kawasaki.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
                       <h5 class="card-title float-right text-muted">Closed </h5>
                       <h5 class="card-title">Kawasaki Ninja</h5>
@@ -112,7 +112,7 @@
               <div>
                 <div class="card mx-auto">
                   <div class="row no-gutters">
-                    <img class="card-img col-md-5" src="../img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
+                    <img class="card-img col-md-5" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
                       <h5 class="card-title float-right text-success">OnGOING </h5>
                       <h5 class="card-title">Harley Davidson</h5>
@@ -125,7 +125,7 @@
                 </div>
                 <div class="card mx-auto">
                   <div class="row no-gutters">
-                    <img class="card-img col-md-5" src="../img/yamaha.jpg" alt="Card image cap">
+                    <img class="card-img col-md-5" src="img/yamaha.jpg" alt="Card image cap">
                     <div class="card-body col-md-7 p-3">
                       <h5 class="card-title float-right text-danger">REMOVED </h5>
                       <h5 class="card-title">Yamaha R10M</h5>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="card mx-auto">
                   <div class="d-flex justify-content-end">
-                    <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="../img/cages.png" alt="Card image cap">
+                    <img class="d-none d-sm-block card-img-left rounded-circle my-auto p-3" src="img/cages.png" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Joao Samuel</h5>
                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

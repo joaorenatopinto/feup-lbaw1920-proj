@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
 
   <script src="https://kit.fontawesome.com/aac9f57b5f.js" crossorigin="anonymous"></script>
 
@@ -17,7 +17,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand text-light" href="index.php"><img src="/img/logo_white.png" width="80" height="60" alt="SLASH AH"></a>
+        <a class="navbar-brand text-light" href="index.php"><img src="img/logo_white.png" width="80" height="60" alt="SLASH AH"></a>
         <div class="d-flex flex-row order-2 order-lg-3">
       </nav>
 
