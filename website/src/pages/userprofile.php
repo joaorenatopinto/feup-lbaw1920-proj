@@ -54,7 +54,7 @@
   </div>
   <div class="card m-3 mx-auto">
     <div class="row no-gutters">
-      <img class="card-img col-md-5" src="/img/yamaha.jpg" alt="Card image cap">
+      <img class="card-img col-md-5" src="../img/yamaha.jpg" alt="Card image cap">
       <div class="card-body col-md-7 p-3">
         <h5 class="card-title">Yamaha R10M</h5>
         <p class="card-text">2018, 1600cc, 5vel, many extras and new tires. Recent overhaul.</p>
