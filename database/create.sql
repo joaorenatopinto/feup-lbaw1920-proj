@@ -139,7 +139,8 @@ CREATE TABLE bugReport (
 
 DROP TABLE IF EXISTS "admin";
 CREATE TABLE "admin" (
-    username VARCHAR PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+    username VARCHAR,
     password VARCHAR NOT NULL
 );
 
