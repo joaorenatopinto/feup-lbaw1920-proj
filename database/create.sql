@@ -160,3 +160,19 @@ CREATE TABLE "notification"(
     seen BOOLEAN NOT NULL DEFAULT false,
     type notification_type NOT NULL
 );
+
+------------- INDEXES -------------
+
+CREATE INDEX username_user ON "user" USING hash (username);
+
+CREATE INDEX category_id_auction ON auction USING hash (category_id);
+
+CREATE INDEX user_id_followsCategory ON followsCategory USING hash (user_id);
+
+CREATE INDEX user_id_followsAuction ON followsAuction USING hash (user_id);
+
+CREATE INDEX closeDate_auction ON auction USING btree (closeDate);
+
+CREATE INDEX value_bid ON bid USING btree (value);
+
+CREATE INDEX auction_text_search ON auction USING GIST (to_tsvector('english', title || ' ' || description));
