@@ -40,6 +40,13 @@ CREATE TABLE auction (
     user_id INTEGER NOT NULL REFERENCES "user"(id)
 );
 
+DROP TABLE IF EXISTS "admin" CASCADE;
+CREATE TABLE "admin" (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR UNIQUE,
+    password VARCHAR NOT NULL
+);
+
 DROP TABLE IF EXISTS auctionStatus CASCADE;
 CREATE TABLE auctionStatus (
     id SERIAL PRIMARY KEY,
@@ -139,13 +146,6 @@ CREATE TABLE bugReport (
     description VARCHAR NOT NULL,
     user_id INTEGER NOT NULL REFERENCES "user"(id),
     status_id INTEGER NOT NULL REFERENCES reportStatus(id)
-);
-
-DROP TABLE IF EXISTS "admin" CASCADE;
-CREATE TABLE "admin" (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR UNIQUE,
-    password VARCHAR NOT NULL
 );
 
 
