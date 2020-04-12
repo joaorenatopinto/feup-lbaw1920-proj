@@ -176,3 +176,109 @@ CREATE INDEX closeDate_auction ON auction USING btree (closeDate);
 CREATE INDEX value_bid ON bid USING btree (value);
 
 CREATE INDEX auction_text_search ON auction USING GIST (to_tsvector('english', title || ' ' || description));
+
+
+------------- TRIGGERS -------------
+
+DROP FUNCTION IF EXISTS user_balance_insert();
+CREATE FUNCTION user_balance_insert() RETURNS TRIGGER AS 
+$BODY$ 
+BEGIN 
+ IF EXISTS (SELECT * FROM "transaction" WHERE receiver_id = NEW.id) THEN 
+  IF EXISTS (SELECT * FROM "transaction" WHERE sender_id = NEW.id) THEN 
+   UPDATE "user" SET balance = (SELECT SUM(value) FROM "transaction" WHERE receiver_id = NEW.id AND isReserved = 'false') - (SELECT SUM(value) FROM "transaction" WHERE sender_id = NEW.id); 
+  ELSE 
+   UPDATE "user" SET balance = (SELECT SUM(value) FROM "transaction" WHERE receiver_id = NEW.id); 
+  END IF; 
+ END IF; 
+ RETURN NEW; 
+END 
+$BODY$ 
+LANGUAGE plpgsql; 
+CREATE TRIGGER user_balance_insert AFTER INSERT ON "transaction" FOR EACH ROW EXECUTE PROCEDURE user_balance_insert();
+
+DROP FUNCTION IF EXISTS user_balance_delete();
+CREATE FUNCTION user_balance_delete() RETURNS TRIGGER AS 
+$BODY$ 
+BEGIN 
+ IF EXISTS (SELECT * FROM "transaction" WHERE receiver_id = OLD.id) THEN 
+  IF EXISTS (SELECT * FROM "transaction" WHERE sender_id = OLD.id) THEN 
+   UPDATE "user" SET balance = (SELECT SUM(value) FROM "transaction" WHERE receiver_id = OLD.id AND isReserved = 'false') - (SELECT SUM(value) FROM "transaction" WHERE sender_id = OLD.id); 
+  ELSE 
+   UPDATE "user" SET balance = (SELECT SUM(value) FROM "transaction" WHERE receiver_id = OLD.id); 
+  END IF; 
+ END IF; 
+ RETURN NEW; 
+END 
+$BODY$ 
+LANGUAGE plpgsql; 
+CREATE TRIGGER user_balance_delete AFTER DELETE ON "transaction" FOR EACH ROW EXECUTE PROCEDURE user_balance_delete();
+
+DROP FUNCTION IF EXISTS user_balance_update();
+CREATE FUNCTION user_balance_update() RETURNS TRIGGER AS 
+$BODY$ 
+BEGIN 
+ IF EXISTS (SELECT * FROM "transaction" WHERE receiver_id = OLD.id) THEN 
+  IF EXISTS (SELECT * FROM "transaction" WHERE sender_id = OLD.id) THEN 
+   UPDATE "user" SET balance = (SELECT SUM(value) FROM "transaction" WHERE receiver_id = OLD.id AND isReserved = 'false') - (SELECT SUM(value) FROM "transaction" WHERE sender_id = OLD.id); 
+  ELSE 
+   UPDATE "user" SET balance = (SELECT SUM(value) FROM "transaction" WHERE receiver_id = OLD.id); 
+  END IF; 
+ END IF; 
+ RETURN NEW; 
+END 
+$BODY$ 
+LANGUAGE plpgsql; 
+CREATE TRIGGER user_balance_update AFTER UPDATE ON "transaction" FOR EACH ROW EXECUTE PROCEDURE user_balance_update();
+
+DROP FUNCTION IF EXISTS notification_on_bid();
+CREATE FUNCTION notification_on_bid() RETURNS TRIGGER AS 
+$BODY$ 
+BEGIN 
+ IF EXISTS (SELECT * FROM bid WHERE auction_id = NEW.auction_id) THEN 
+  SELECT user_id AS old_id FROM (SELECT ROW_NUMBER() OVER (ORDER BY value DESC) AS rownumber, user_id FROM bid) AS foo WHERE rownumber = 2; -- get second highest bid user
+  INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('outdated_bid', NEW.auction_id, old_id, NEW.id);
+ END IF; 
+ INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('new_bid', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NEW.id);
+ RETURN NEW; 
+END 
+$BODY$ 
+LANGUAGE plpgsql; 
+CREATE TRIGGER notification_on_bid AFTER INSERT ON bid FOR EACH ROW EXECUTE PROCEDURE notification_on_bid(); 
+
+DROP FUNCTION IF EXISTS bid_deleted();
+CREATE FUNCTION bid_deleted() RETURNS TRIGGER AS 
+$BODY$ 
+BEGIN 
+ DELETE FROM "transaction" WHERE sender_id = OLD.user_id AND value = OLD.value AND date = OLD.date AND is_reserved = 'true'; 
+ RETURN NEW; 
+END 
+$BODY$ 
+LANGUAGE plpgsql; 
+CREATE TRIGGER bid_deleted AFTER DELETE ON bid FOR EACH ROW EXECUTE PROCEDURE bid_deleted();
+
+DROP FUNCTION IF EXISTS notification_on_review();
+CREATE FUNCTION notification_on_review() RETURNS TRIGGER AS 
+$BODY$ 
+BEGIN 
+ INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('review', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NULL);
+ RETURN NEW; 
+END 
+$BODY$ 
+LANGUAGE plpgsql; 
+CREATE TRIGGER notification_on_review AFTER INSERT ON review FOR EACH ROW EXECUTE PROCEDURE notification_on_review(); 
+
+DROP FUNCTION IF EXISTS notification_on_close();
+CREATE FUNCTION notification_on_close() RETURNS TRIGGER AS 
+$BODY$ 
+BEGIN 
+ IF NEW.status LIKE 'closed' THEN
+  SELECT bid.user_id AS winner_id FROM bid JOIN auction ON bid.auction_id = auction.id WHERE auction.id = NEW.auction_id AND bid.id = auction.bid_id;
+  INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('auction_ended', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NULL);
+  INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('auction_won', NEW.auction_id, winner_id, NULL);
+ END IF;
+ RETURN NEW; 
+END 
+$BODY$ 
+LANGUAGE plpgsql; 
+CREATE TRIGGER notification_on_close AFTER INSERT ON auctionStatus FOR EACH ROW EXECUTE PROCEDURE notification_on_close();
