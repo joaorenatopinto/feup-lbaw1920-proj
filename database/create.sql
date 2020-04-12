@@ -5,7 +5,7 @@ DROP TYPE IF EXISTS auction_status CASCADE;
 CREATE TYPE auction_status AS ENUM ('ongoing', 'removed', 'closed');
 
 DROP TYPE IF EXISTS notification_type CASCADE;
-CREATE TYPE notification_type AS ENUM ('auction_ended', 'auction_won', 'new_bid', 'outdated_bid');
+CREATE TYPE notification_type AS ENUM ('auction_ended', 'auction_won', 'new_bid', 'outdated_bid', 'product_sold');
 
 DROP TYPE IF EXISTS report_status CASCADE;
 CREATE TYPE report_status AS ENUM ('notSeen', 'seen', 'closed');
@@ -19,7 +19,7 @@ CREATE TABLE category (
 DROP TABLE IF EXISTS "user" CASCADE;
 CREATE TABLE "user" (
     id SERIAL PRIMARY KEY,
-    username VARCHAR NOT NULL,
+    username VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
     name VARCHAR NOT NULL,
     email VARCHAR UNIQUE NOT NULL,
@@ -45,7 +45,9 @@ CREATE TABLE auctionStatus (
     id SERIAL PRIMARY KEY,
     status auction_status NOT NULL DEFAULT 'ongoing',
     dateChanged DATE DEFAULT now(),
-    auction INTEGER NOT NULL REFERENCES auction(id)
+    auction_id INTEGER NOT NULL REFERENCES auction(id),
+    moderator_id INTEGER REFERENCES "user"(id),
+    admin_id INTEGER REFERENCES "admin"(id)
 );
 
 DROP TABLE IF EXISTS userStatus CASCADE;
@@ -53,7 +55,9 @@ CREATE TABLE userStatus (
     id SERIAL PRIMARY KEY,
     status user_status NOT NULL DEFAULT 'active',
     dateChanged DATE DEFAULT now(),
-    user_id INTEGER NOT NULL REFERENCES "user"(id)
+    user_id INTEGER NOT NULL REFERENCES "user"(id),
+    moderator_id INTEGER REFERENCES "user"(id),
+    admin_id INTEGER REFERENCES "admin"(id) CHECK ((moderator_id IS NOT NULL) OR (admin_id IS NOT NULL))
 );
 
 DROP TABLE IF EXISTS "image" CASCADE;
@@ -71,7 +75,7 @@ CREATE TABLE "transaction" (
     value NUMERIC  NOT NULL CHECK (value > 0),
     date DATE NOT NULL DEFAULT now(),
     description VARCHAR NOT NULL,
-    sender_id INTEGER NOT NULL REFERENCES "user"(id),
+    sender_id INTEGER REFERENCES "user"(id),
     receiver_id INTEGER NOT NULL REFERENCES "user"(id) CHECK (NOT (sender_id IS NULL AND receiver_id IS NULL)),
     is_reserved BOOLEAN NOT NULL,
     auction INTEGER REFERENCES auction(id)
@@ -114,7 +118,9 @@ CREATE TABLE reportStatus (
     id SERIAL PRIMARY KEY,
     type report_status NOT NULL DEFAULT 'notSeen',
     dateChanged DATE DEFAULT now(),
-    oldStatus VARCHAR
+    oldStatus VARCHAR,
+    moderator_id INTEGER REFERENCES "user"(id),
+    admin_id INTEGER REFERENCES "admin"(id) CHECK ((moderator_id IS NOT NULL) OR (admin_id IS NOT NULL))
 );
 
 
@@ -150,6 +156,7 @@ CREATE TABLE "notification"(
     date DATE NOT NULL DEFAULT now(),
     bid_id  INTEGER REFERENCES bid(id) CHECK ((bid_id IS NOT NULL) OR (type NOT IN ('new_bid','outdated_bid'))),
     user_id INTEGER NOT NULL REFERENCES "user"(id),
+    auction_id INTEGER NOT NULL REFERENCES auction(id),
     seen BOOLEAN NOT NULL DEFAULT false,
     type notification_type NOT NULL
 );
