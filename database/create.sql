@@ -12,34 +12,8 @@ CREATE TYPE report_status AS ENUM ('notSeen', 'seen', 'closed');
 
 DROP TABLE IF EXISTS category CASCADE;
 CREATE TABLE category (
-id SERIAL PRIMARY KEY,
-name VARCHAR UNIQUE NOT NULL
-);
-
-DROP TABLE IF EXISTS auctionStatus CASCADE;
-CREATE TABLE auctionStatus (
-id SERIAL PRIMARY KEY,
-status auction_status NOT NULL DEFAULT 'ongoing',
-dateChanged DATE DEFAULT now(),
-auction INTEGER NOT NULL REFERENCES auction(id)
-);
-
-DROP TABLE IF EXISTS userStatus CASCADE;
-CREATE TABLE userStatus (
-id SERIAL PRIMARY KEY,
-status user_status NOT NULL DEFAULT 'active',
-dateChanged DATE DEFAULT now(),
-user_id INTEGER NOT NULL REFERENCES "user"(id)
-);
-
-
-DROP TABLE IF EXISTS "image" CASCADE;
-CREATE TABLE "image" (
     id SERIAL PRIMARY KEY,
-    path VARCHAR UNIQUE NOT NULL,
-    alt VARCHAR NOT NULL,
-    auction_id INTEGER REFERENCES auction(id),
-    user_id INTEGER REFERENCES "user"(id) CHECK ((user_id IS NOT NULL) OR (auction_id IS NOT NULL))
+    name VARCHAR UNIQUE NOT NULL
 );
 
 DROP TABLE IF EXISTS "user" CASCADE;
@@ -51,8 +25,7 @@ CREATE TABLE "user" (
     email VARCHAR UNIQUE NOT NULL,
     balance NUMERIC NOT NULL DEFAULT 0,
     nif VARCHAR  UNIQUE NOT NULL,
-    image_id INTEGER UNIQUE NOT NULL REFERENCES "image"(id),
-    descrpition VARCHAR
+    description VARCHAR
 );
 
 DROP TABLE IF EXISTS auction CASCADE;
@@ -64,7 +37,32 @@ CREATE TABLE auction (
     closeDate DATE NOT NULL CHECK (closeDate  > startDate),
     initialValue INTEGER NOT NULL CHECK (initialValue > 0),
     category_id INTEGER NOT NULL REFERENCES category(id),
-    owner INTEGER NOT NULL REFERENCES "user"(id)
+    user_id INTEGER NOT NULL REFERENCES "user"(id)
+);
+
+DROP TABLE IF EXISTS auctionStatus CASCADE;
+CREATE TABLE auctionStatus (
+    id SERIAL PRIMARY KEY,
+    status auction_status NOT NULL DEFAULT 'ongoing',
+    dateChanged DATE DEFAULT now(),
+    auction INTEGER NOT NULL REFERENCES auction(id)
+);
+
+DROP TABLE IF EXISTS userStatus CASCADE;
+CREATE TABLE userStatus (
+    id SERIAL PRIMARY KEY,
+    status user_status NOT NULL DEFAULT 'active',
+    dateChanged DATE DEFAULT now(),
+    user_id INTEGER NOT NULL REFERENCES "user"(id)
+);
+
+DROP TABLE IF EXISTS "image" CASCADE;
+CREATE TABLE "image" (
+    id SERIAL PRIMARY KEY,
+    path VARCHAR UNIQUE NOT NULL,
+    alt VARCHAR NOT NULL,
+    auction_id INTEGER REFERENCES auction(id),
+    user_id INTEGER REFERENCES "user"(id) CHECK ((user_id IS NOT NULL) OR (auction_id IS NOT NULL))
 );
 
 DROP TABLE IF EXISTS "transaction" CASCADE;
@@ -79,16 +77,18 @@ CREATE TABLE "transaction" (
     auction INTEGER REFERENCES auction(id)
 );
 
-DROP TABLE IF EXISTS follows CASCADE;
-CREATE TABLE follows (
-    user_id INTEGER UNIQUE NOT NULL REFERENCES "user"(id),
-    category_id INTEGER UNIQUE NOT NULL REFERENCES category(id)
+DROP TABLE IF EXISTS followsCategory CASCADE;
+CREATE TABLE followsCategory (
+    user_id INTEGER NOT NULL REFERENCES "user"(id),
+    category_id INTEGER NOT NULL REFERENCES category(id),
+    PRIMARY KEY (user_id,category_id)
 );
 
 DROP TABLE IF EXISTS followsAuction CASCADE;
 CREATE TABLE followsAuction(
-    user_id INTEGER UNIQUE NOT NULL REFERENCES "user"(id),
-    auction_id INTEGER UNIQUE NOT NULL REFERENCES auction(id)
+    user_id INTEGER  NOT NULL REFERENCES "user"(id),
+    auction_id INTEGER NOT NULL REFERENCES auction(id),
+    PRIMARY KEY (user_id,auction_id)
 );
 
 DROP TABLE IF EXISTS bid CASCADE;
