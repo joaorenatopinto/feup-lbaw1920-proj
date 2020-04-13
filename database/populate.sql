@@ -26,17 +26,17 @@ INSERT INTO "image" (path, alt,auction_id) VALUES ('/website/src/img/phones.jpg'
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/website/src/img/phones1.jpg'   , 'phones',1);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/website/src/img/phones2.jpg'   , 'phones',1);
 
-INSERT INTO auctionStatus (status, dateChanged, auction) VALUES ('ongoing', '2017-04-17 19:41:14', 1);
-INSERT INTO auctionStatus (status, dateChanged, auction) VALUES ('ongoing', '2017-02-15 09:11:11', 2);
-INSERT INTO auctionStatus (status, dateChanged, auction) VALUES ('closed' , '2017-05-17 07:41:14', 3);
-INSERT INTO auctionStatus (status, dateChanged, auction) VALUES ('removed', '2017-09-18 11:23:00', 4);
-INSERT INTO auctionStatus (status, dateChanged, auction) VALUES ('ongoing', '2018-02-17 09:41:14', 5);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2017-04-17 19:41:14', 1);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2017-02-15 09:11:11', 2);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing' , '2017-05-17 07:41:14', 3);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('removed', '2017-09-18 11:23:00', 4);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2018-02-17 09:41:14', 5);
 
-INSERT INTO userStatus (status, dateChanged, user_id) VALUES ('active'   , '2017-02-17 09:41:14', 1);
-INSERT INTO userStatus (status, dateChanged, user_id) VALUES ('active'   , '2017-02-17 09:41:14', 2);
-INSERT INTO userStatus (status, dateChanged, user_id) VALUES ('moderator', '2017-02-17 09:41:14', 3);
-INSERT INTO userStatus (status, dateChanged, user_id) VALUES ('active'   , '2017-02-17 09:41:14', 4);
-INSERT INTO userStatus (status, dateChanged, user_id) VALUES ('recoMod'  , '2017-02-17 09:41:14', 5);
+INSERT INTO userStatus (status, dateChanged, user_id, moderator_id) VALUES ('active'   , '2017-02-17 09:41:14', 1,1);
+INSERT INTO userStatus (status, dateChanged, user_id, moderator_id) VALUES ('active'   , '2017-02-17 09:41:14', 2,1);
+INSERT INTO userStatus (status, dateChanged, user_id, moderator_id) VALUES ('moderator', '2017-02-17 09:41:14', 3,1);
+INSERT INTO userStatus (status, dateChanged, user_id, moderator_id) VALUES ('active'   , '2017-02-17 09:41:14', 4,1);
+INSERT INTO userStatus (status, dateChanged, user_id, moderator_id) VALUES ('recoMod'  , '2017-02-17 09:41:14', 5,1);
 
 INSERT INTO "transaction" (value,date,description,sender_id,receiver_id,is_reserved,auction) VALUES (250  ,'2017-12-14 19:41:24', 'Watch auction', 1, 2, 'true', 1);
 INSERT INTO "transaction" (value,date,description,sender_id,receiver_id,is_reserved,auction) VALUES (1250 ,'2018-07-17 09:40:14', 'Car auction', 1, 3, 'true', 2);
@@ -63,9 +63,9 @@ INSERT INTO bid (value, date, auction_id, user_id) VALUES (550, '2018-12-30 19:4
 INSERT INTO review (stars,description,auction_id,user_id) VALUES (5,'Very Nice watch, works fine', 1, 1);
 INSERT INTO review (stars,description,auction_id,user_id) VALUES (3,'Medium Bycicle, expected more', 2, 2);
 
-INSERT INTO reportStatus (TYPE, dateChanged, oldStatus) VALUES ('notSeen','2017-12-14 19:41:24','notSeen');
-INSERT INTO reportStatus (TYPE, dateChanged, oldStatus) VALUES ('seen','2018-12-14 19:41:24','notSeen');
-INSERT INTO reportStatus (TYPE, dateChanged, oldStatus) VALUES ('closed','2018-07-12 19:41:24','seen');
+INSERT INTO reportStatus (TYPE, dateChanged, oldStatus, moderator_id) VALUES ('notSeen','2017-12-14 19:41:24','notSeen',1);
+INSERT INTO reportStatus (TYPE, dateChanged, oldStatus, moderator_id) VALUES ('seen','2018-12-14 19:41:24','notSeen',1);
+INSERT INTO reportStatus (TYPE, dateChanged, oldStatus,moderator_id) VALUES ('closed','2018-07-12 19:41:24','seen',1);
 
 INSERT INTO report (description, auction_id, user_id, status_id) VALUES ('Illegal Item', 1,1,1);
 INSERT INTO report (description, auction_id, user_id, status_id) VALUES ('Image does not correspond', 2,3,2);

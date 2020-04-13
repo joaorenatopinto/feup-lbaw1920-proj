@@ -5,7 +5,7 @@ DROP TYPE IF EXISTS auction_status CASCADE;
 CREATE TYPE auction_status AS ENUM ('ongoing', 'removed', 'closed');
 
 DROP TYPE IF EXISTS notification_type CASCADE;
-CREATE TYPE notification_type AS ENUM ('auction_ended', 'auction_won', 'new_bid', 'outdated_bid', 'product_sold');
+CREATE TYPE notification_type AS ENUM ('auction_ended', 'auction_won', 'new_bid', 'outdated_bid', 'product_sold', 'review');
 
 DROP TYPE IF EXISTS report_status CASCADE;
 CREATE TYPE report_status AS ENUM ('notSeen', 'seen', 'closed');
@@ -127,7 +127,8 @@ CREATE TABLE reportStatus (
     dateChanged DATE DEFAULT now(),
     oldStatus VARCHAR,
     moderator_id INTEGER REFERENCES "user"(id),
-    admin_id INTEGER REFERENCES "admin"(id) CHECK ((moderator_id IS NOT NULL) OR (admin_id IS NOT NULL))
+    admin_id INTEGER REFERENCES "admin"(id) CHECK ((moderator_id IS NOT NULL) OR (admin_id IS NOT NULL)),
+    report_id INTEGER NOT NULL REFERENCES report(id)
 );
 
 
@@ -136,8 +137,7 @@ CREATE TABLE report (
     id SERIAL PRIMARY KEY,
     description VARCHAR NOT NULL,
     auction_id INTEGER NOT NULL REFERENCES auction(id),
-    user_id INTEGER NOT NULL REFERENCES "user"(id),
-    status_id INTEGER NOT NULL REFERENCES reportStatus(id)
+    user_id INTEGER NOT NULL REFERENCES "user"(id)
 );
 
 DROP TABLE IF EXISTS bugReport CASCADE;
@@ -235,11 +235,10 @@ DROP FUNCTION IF EXISTS notification_on_bid();
 CREATE FUNCTION notification_on_bid() RETURNS TRIGGER AS 
 $BODY$ 
 BEGIN 
- IF EXISTS (SELECT * FROM bid WHERE auction_id = NEW.auction_id) THEN 
-  SELECT user_id AS old_id FROM (SELECT ROW_NUMBER() OVER (ORDER BY value DESC) AS rownumber, user_id FROM bid) AS foo WHERE rownumber = 2; -- get second highest bid user
-  INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('outdated_bid', NEW.auction_id, old_id, NEW.id);
+ IF (SELECT COUNT(id) FROM bid WHERE auction_id = NEW.auction_id) > 1 THEN 
+  INSERT INTO notification (type,auction_id,user_id,bid_id,title) VALUES ('outdated_bid', NEW.auction_id, (SELECT user_id AS old_id FROM (SELECT ROW_NUMBER() OVER (ORDER BY value DESC) AS rownumber, user_id FROM bid WHERE bid.auction_id = NEW.auction_id) AS foo WHERE rownumber = 2), NEW.id, 'Outdated Bid');
  END IF; 
- INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('new_bid', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NEW.id);
+ INSERT INTO notification (type,auction_id,user_id,bid_id,title) VALUES ('new_bid', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NEW.id, 'New Bid');
  RETURN NEW; 
 END 
 $BODY$ 
@@ -261,7 +260,7 @@ DROP FUNCTION IF EXISTS notification_on_review();
 CREATE FUNCTION notification_on_review() RETURNS TRIGGER AS 
 $BODY$ 
 BEGIN 
- INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('review', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NULL);
+ INSERT INTO notification (type,auction_id,user_id,bid_id,title) VALUES ('review', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NULL,'New Review');
  RETURN NEW; 
 END 
 $BODY$ 
@@ -272,10 +271,9 @@ DROP FUNCTION IF EXISTS notification_on_close();
 CREATE FUNCTION notification_on_close() RETURNS TRIGGER AS 
 $BODY$ 
 BEGIN 
- IF NEW.status LIKE 'closed' THEN
-  SELECT bid.user_id AS winner_id FROM bid JOIN auction ON bid.auction_id = auction.id WHERE auction.id = NEW.auction_id AND bid.id = auction.bid_id;
-  INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('auction_ended', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NULL);
-  INSERT INTO notification (type,auction_id,user_id,bid_id) VALUES ('auction_won', NEW.auction_id, winner_id, NULL);
+ IF NEW.status = 'closed' AND (SELECT COUNT(id) FROM bid WHERE auction_id = NEW.auction_id) > 0 THEN 
+  INSERT INTO notification (type,auction_id,user_id,bid_id,title) VALUES ('auction_ended', NEW.auction_id, (SELECT auction.user_id FROM auction WHERE auction.id = NEW.auction_id), NULL,'Auction Ended');
+  INSERT INTO notification (type,auction_id,user_id,bid_id,title) VALUES ('auction_won', NEW.auction_id, (SELECT bid.user_id AS winner_id FROM bid WHERE bid.value = (SELECT MAX(value) FROM (SELECT value FROM bid WHERE auction_id = NEW.auction_id) AS high_bids) AND auction_id = NEW.auction_id), NULL, 'Auction Won!');
  END IF;
  RETURN NEW; 
 END 
