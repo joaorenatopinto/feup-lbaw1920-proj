@@ -42,8 +42,6 @@ class AuctionController extends Controller
     $this->authorize('auction', $auction);
     return view('pages.auction', ['auction' => $auction]);
   }
-<<<<<<< HEAD
-=======
 
   /**
    * Bid in the auction for a given id.
