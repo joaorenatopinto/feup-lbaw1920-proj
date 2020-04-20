@@ -13,7 +13,6 @@
 
 // Home
 Route::get('/', 'HomepageController@show');
-Route::get('home', 'HomepageController@show');
 
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
