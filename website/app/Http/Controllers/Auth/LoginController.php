@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/cards';
 
     /**
      * Create a new controller instance.
@@ -41,7 +41,8 @@ class LoginController extends Controller
         return $request->user();
     }
 
-    public function username() {
-        return 'username';
+    public function home() {
+        return redirect('login');
     }
+
 }
