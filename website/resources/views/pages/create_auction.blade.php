@@ -95,7 +95,7 @@
 					<div class="form-group d-flex p-2 bd-highlight ">
 						<input type="submit" value="Create Auction" class="btn btn-info flex-grow-1">
 					</div>
-            </form>
+                </form>
 			</div>
 		</div>
 	</div>
