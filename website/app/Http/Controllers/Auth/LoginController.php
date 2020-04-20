@@ -40,4 +40,8 @@ class LoginController extends Controller
     public function getUser(){
         return $request->user();
     }
+
+    public function username() {
+        return 'username';
+    }
 }

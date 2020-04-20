@@ -13,30 +13,30 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-signature"></i></span>
 						</div>
-            <input type="text" class="form-control mr-3" placeholder="First Name">
-            <input type="text" class="form-control" placeholder="Last Name">
+            <input type="text" class="form-control mr-3" placeholder="First Name" name="name">
+            <input type="text" class="form-control" placeholder="Last Name" name="lastName">
           </div>
 
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Email">
+            <input type="text" class="form-control" placeholder="Email" name="email">
           </div>
 
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Username">
+            <input type="text" class="form-control" placeholder="Username" name="username">
           </div>
 
           <div class="input-group form-group d-flex">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input type="text" class="form-control mr-3" placeholder="Password">
-            <input type="text" class="form-control" placeholder="Confirm Password">
+            <input type="password" class="form-control mr-3" placeholder="Password" name="password">
+            <input type="password" class="form-control" placeholder="Confirm Password">
           </div>
 
           <div class="form-check form-group">
