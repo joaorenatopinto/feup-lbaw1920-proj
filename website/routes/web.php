@@ -12,7 +12,7 @@
 */
 
 // Home
-Route::get('/', 'Auth\LoginController@home');
+Route::get('/', 'HomepageController@show');
 Route::get('home', 'HomepageController@show');
 
 // Authentication
