@@ -10,7 +10,7 @@
         <div class="col-sm">
             <div class="text-start">{{$auction->description}}</div>
             <div class="text-center m-3">
-                <h6 class="align-middle">Auction by <a href="userprofile.php">Kid Cages</a></h6>
+            <h6 class="align-middle">Auction by <a href="{{ route('profile',['id' => $auction->user->id ]) }}">{{$auction->user->name}}</a></h6>
             </div>
         </div>
         <div class="col-sm card text-center p-0">

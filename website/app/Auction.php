@@ -16,7 +16,7 @@ class Auction extends Model
    * The user this card belongs to
    */
   public function user() {
-    return $this->hasOne('App\User');
+    return $this->belongsTo('App\User');
   }
 
   public function getImage(){
