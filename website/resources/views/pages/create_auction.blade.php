@@ -9,24 +9,27 @@
 				<h3>New Auction</h3>
 			</div>
 			<div class="card-body">
-				<form>
-					<div class="input-group form-group">
+                <form method="POST" action="{{ route('editProfile',['id' => Auth::id()]) }}">
+
+                    {{ csrf_field() }}
+
+                    <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Auction Title">
+						<input type="text" name="title" class="form-control" placeholder="Auction Title">
 					</div>
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
 						</div>
-						<textarea class="form-control" placeholder="Auction Description"></textarea>
+						<textarea class="form-control" name="description" placeholder="Auction Description"></textarea>
 					</div>
 
                     <div class="form-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
+                            <input type="file" name="image" class="custom-file-input" id="customFile">
                             <label class="custom-file-label" for="customFile">Product Pictures</label>
                         </div>
                     </div>
@@ -38,7 +41,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-calendar-week"></i></span>
 						</div>
-						<input type="date" class="form-control" id="auctionCloseDate">
+						<input type="date" name="closedate" class="form-control" id="auctionCloseDate">
 					</div>
 
                     <label for="auctionMinPrice">Minimum Price</label>
@@ -46,7 +49,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
 						</div>
-						<input type="number" value="5" class="form-control" id="auctionMinPrice">
+						<input type="number" name="initialvalue" value="5" class="form-control" id="auctionMinPrice">
 					</div>
 
                     <label for="auctionMinInc">Minimum Increment</label>
@@ -54,7 +57,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-arrow-up"></i></i></span>
 						</div>
-						<input type="number" value="1" class="form-control" id="auctionMinInc">
+						<input type="number" name="mininc" value="1" class="form-control" id="auctionMinInc">
 					</div>
 
                     <a data-toggle="collapse" aria-expanded="false" aria-controls="advOptions" href="#advOptions">
@@ -67,7 +70,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-arrow-up"></i></i></span>
                             </div>
-                            <input type="number" value="100" class="form-control" id="auctionMaxPrice">
+                            <input type="number" name="maxprice" value="100" class="form-control" id="auctionMaxPrice">
                         </div>
 
                         <div class="input-group mb-3">
@@ -92,7 +95,7 @@
 					<div class="form-group d-flex p-2 bd-highlight ">
 						<input type="submit" value="Create Auction" class="btn btn-info flex-grow-1">
 					</div>
-				</form>
+            </form>
 			</div>
 		</div>
 	</div>
