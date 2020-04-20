@@ -26,6 +26,6 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('category/{id}', 'CategoryController@show')->name('category');
 
 // Auctions
-Route::get('auction/{id}', 'AuctionController@show');
+Route::get('auction/{id}', 'AuctionController@show')->name('auction');
 Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('edit');
 Route::post('auction/{id}/edit', 'AuctionController@edit');
