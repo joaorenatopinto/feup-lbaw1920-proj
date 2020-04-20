@@ -43,18 +43,4 @@ class AuctionController extends Controller
     $this->authorize('auction', $auction);
     return view('pages.auction', ['auction' => $auction]);
   }
-
-  /**
-   * Bid in the auction for a given id.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id) {
-    $auction = Auction::find($id);
-    $this->authorize('auction', $auction);
-    return view('pages.auction', ['auction' => $auction]);
-  }
-
-
 }
