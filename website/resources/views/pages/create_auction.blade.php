@@ -1,8 +1,10 @@
-<?php include_once 'header.php' ?>
+@extends('layouts.app')
+
+@section('content')
 
 <div class="container mt-5">
 	<div class="row justify-content-center">
-		<div class="card col-sm-7 col-11"> 
+		<div class="card col-sm-7 col-11">
 			<div class="card-header">
 				<h3>New Auction</h3>
 			</div>
@@ -67,7 +69,7 @@
                             </div>
                             <input type="number" value="100" class="form-control" id="auctionMaxPrice">
                         </div>
-                        
+
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -95,6 +97,4 @@
 		</div>
 	</div>
 </div>
-
-
-<?php include_once 'footer.php' ?>
+@endsection
