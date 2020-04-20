@@ -14,10 +14,9 @@ class AuctionController extends Controller
     $auction = Auction::find($id);
     return view('pages.auction', ['auction' => $auction]);
   }
-  public function showcreateForm($id)
+  public function showCreateForm($id)
   {
-    $auction = Auction::find($id);
-    return view('pages.create_auction', ['auction' => $auction]);
+    return view('pages.create_auction');
   }
 
   public function create(Request $request)
