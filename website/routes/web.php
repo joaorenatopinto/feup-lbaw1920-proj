@@ -38,7 +38,7 @@ Route::post('auction/{id}/review', 'AuctionController@review');
 Route::get('auction/create', 'AuctionController@showCreateForm');
 Route::post('auction/create', 'AuctionController@create');
 Route::get('auction/search/{term}', 'AuctionController@search');
-Route::get('category/{id}', 'AuctionController@category');
+Route::get('category/{id}', 'AuctionController@showCategory');
 
 // Follow
 Route::post('auction/{id}/follow', 'AuctionController@follow');

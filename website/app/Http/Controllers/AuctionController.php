@@ -95,4 +95,17 @@ class AuctionController extends Controller
     $this->authorize('follow', $auction);
     return view('pages.auction', ['auction' => $auction]);
   }
+
+  /**
+   * Show category for a given id.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function showCategory($id)
+  {
+    $category = Category::find($id);
+    $this->authorize('show', $category);
+    return view('pages.category', ['category' => $category]);
+  }
 }
