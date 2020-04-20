@@ -12,14 +12,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/name.css') }}" rel="stylesheet">
     <script type="text/javascript">
         // Fix for Firefox autofocus CSS bug
         // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
     </script>
     <!-- TODO remove later -->
-    <script type="text/javascript" src={{ asset('js/app.js') }} defer> 
-</script>
+    <script type="text/javascript" src={{ asset('js/app.js') }} defer> </script>
+
+    <!-- fontawsome -->
+    <script src="https://kit.fontawesome.com/aac9f57b5f.js" crossorigin="anonymous"></script>
+
   </head>
   <body>
     <main>
