@@ -22,8 +22,10 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 
 //Category
-
-Route::get('categories/{id}', 'CategoryController@getAuctions')->name('category');
+Route::get('category/{id}', 'CategoryController@show');
 
 // Auctions
 Route::get('auction/{id}', 'AuctionController@show');
+
+// User
+Route::get('user/{id}', 'UserController@show');
