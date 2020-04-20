@@ -12,8 +12,7 @@
 */
 
 // Home
-Route::get('/', 'Auth\LoginController@home');
-Route::get('home', 'HomepageController@show');
+Route::get('/', 'HomepageController@show');
 
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -24,4 +23,7 @@ Route::post('register', 'Auth\RegisterController@register');
 
 //Category
 
-Route::get('/auctionInCategory/{id}', 'CategoryController@getAuctions')->name('category');
+Route::get('categories/{id}', 'CategoryController@getAuctions')->name('category');
+
+// Auctions
+Route::get('auction/{id}', 'AuctionController@show');
