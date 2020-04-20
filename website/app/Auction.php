@@ -24,6 +24,11 @@ class Auction extends Model
     return $image;
   }
 
+  public function getDescription(){
+    $description = Description::where('auction_id', $this->id)->first();
+    return $image;
+  }
+
   public function getHighestBid(){
     $price = Bid::where('auction_id', $this->id)->max('value');
     return  $price;
