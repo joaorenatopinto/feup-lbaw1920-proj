@@ -35,9 +35,8 @@ class AuctionController extends Controller
     $auction = Auction::create([
       'title' => $request['title'],
       'description' => $request['description'],
-      'startDate' => $request['startDate'],
-      'closeDate' => $request['closeDate'],
-      'initialValue' => $request['initialValue'],
+      'closedate' => $request['closedate'],
+      'initialvalue' => $request['initialvalue'],
       'category_id' => $request['category_id'],
       'user_id' => $request['user_id'],
     ]);
