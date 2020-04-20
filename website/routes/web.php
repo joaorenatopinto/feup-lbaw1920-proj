@@ -24,3 +24,8 @@ Route::post('register', 'Auth\RegisterController@register');
 
 // Auctions
 Route::get('auction/{id}', 'AuctionController@show');
+
+//User profile
+Route::get('user/{id}','UserController@page')->name('profile');
+Route::get('user/{id}/edit', 'UserController@editPage')->name('editProfilePage')->middleware('checkSelf');
+Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');

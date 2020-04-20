@@ -32,7 +32,7 @@
 @auth
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand text-light" href="index.php"><img src="img/logo_white.png" width="80" height="60" alt="SLASH AH"></a>
+  <a class="navbar-brand text-light" href="/"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60" alt="SLASH AH"></a>
     <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -69,12 +69,12 @@
           </li>
 
           <li class="nav-item">    
-          <a class="nav-link text-light" href="userprofile.php">{{ Auth::user()->name }}</a>
+          <a class="nav-link text-light" href="{{ route('profile',['id' => Auth::id()]) }}">{{ Auth::user()->name }}</a>
           </li>
 
           <li class="nav-item">
-            <a class="navbar-brand" href="userprofile.php">
-              <img src="img/cages.png" class="rounded-circle" width="35" height="35" alt="">
+          <a class="navbar-brand" href="{{ route('profile',['id' => Auth::id()]) }}">
+          <img src="{{ asset('img/cages.png') }}" class="rounded-circle" width="35" height="35" alt="">
             </a>
           </li>
         </ul>
