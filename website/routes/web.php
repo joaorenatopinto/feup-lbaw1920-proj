@@ -13,6 +13,7 @@
 
 // Home
 Route::get('/', 'HomepageController@show');
+Route::get('/home', 'HomepageController@show');
 
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -22,7 +23,7 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 
 //Category
-Route::get('category/{id}', 'CategoryController@show');
+Route::get('category/{id}', 'CategoryController@show')->name('category');
 
 // Auctions
 Route::get('auction/{id}', 'AuctionController@show');
