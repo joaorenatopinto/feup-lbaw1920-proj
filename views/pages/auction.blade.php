@@ -48,7 +48,7 @@
                 so I'm deciding to sell it to someone who can give it some good use.
             </div>
             <div class="text-center m-3">
-                <h6 class="align-middle">Auction by <a href="userprofile.php">Kid Cages</a></h6>
+            <h6 class="align-middle">Auction by <a href="{{ route('profile',['id' => Auth::id()]) }}">Kid Cages</a></h6>
             </div>
         </div>
         <div class="col-sm card text-center p-0">
