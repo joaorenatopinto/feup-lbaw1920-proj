@@ -30,7 +30,7 @@ Route::post('user/{id}/edit', 'UserController@edit');
 // Balance
 
 // Auctions
-Route::get('auction/{id}', 'AuctionController@auction');
+Route::get('auction/{id}', 'AuctionController@show');
 Route::get('auction/{id}/bid', 'AuctionController@showBidForm');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
 Route::get('auction/{id}/review', 'AuctionController@showReviewForm');
