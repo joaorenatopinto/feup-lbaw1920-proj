@@ -26,6 +26,3 @@ Route::get('category/{id}', 'CategoryController@show');
 
 // Auctions
 Route::get('auction/{id}', 'AuctionController@show');
-
-// User
-Route::get('user/{id}', 'UserController@show');
