@@ -39,7 +39,7 @@ class AuctionController extends Controller
       'closedate' => $request['closedate'],
       'initialvalue' => $request['initialvalue'],
       'category_id' => $request['category_id'],
-      'user_id' => Auth::user(),
+      'user_id' => Auth::user()->id,
     ]);
 
     return redirect()->route('auction', [$auction]);
