@@ -21,9 +21,7 @@ class AuctionController extends Controller
   {
     $auction = new Auction();
 
-    /* $auction->card_id = $card_id;
-
-    $this->authorize('create', $item);
+    /* $this->authorize('create', $item);
 
     $item->done = false;
     $item->description = $request->input('description');
@@ -38,7 +36,8 @@ class AuctionController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function show($id) {
+  public function show($id)
+  {
     $auction = Auction::find($id);
     $this->authorize('auction', $auction);
     return view('pages.auction', ['auction' => $auction]);
@@ -50,11 +49,50 @@ class AuctionController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function show($id) {
+  public function bid($id)
+  {
     $auction = Auction::find($id);
-    $this->authorize('auction', $auction);
+    $this->authorize('bid', $auction);
     return view('pages.auction', ['auction' => $auction]);
   }
 
+  /**
+   * Review the auction for a given id.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function review($id)
+  {
+    $auction = Auction::find($id);
+    $this->authorize('bid', $auction);
+    return view('pages.auction', ['auction' => $auction]);
+  }
 
+  /**
+   * Search auction for a given term.
+   *
+   * @param  int  $term
+   * @return Response
+   */
+  public function search($term)
+  {
+    $auctions = Auction::search($term);
+
+
+    return view('pages.search', ['auctions' => $auctions]);
+  }
+
+  /**
+   * Follow auction for a given id.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function follow(Request $request, $id)
+  {
+    $auction = Auction::find($id);
+    $this->authorize('follow', $auction);
+    return view('pages.auction', ['auction' => $auction]);
+  }
 }
