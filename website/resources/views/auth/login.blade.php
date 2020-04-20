@@ -35,7 +35,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Don't have an account? &nbsp<a href="/register">Sign Up</a>
+					Don't have an account? &nbsp<a href="{{ route('register') }}">Sign Up</a>
 				</div>
 			</div>
 		</div>
