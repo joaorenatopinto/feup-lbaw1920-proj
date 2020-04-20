@@ -26,3 +26,5 @@ Route::get('category/{id}', 'CategoryController@show');
 
 // Auctions
 Route::get('auction/{id}', 'AuctionController@show');
+Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('edit');
+Route::post('auction/{id}/edit', 'AuctionController@edit');
