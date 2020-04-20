@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
-    
-    public function getAuctions($id)
+
+    public function show($id)
     {
       $auctions = Auction::where('category_id', $id)->paginate(3);
 
