@@ -6,17 +6,9 @@
     <div class="row text-center pt-4">
         <h3 class="col-sm">Harley Davidson</h3>
     </div>
-    <img class="card-img col-md-5" src="getImage()" alt="Card image cap">
-
     <div class="row">
         <div class="col-sm">
-            <div class="text-start">
-                A harley davidson motorbike. Never used so it's in a perfect condition. There are only 5 like this one
-                in the world.
-                I bought it for my father be he had an accident before he could ever ride it. I do not own an license to
-                drive bikes
-                so I'm deciding to sell it to someone who can give it some good use.
-            </div>
+            <div class="text-start">{{$auction->description}}</div>
             <div class="text-center m-3">
                 <h6 class="align-middle">Auction by <a href="userprofile.php">Kid Cages</a></h6>
             </div>
