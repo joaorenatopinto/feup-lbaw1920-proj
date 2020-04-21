@@ -26,11 +26,11 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('category/{id}', 'CategoryController@show')->name('category');
 
 // Auctions
-Route::get('auction/{id}', 'AuctionController@show')->name('auction');
-Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('edit');
-Route::post('auction/{id}/edit', 'AuctionController@edit');
-Route::get('auction/create', 'AuctionController@showCreateForm')->name('create');
+Route::get('auction/create', 'AuctionController@showCreateForm')->name('createAuction');
 Route::post('auction/create', 'AuctionController@create');
+Route::get('auction/{id}', 'AuctionController@show')->name('auction');
+Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('editAuction');
+Route::post('auction/{id}/edit', 'AuctionController@edit');
 
 //User profile
 Route::get('user/{id}','UserController@page')->name('profile');

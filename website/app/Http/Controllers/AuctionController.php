@@ -14,7 +14,7 @@ class AuctionController extends Controller
     $auction = Auction::find($id);
     return view('pages.auction', ['auction' => $auction]);
   }
-  public function showCreateForm($id)
+  public function showCreateForm()
   {
     return view('pages.create_auction');
   }
@@ -24,7 +24,6 @@ class AuctionController extends Controller
     $this->validate($request, [
       'title' => 'required',
       'description' => 'required',
-      'startDate' => 'required',
       'closeDate' => 'required',
       'initialValue' => 'required',
       'category_id' => 'required',
