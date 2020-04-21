@@ -34,5 +34,5 @@ Route::post('auction/{id}/edit', 'AuctionController@edit');
 
 //User profile
 Route::get('user/{id}','UserController@page')->name('profile');
-Route::get('user/{id}/edit', 'UserController@editPage')->name('editProfilePage')->middleware('checkSelf');
+Route::get('user/{id}/edit', 'UserController@editPage')->name('editProfilePage');
 Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
