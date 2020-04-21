@@ -74,7 +74,13 @@
 
           <li class="nav-item">
           <a class="navbar-brand" href="{{ route('profile',['id' => Auth::id()]) }}">
-          <img src="{{ asset('img/cages.png') }}" class="rounded-circle" width="35" height="35" alt="">
+            <img src="{{ asset('img/cages.png') }}" class="rounded-circle" width="35" height="35" alt="">
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="navbar-brand text-white" href="{{ route('logout') }}">
+              <i class="fas fa-door-open m-2"></i>
             </a>
           </li>
         </ul>
