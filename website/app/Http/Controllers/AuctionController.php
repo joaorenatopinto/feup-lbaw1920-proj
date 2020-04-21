@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Auction;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -26,22 +27,29 @@ class AuctionController extends Controller
       'description' => 'required',
       'closeDate' => 'required',
       'initialValue' => 'required',
-      'category_id' => 'required',
+      'category' => 'required',
     ]);
 
-      /**
-       * TODO adicionar user; authenticate se o user esta logged in
-       */
-    $auction = Auction::create([
-      'title' => $request['title'],
-      'description' => $request['description'],
-      'closedate' => $request['closedate'],
-      'initialvalue' => $request['initialvalue'],
-      'category_id' => $request['category_id'],
-      'user_id' => Auth::user()->id,
-    ]);
+    $category_id = Category::where('name',$request['category'])->first();  
 
-    return redirect()->route('auction', [$auction]);
+    /**
+      * TODO adicionar user; authenticate se o user esta logged in
+      */
+
+    $auction = new Auction;
+
+    $auction->title = $request['title'];
+    $auction->description = $request['description'];
+    $auction->closedate = $request['closeDate'];
+    $auction->initialvalue = $request['initialValue'];
+    $auction->category_id = $category_id->id;
+    $auction->user_id = Auth::user()->id;
+
+    print($auction);
+
+    $auction->save();
+
+    return redirect()->route('auction', ['id' => $auction->id]);
   }
 
   public function showEditForm($id)

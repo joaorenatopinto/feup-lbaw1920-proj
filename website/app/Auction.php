@@ -31,7 +31,13 @@ class Auction extends Model
 
   public function getHighestBid(){
     $price = Bid::where('auction_id', $this->id)->max('value');
-    return  $price;
+
+    if ($price == null) {
+      return $this->initialvalue;
+    }
+    else {
+      return $price;
+    }
   }
 
   public function getCategory()

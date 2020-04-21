@@ -17,14 +17,14 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
 						</div>
-						<input type="text" name="title" class="form-control" placeholder="Auction Title" name="title" id="title">
+						<input type="text" class="form-control" placeholder="Auction Title" name="title" id="title">
 					</div>
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
 						</div>
-						<textarea class="form-control" name="description" placeholder="Auction Description" name="description" id="description"></textarea>
+						<textarea class="form-control" placeholder="Auction Description" name="description" id="description"></textarea>
 					</div>
 
                     <div class="form-group">
@@ -37,28 +37,28 @@
                     <h6 class="card-title mt-5">Auction Configuration</h5>
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect2">Auction Category</label>
-                           <select multiple class="form-control" id="exampleFormControlSelect2">
-                              @foreach()
-
-                              @endforeach
+                        <label for="category">Auction Category</label>
+                           <select class="form-control" id="category" name="category">
+                                @foreach( App\Category::all() as $category)
+                                    <option>{{$category->name}}</option>
+                                @endforeach
                         </select>
                     </div>
 
-                    <label for="auctionCloseDate">Auction Closing Date</label>
+                    <label for="closeDate">Auction Closing Date</label>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-calendar-week"></i></span>
 						</div>
-						<input type="date" name="closedate" class="form-control" id="auctionCloseDate" name="closeDate" id="closeDate">
+						<input type="date" class="form-control" name="closeDate" id="closeDate">
 					</div>
 
-                    <label for="auctionMinPrice">Minimum Price</label>
+                    <label for="initialValue">Minimum Price</label>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
 						</div>
-						<input type="number" name="initialvalue" value="5" class="form-control" id="initialValue">
+						<input type="number" value="5" class="form-control" name="initialValue" id="initialValue">
 					</div>
 
                     <label for="auctionMinInc">Minimum Increment</label>

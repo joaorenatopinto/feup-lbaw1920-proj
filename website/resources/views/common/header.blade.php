@@ -42,7 +42,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <form class="form-inline my-2 my-lg-0 ">
-              <a class="btn btn-danger mr-2 text-light" href="create_auction.php">Create Auction</a>
+            <a class="btn btn-danger mr-2 text-light" href="{{ route('createAuction') }}">Create Auction</a>
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             </form>
           </li>
