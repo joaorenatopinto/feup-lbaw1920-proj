@@ -63,7 +63,7 @@
         <div class="w-100"></div>
         <div class="col m-2"><a href="{{route('category', [$id = 5])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/antiques.png"
               alt="Category antiques"></a></div>
-        <div class="col m-2"><a href="{{route('category', [$id = 4])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/phones.png"
+        <div class="col m-2"><a href="{{route('category', [$id = 4])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/computers.png"
               alt="Category Computers"></a></div>
       </div>
     </div>
