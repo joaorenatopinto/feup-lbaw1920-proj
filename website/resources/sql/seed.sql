@@ -283,7 +283,7 @@ CREATE TRIGGER notification_on_close AFTER INSERT ON auctionStatus FOR EACH ROW 
 
 INSERT INTO  "category" ("name") VALUES ('Cars');
 INSERT INTO  "category" ("name") VALUES ('Motorcycles');
-INSERT INTO  "category" ("name") VALUES ('electronics'); 
+INSERT INTO  "category" ("name") VALUES ('Electronics'); 
 INSERT INTO  "category" ("name") VALUES ('Computers');
 INSERT INTO  "category" ("name") VALUES ('Antiques');
 
