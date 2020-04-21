@@ -58,13 +58,13 @@
       <div class="row">
         <div class="col m-2"><a href="{{route('category', [$id = 2])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/motos.png"
               alt="Category Motos"></a></div>
-        <div class="col m-2"><a href="#"><img class="d-block w-100 img-rounded img-fluid" src="img/cars.png"
+        <div class="col m-2"><a href="{{route('category', [$id = 1])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/cars.png"
               alt="Category Cars"></a></div>
         <div class="w-100"></div>
-        <div class="col m-2"><a href="#"><img class="d-block w-100 img-rounded img-fluid" src="img/antiques.png"
+        <div class="col m-2"><a href="{{route('category', [$id = 5])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/antiques.png"
               alt="Category antiques"></a></div>
-        <div class="col m-2"><a href="#"><img class="d-block w-100 img-rounded img-fluid" src="img/phones.png"
-              alt="Category Phones"></a></div>
+        <div class="col m-2"><a href="{{route('category', [$id = 4])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/phones.png"
+              alt="Category Computers"></a></div>
       </div>
     </div>
   </div>
