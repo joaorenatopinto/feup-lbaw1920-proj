@@ -14,6 +14,6 @@ class CategoryController extends Controller
     {
       $auctions = Auction::where('category_id', $id)->paginate(3);
 
-      return view('pages.auctionsInCategory', compact('auctions'));
-    }
+      return view('pages.auctionsInCategory', compact('auctions', 'id'));
+    } 
 }

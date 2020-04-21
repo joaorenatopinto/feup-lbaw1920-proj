@@ -33,4 +33,9 @@ class Auction extends Model
     $price = Bid::where('auction_id', $this->id)->max('value');
     return  $price;
   }
+
+  public function getCategory()
+    {
+        return $this->belongsTo('App\Category');
+    }
 }

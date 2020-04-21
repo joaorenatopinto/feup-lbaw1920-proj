@@ -7,7 +7,7 @@
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
             <li class="breadcrumb-item active "><a href="#">Categories</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Motorcycles</li>
+            <li class="breadcrumb-item active" aria-current="page">{{  App\Category::find($id)->name }}</li>
         </ol>
     </nav>
 
