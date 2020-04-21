@@ -28,18 +28,18 @@ class AuctionController extends Controller
       'closeDate' => 'required',
       'initialValue' => 'required',
       'category_id' => 'required',
-      'user_id' => 'required',
     ]);
 
-
+      /**
+       * TODO adicionar user; authenticate se o user esta logged in
+       */
     $auction = Auction::create([
       'title' => $request['title'],
       'description' => $request['description'],
-      'startDate' => $request['startDate'],
-      'closeDate' => $request['closeDate'],
-      'initialValue' => $request['initialValue'],
+      'closedate' => $request['closedate'],
+      'initialvalue' => $request['initialvalue'],
       'category_id' => $request['category_id'],
-      'user_id' => $request['user_id'],
+      'user_id' => Auth::user()->id,
     ]);
 
     return redirect()->route('auction', [$auction]);

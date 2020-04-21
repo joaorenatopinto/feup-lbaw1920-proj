@@ -16,11 +16,16 @@ class Auction extends Model
    * The user this card belongs to
    */
   public function user() {
-    return $this->hasOne('App\User');
+    return $this->belongsTo('App\User');
   }
 
   public function getImage(){
     $image = Image::where('auction_id', $this->id)->first();
+    return $image;
+  }
+
+  public function getDescription(){
+    $description = Description::where('auction_id', $this->id)->first();
     return $image;
   }
 
