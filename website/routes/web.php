@@ -15,7 +15,7 @@
 Route::get('/', 'HomepageController@show');
 Route::get('/home', 'HomepageController@show')->name('home');
 
-// Authentication
+// User Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
@@ -36,3 +36,10 @@ Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::get('user/{id}','UserController@page')->name('profile');
 Route::get('user/{id}/edit', 'UserController@editPage')->name('editProfilePage');
 Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
+
+// Admin Authentication ------- TODO
+Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('adminLogin');
+Route::post('admin/login', 'Auth\AdminLoginController@login');
+/*
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+*/
