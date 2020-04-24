@@ -44,4 +44,8 @@ class AdminLoginController extends Controller
     public function username() {
         return 'username';
     }
+
+    public function showForm(){
+        return view('auth.adminLogin'); 
+    }
 }

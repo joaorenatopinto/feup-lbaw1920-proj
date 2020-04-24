@@ -38,7 +38,7 @@ Route::get('user/{id}/edit', 'UserController@editPage')->name('editProfilePage')
 Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
 
 // Admin Authentication ------- TODO
-Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('adminLogin');
+Route::get('admin/login', 'Auth\AdminLoginController@showForm')->name('adminLogin');
 Route::post('admin/login', 'Auth\AdminLoginController@login');
 /*
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
