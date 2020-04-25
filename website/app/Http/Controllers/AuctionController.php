@@ -17,11 +17,14 @@ class AuctionController extends Controller
   }
   public function showCreateForm()
   {
+    $this->authorize('create');
     return view('pages.create_auction');
   }
 
   public function create(Request $request)
   {
+    $this->authorize('create');
+
     $this->validate($request, [
       'title' => 'required',
       'description' => 'required',
@@ -30,7 +33,7 @@ class AuctionController extends Controller
       'category' => 'required',
     ]);
 
-    $category_id = Category::where('name',$request['category'])->first();  
+    $category_id = Category::where('name',$request['category'])->first();
 
     /**
       * TODO adicionar user; authenticate se o user esta logged in
@@ -55,14 +58,14 @@ class AuctionController extends Controller
   public function showEditForm($id)
   {
     $auction = Auction::find($id);
+    $this->authorize('edit', $auction);
     return view('pages.edit_auction', ['auction' => $auction]);
   }
 
   public function edit(Request $request, $id)
   {
     $auction = Auction::find($id);
-    $this->authorize('edit', $request);
-
+    $this->authorize('edit', $auction);
     $this->validate($request, [
       'title' => 'required',
       'description' => 'required',
