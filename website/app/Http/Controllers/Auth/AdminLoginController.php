@@ -25,7 +25,7 @@ class AdminLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/category/2';
 
     /**
      * Create a new controller instance.
