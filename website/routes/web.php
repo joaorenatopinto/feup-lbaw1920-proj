@@ -43,3 +43,6 @@ Route::post('admin/login', 'Auth\AdminLoginController@login');
 /*
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 */
+
+//API
+Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
