@@ -65,6 +65,7 @@ class AuctionController extends Controller
   {
     $auction = Auction::find($id);
     $this->authorize('edit', $auction);
+    $categories = DB::select('select name from category', []);
     $this->validate($request, [
       'title' => 'bail|required|max:255',
       'description' => 'bail|required|max:1500',
