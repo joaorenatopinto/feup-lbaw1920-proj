@@ -18,8 +18,9 @@ class AuctionController extends Controller
   }
   public function showCreateForm()
   {
-    $this->authorize('create');
-    return view('pages.create_auction');
+    if(Auth::check()){
+      return view('pages.create_auction');
+    }
   }
 
   public function create(Request $request)
