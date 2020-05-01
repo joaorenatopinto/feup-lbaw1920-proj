@@ -7,6 +7,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class AuctionController extends Controller
 {
@@ -23,36 +24,34 @@ class AuctionController extends Controller
 
   public function create(Request $request)
   {
-    $this->authorize('create');
+    if (Auth::check()) {
+      $now = date('Y-m-d');
+      $categories = DB::select('select name from category', []);
+      $this->validate($request, [
+        'title' => 'bail|required|max:255',
+        'description' => 'bail|required|max:1500',
+        'closeDate' => 'bail|required|date_format:Y-m-d|after:' . $now,
+        'initialValue' => 'bail|required|min:5',
+        'category' => ['bail', 'required', Rule::in($categories)]
+      ]);
 
-    $this->validate($request, [
-      'title' => 'required',
-      'description' => 'required',
-      'closeDate' => 'required',
-      'initialValue' => 'required',
-      'category' => 'required',
-    ]);
+      $category_id = Category::where('name', $request['category'])->first();
 
-    $category_id = Category::where('name',$request['category'])->first();
+      $auction = new Auction;
 
-    /**
-      * TODO adicionar user; authenticate se o user esta logged in
-      */
+      $auction->title = $request['title'];
+      $auction->description = $request['description'];
+      $auction->closedate = $request['closeDate'];
+      $auction->initialvalue = $request['initialValue'];
+      $auction->category_id = $category_id->id;
+      $auction->user_id = Auth::user()->id;
 
-    $auction = new Auction;
+      print($auction);
 
-    $auction->title = $request['title'];
-    $auction->description = $request['description'];
-    $auction->closedate = $request['closeDate'];
-    $auction->initialvalue = $request['initialValue'];
-    $auction->category_id = $category_id->id;
-    $auction->user_id = Auth::user()->id;
+      $auction->save();
 
-    print($auction);
-
-    $auction->save();
-
-    return redirect()->route('auction', ['id' => $auction->id]);
+      return redirect()->route('auction', ['id' => $auction->id]);
+    }
   }
 
   public function showEditForm($id)
@@ -67,8 +66,9 @@ class AuctionController extends Controller
     $auction = Auction::find($id);
     $this->authorize('edit', $auction);
     $this->validate($request, [
-      'title' => 'required',
-      'description' => 'required',
+      'title' => 'bail|required|max:255',
+      'description' => 'bail|required|max:1500',
+      'category' => ['bail', 'required', Rule::in($categories)]
     ]);
 
     $auction->title = $request->title;

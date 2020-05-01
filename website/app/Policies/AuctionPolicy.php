@@ -13,11 +13,6 @@ class AuctionPolicy
 {
   use HandlesAuthorization;
 
-  public function create(User $user)
-  {
-    return $user->id > 0;
-  }
-
   public function edit(User $user, Auction $auction)
   {
     return $user->id === $auction->user_id;
