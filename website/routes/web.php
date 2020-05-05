@@ -41,7 +41,7 @@ Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
 
 // Moderation
-Route::get('moderation', function(){return redirect('moderation/users');});
+// Route::get('moderation', function(){return redirect('moderation/users');});
 Route::get('moderation/users', 'ModerationController@showUsers');
 Route::get('moderation/auctions', 'ModerationController@showAuctions');
 Route::get('moderation/reports', 'ModerationController@showReports');

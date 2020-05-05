@@ -10,6 +10,7 @@ IMAGE_NAME=lbaw2062                 # Replace with your group's image name
 composer install
 php artisan clear-compiled
 php artisan optimize
+php artisan route:clear #clear route cache to prevent crash
 
 docker build -t $DOCKER_USERNAME/$IMAGE_NAME .
 docker push $DOCKER_USERNAME/$IMAGE_NAME
