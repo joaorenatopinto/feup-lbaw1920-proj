@@ -16,7 +16,7 @@ class CategoryController extends Controller
 
     return view('pages.auctionsInCategory', compact('auctions', 'id'));
   }
-  
+
   public function getCategoryPageAjax(Request $request, $id) {
     $auctions = Auction::where('category_id', $id)->paginate(3);
 

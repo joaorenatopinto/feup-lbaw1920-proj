@@ -13,7 +13,7 @@
 
 // Home
 Route::get('/', 'HomepageController@show');
-Route::get('/home', 'HomepageController@show')->name('home');
+Route::get('home', 'HomepageController@show')->name('home');
 
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -22,7 +22,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-//Category
+// Category
 Route::get('category/{id}', 'CategoryController@show')->name('category');
 
 // Auctions
@@ -37,5 +37,13 @@ Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::get('user/{id}','UserController@page')->name('profile');
 Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
 
-//API
+// API
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
+
+// Moderation
+Route::get('moderation', function(){return redirect('moderation/users');});
+Route::get('moderation/users', 'ModerationController@showUsers');
+Route::get('moderation/auctions', 'ModerationController@showAuctions');
+Route::get('moderation/reports', 'ModerationController@showReports');
+Route::post('user/{id}/ban', 'ModerationController@banUser');
+Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction');
