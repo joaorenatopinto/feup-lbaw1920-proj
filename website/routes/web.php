@@ -33,8 +33,8 @@ Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('editAuc
 Route::post('auction/{id}/edit', 'AuctionController@edit');
 
 //User profile
+Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::get('user/{id}','UserController@page')->name('profile');
-Route::get('user/{id}/edit', 'UserController@editPage')->name('editProfilePage');
 Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
 
 //API

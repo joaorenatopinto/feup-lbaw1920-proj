@@ -16,7 +16,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-signature"></i></span>
                         </div>
-                    <input type="text" class="form-control mr-3" placeholder="First Name" value="{{ $user->name }}" id="name" name="name">
+                    <input type="text" class="form-control mr-3" placeholder="First Name" value="{{ Auth::user()->name }}" id="name" name="name">
                         <input type="text" class="form-control" placeholder="Last Name" name="lastName">
                     </div>
 
@@ -24,17 +24,17 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
-                    <input type="text" class="form-control" placeholder="Email" value="{{ $user->email }}" id="email" name="email">
+                    <input type="text" class="form-control" placeholder="Email" value="{{ Auth::user()->email }}" id="email" name="email">
                     </div>
 
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Username" value="{{ $user->username }}" id="username" name="username">
+                        <input type="text" class="form-control" placeholder="Username" value="{{ Auth::user()->username }}" id="username" name="username">
                     </div>
 
-                    @if($user->description == null)
+                    @if(Auth::user()->description == null)
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
@@ -46,7 +46,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
 						</div>
-						<textarea class="form-control" placeholder="Description" id="description" name="description">{{ $user->description }}</textarea>
+						<textarea class="form-control" placeholder="Description" id="description" name="description">{{ Auth::user()->description }}</textarea>
                     </div>
                     @endif
 

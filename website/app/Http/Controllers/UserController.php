@@ -19,14 +19,14 @@ class UserController extends Controller
         return view('pages.profile', ['user' => User::findOrFail($id)]);
     }
 
-    public function editPage($id) {
-        $user = User::find($id);
-        $this->authorize('edit', $user);
-        return view('pages.editProfile', ['user' => $user]);
+    public function editPage() {
+        // $this->authorize('showEditPage', User::class);
+        return view('pages.editProfile');
     }
 
     public function edit(Request $data, $id) {
         $user = User::find($id);
+
         $this->authorize('edit', $user);
 
         $user->name = $data['name'];

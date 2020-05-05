@@ -15,15 +15,16 @@ class AuctionController extends Controller
     $auction = Auction::find($id);
     return view('pages.auction', ['auction' => $auction]);
   }
+
   public function showCreateForm()
   {
-    $this->authorize('create');
+    $this->authorize('create', Auction::class);
     return view('pages.create_auction');
   }
 
   public function create(Request $request)
   {
-    $this->authorize('create');
+    $this->authorize('create', Auction::class);
 
     $this->validate($request, [
       'title' => 'required',
@@ -34,10 +35,6 @@ class AuctionController extends Controller
     ]);
 
     $category_id = Category::where('name',$request['category'])->first();
-
-    /**
-      * TODO adicionar user; authenticate se o user esta logged in
-      */
 
     $auction = new Auction;
 

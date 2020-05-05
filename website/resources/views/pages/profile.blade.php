@@ -10,7 +10,7 @@
 
     @if ($user->id === Auth::id())
     <div class="pt-3 text-center">
-    <a class="text-info" href="{{ route('editProfilePage',['id' => Auth::id()]) }}">Edit Profile</a>
+      <a class="text-info" href="{{ route('editPage') }}">Edit Profile</a>
     </div>
     @endif
 

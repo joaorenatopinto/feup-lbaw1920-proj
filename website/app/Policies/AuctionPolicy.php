@@ -13,9 +13,9 @@ class AuctionPolicy
 {
   use HandlesAuthorization;
 
-  public function create(User $user)
+  public function create()
   {
-    return $user->id > 0;
+    return Auth::check();
   }
 
   public function edit(User $user, Auction $auction)
