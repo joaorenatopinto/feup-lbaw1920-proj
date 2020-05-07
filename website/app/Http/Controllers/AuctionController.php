@@ -27,12 +27,15 @@ class AuctionController extends Controller
   {
     $this->authorize('create', Auction::class);
 
+    $now = date('Y-m-d');
+    $categories = DB::select('select name from category', []);
+
     $this->validate($request, [
-      'title' => 'required',
-      'description' => 'required',
-      'closeDate' => 'required',
-      'initialValue' => 'required',
-      'category' => 'required',
+      'title' => 'bail|required|max:255',
+      'description' => 'bail|required|max:1500',
+      'closeDate' => 'bail|required|date_format:Y-m-d|after:' . $now,
+      'initialValue' => 'bail|required|min:5',
+      'category' => ['bail', 'required', Rule::in($categories)]
     ]);
 
     $category_id = Category::where('name',$request['category'])->first();
@@ -49,34 +52,6 @@ class AuctionController extends Controller
     print($auction);
 
     $auction->save();
-
-    //TODO verification
-    // return redirect()->route('auction', ['id' => $auction->id]);
-    // if (Auth::check()) {
-    //   $now = date('Y-m-d');
-    //   $categories = DB::select('select name from category', []);
-    //   $this->validate($request, [
-    //     'title' => 'bail|required|max:255',
-    //     'description' => 'bail|required|max:1500',
-    //     'closeDate' => 'bail|required|date_format:Y-m-d|after:' . $now,
-    //     'initialValue' => 'bail|required|min:5',
-    //     'category' => ['bail', 'required', Rule::in($categories)]
-    //   ]);
-
-    //   $category_id = Category::where('name', $request['category'])->first();
-
-    //   $auction = new Auction;
-
-    //   $auction->title = $request['title'];
-    //   $auction->description = $request['description'];
-    //   $auction->closedate = $request['closeDate'];
-    //   $auction->initialvalue = $request['initialValue'];
-    //   $auction->category_id = $category_id->id;
-    //   $auction->user_id = Auth::user()->id;
-
-    //   print($auction);
-
-    //   $auction->save();
 
     return redirect()->route('auction', ['id' => $auction->id]);
   }
@@ -103,5 +78,25 @@ class AuctionController extends Controller
     $auction->description = $request->description;
 
     return back();
+  }
+
+  public function bid(Request $request, $id)
+  {
+    $auction = Auction::find($id);
+    $this->authorize('bid', $auction);
+
+    $max = DB::select('select max(value) from bid where auction_id = ?', [$auction->id]);
+    if($max == null) $max = $auction->initialValue;
+
+    // TODO: put increment
+    $this->validate($request, [
+      'value' => ['bail', 'required', 'min:' . $max]
+    ]);
+
+    $bid = new Bid;
+    $bid->value = $request->value;
+    $bid->user_id = Auth::user()->id;
+    $bid->auction_id = $id;
+    $bid->save();
   }
 }
