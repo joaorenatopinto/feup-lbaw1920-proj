@@ -38,11 +38,11 @@ Route::get('user/{id}/edit', 'UserController@editPage')->name('editProfilePage')
 Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
 
 // Admin Authentication
-Route::get('administrator', 'Auth\AdminLoginController@showForm')->name('adminLogin');
-Route::post('administrator', 'Auth\AdminLoginController@login');
+Route::get('administration', 'Auth\AdminLoginController@showForm')->name('adminLogin');
+Route::post('administration', 'Auth\AdminLoginController@login');
 
 //Admin page
-Route::get('administration', 'AdminController@show');
+Route::get('administration/users', 'AdminController@show');
 /*
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 */
