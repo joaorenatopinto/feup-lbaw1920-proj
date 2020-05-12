@@ -34,9 +34,9 @@ Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
 
 //User profile
-Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::get('user/{id}','UserController@page')->name('profile');
-Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
+Route::get('user/edit', 'UserController@editPage')->name('editPage');
+Route::post('user/edit', 'UserController@edit')->name('editProfile');
 
 // API
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');

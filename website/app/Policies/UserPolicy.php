@@ -11,14 +11,9 @@ class UserPolicy
 {
   use HandlesAuthorization;
 
-  //verifies if the user requesting the edit is the user being edited
-  public function edit(User $user1, USer $user2)
-  {
-    return $user1->id === $user2->id;
-  }
-
   //Verifies if the user is authenticated
-  public function showEditPage() {
+  public function edit()
+  {
     return Auth::check();
   }
 }
