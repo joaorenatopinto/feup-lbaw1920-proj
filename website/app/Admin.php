@@ -3,13 +3,15 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Admin as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
 {
     use Notifiable;
 
     protected $table = 'admin';
+
+    protected $guard = 'admin';
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
@@ -31,7 +33,4 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
-
-
 }

@@ -37,9 +37,12 @@ Route::get('user/{id}','UserController@page')->name('profile');
 Route::get('user/{id}/edit', 'UserController@editPage')->name('editProfilePage');
 Route::post('user/{id}/edit', 'UserController@edit')->name('editProfile');
 
-// Admin Authentication ------- TODO
-Route::get('admin/login', 'Auth\AdminLoginController@showForm')->name('adminLogin');
-Route::post('admin/login', 'Auth\AdminLoginController@login');
+// Admin Authentication
+Route::get('administrator', 'Auth\AdminLoginController@showForm')->name('adminLogin');
+Route::post('administrator', 'Auth\AdminLoginController@login');
+
+//Admin page
+Route::get('administration', 'AdminController@show');
 /*
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 */

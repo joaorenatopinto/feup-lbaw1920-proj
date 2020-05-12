@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
 {
@@ -25,7 +26,7 @@ class AdminLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/category/2';
+    protected $redirectTo = '/administration';
 
     /**
      * Create a new controller instance.
@@ -47,5 +48,9 @@ class AdminLoginController extends Controller
 
     public function showForm(){
         return view('auth.adminLogin'); 
+    }
+
+    protected function guard() {
+        return Auth::guard('admin');
     }
 }

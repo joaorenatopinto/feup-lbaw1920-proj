@@ -291,7 +291,7 @@ INSERT INTO  "category" ("name") VALUES ('Antiques');
 INSERT INTO "admin" (username, password) VALUES ('guizinhos', 'b53434e5a0cd3502495a368b6d2305a4be08459c2247cb2f33df08f6cb8e0fcd');
 INSERT INTO "admin" (username, password) VALUES ('willzao', '0410ddabff7ce2b4b81ae1311f6b325157ce742edd5ba87dfa3a1dcf9be2ba49');
 INSERT INTO "admin" (username, password) VALUES ('TilhasPastilhas', 'e8a3b2f500b628a2e5076e5da4b3c73e674fbf79ba940e8bf05c62cef65f7f34');
-INSERT INTO "admin" (username, password) VALUES ('HangOn', 'c9c1c8f3bfa7947b569605c670251ab5c9621980b2ff7f7e6366769c94ceff20');
+INSERT INTO "admin" (username, password) VALUES ('HangOn', '$2y$12$BQFl2SLjm4IFQMXKwdmX/emB23izbCHvg9znn3ipCcyTd/zXKYiCK');
 
 -- Passwords dos user são o username+99 
 -- 1 to 5 Moderators, 6-8 recommendedMods, 20 banned    

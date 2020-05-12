@@ -16,15 +16,20 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="admin username">
-						
+						<input id="username" type="text" class="form-control" placeholder="admin username" name="username">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input id="adminPassword" type="password" class="form-control" placeholder="password" name="password">
 					</div>
+					@error('username')
+						<div class="alert alert-danger">User:{{ $message }}</div>
+					@enderror
+					@error('password')
+						<div class="alert alert-danger">Pass:{{ $message }}</div>
+					@enderror
 					<div class="form-group d-flex p-2 bd-highlight ">
 						<input type="submit" value="Administrator Login" class="btn btn-outline-info flex-grow-1">
 					</div>

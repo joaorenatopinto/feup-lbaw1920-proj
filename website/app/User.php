@@ -35,5 +35,5 @@ class User extends Authenticatable
     public function auctions() {
         return $this->hasMany('App\Auction');
     }
-
+    
 }
