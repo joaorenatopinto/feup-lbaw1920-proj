@@ -5,7 +5,7 @@
   <!-- Image -->
   <div class="card my-4">
     <div class="center mt-5">
-    <div class="text-center"><img src="{{ asset('img/cages.png') }}" class="rounded-circle img-fluid" alt="..."></div>
+    <div class="text-center"><img class="rounded-circle" src="{{asset(App\Image::where('user_id',$user->id)->first()->path)}}"  width="300" height="300"alt="..."></div>
     </div>
 
     @if ($user->id === Auth::id())

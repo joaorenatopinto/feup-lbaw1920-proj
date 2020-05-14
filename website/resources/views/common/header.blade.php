@@ -74,7 +74,7 @@
 
           <li class="nav-item">
           <a class="navbar-brand" href="{{ route('profile',['id' => Auth::id()]) }}">
-            <img src="{{ asset('img/cages.png') }}" class="rounded-circle" width="35" height="35" alt="">
+            <img src="{{asset(App\Image::where('user_id',Auth::id())->first()->path)}}" class="rounded-circle" width="35" height="35" alt="">
             </a>
           </li>
 
