@@ -343,7 +343,6 @@ INSERT INTO "image" (path, alt,user_id) VALUES ('/img/Patilhas.jpg'   , 'Patilha
 INSERT INTO "image" (path, alt,user_id) VALUES ('/img/Risinhos.jpg'   , 'Risinhos',2);
 INSERT INTO "image" (path, alt,user_id) VALUES ('/img/Will.jpg'   , 'Will',3);
 INSERT INTO "image" (path, alt,user_id) VALUES ('/img/Standby.jpg', 'Standby',4);
-INSERT INTO "image" (path, alt,user_id) VALUES ('/img/motos.jpg'   , 'motos',5);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction1/1.jpg'   , 'auction1',1);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction2/1.jpg'   , 'auction2',2);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction3/1.jpg'   , 'auction3',3);
