@@ -84,9 +84,11 @@ class AuctionController extends Controller
   {
     $auction = Auction::find($id);
     $this->authorize('bid', $auction);
+    $max = $auction->getHighestBid($id);
 
-    $max = DB::select('select max(value) from bid where auction_id = ?', [$auction->id]);
-    if($max == null) $max = $auction->initialValue;
+    /* increment of 1 */
+    $min_bid = $max + 1;
+
 
     // TODO: put increment
     $this->validate($request, [

@@ -24,15 +24,10 @@ class Auction extends Model
     return $image;
   }
 
-  public function getHighestBid(){
-    $price = Bid::where('auction_id', $this->id)->max('value');
-
-    if ($price == null) {
-      return $this->initialvalue;
-    }
-    else {
-      return $price;
-    }
+  public function getHighestBid($id){
+    $max = Bid::where('auction_id', $id)->max('value');
+    if($max == null) return $auction->initialValue;
+    else return $max->value;
   }
 
   public function getCategory()
