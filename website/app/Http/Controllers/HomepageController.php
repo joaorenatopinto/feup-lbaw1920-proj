@@ -16,6 +16,8 @@ class HomepageController extends Controller
      */
     public function show()
     {
-      return view('pages.home');
+      $categories = DB::select('select * from category');
+
+      return view('pages.home', compact('categories', 'id'));
     }
 }
