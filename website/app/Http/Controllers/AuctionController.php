@@ -90,9 +90,8 @@ class AuctionController extends Controller
     $min_bid = $max + 1;
 
 
-    // TODO: put increment
     $this->validate($request, [
-      'value' => ['bail', 'required', 'min:' . $max]
+      'value' => ['bail', 'required', 'min:' . $min_bid]
     ]);
 
     $bid = new Bid;
