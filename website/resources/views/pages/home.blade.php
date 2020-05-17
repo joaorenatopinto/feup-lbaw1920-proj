@@ -6,6 +6,11 @@
 <div class="container">
   <div id="center" class="d-flex p-3 bd-highlight justify-content-center">
     <!-- Featured Auctions Carousel -->
+    {{
+      /* Order auctions by number of bids */
+      $featured_id = App\Bid::groupBy('auction_id')->orderBy('count(*)')->select('auction_id');
+      $featured = App\Auction::whereIn('id', $featured_id);
+    }}
     <div id="featuredAuctions" class="carousel slide w-100 " data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#featuredAuctions" data-slide-to="0" class="active"></li>
@@ -15,29 +20,29 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <a href="auction.php">
-            <img class="d-block w-100 img-rounded img-fluid" src="img/Harley-Davidson-FXDR-114_Fernando-M-1.jpg"
+            <img class="d-block w-100 img-rounded img-fluid" src="{{App\Image::where('auction_id',$featured_id->get(0))->first()->path}}"
               alt="First slide">
           </a>
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="text-light">Harley Davidson</h5>
-            <p>2000.34€</p>
+            <h5 class="text-light">{{ $featured->get(0)->title }}</h5>
+            <p>{{ $featured->get(0)->getHighestBid() }}€</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 img-rounded img-fluid" src="img/naom_5dd790964de6c.jpg" alt="Second slide">
+          <img class="d-block w-100 img-rounded img-fluid" src="{{App\Image::where('auction_id',$featured_id->get(1))->first()->path}}" alt="Second slide">
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="text-light">Tesla</h5>
-            <p>3000.00€</p>
+            <h5 class="text-light">{{ $featured->get(1)->title }}</h5>
+            <p>{{ $featured->get(1)->getHighestBid() }}€</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 img-fluid" src="img/11154232_xxl_v1557372653930.jpg" alt="Third slide">
+          <img class="d-block w-100 img-fluid" src="{{App\Image::where('auction_id',$featured_id->get(2))->first()->path}}" alt="Third slide">
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="text-light">Rolex</h5>
-            <p>300.00€</p>
+            <h5 class="text-light">{{ $featured->get(2)->title }}</h5>
+            <p>{{ $featured->get(2)->getHighestBid() }}€</p>
           </div>
         </div>
       </div>
