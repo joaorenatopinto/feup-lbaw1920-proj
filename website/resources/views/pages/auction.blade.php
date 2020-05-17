@@ -8,6 +8,7 @@
     </div>
     <div class="row">
         <div class="col-sm">
+            <img class="card-img align-content-center" src="{{App\Image::where('auction_id',$auction->id)->first()->path}}" alt="Card image cap">
             <div class="text-start">{{$auction->description}}</div>
             <div class="text-center m-3">
             <h6 class="align-middle">Auction by <a href="{{ route('profile',['id' => $auction->user->id ]) }}">{{$auction->user->name}}</a></h6>
