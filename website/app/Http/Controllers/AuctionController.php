@@ -89,11 +89,14 @@ class AuctionController extends Controller
     /* increment of 1 */
     $min_bid = $max + 1;
 
-
     $this->validate($request, [
       'value' => ['bail', 'required', 'min:' . $min_bid]
     ]);
 
+    $balance = Auth::user()->balance;
+    if($balance < $request->value){
+      abort(401, 'No sei que msg ou nr meter... :/');
+    }
     $bid = new Bid;
     $bid->value = $request->value;
     $bid->user_id = Auth::user()->id;

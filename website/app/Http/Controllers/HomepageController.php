@@ -16,6 +16,8 @@ class HomepageController extends Controller
      */
     public function show()
     {
-      return view('pages.home');
+      $featured_id = App\Bid::groupBy('auction_id')->orderBy('count(*)')->select('auction_id');
+      $featured = App\Auction::whereIn('id', $featured_id);
+      return view('pages.home', ['featured_id' => $featured_id, 'featured => $featured']);
     }
 }

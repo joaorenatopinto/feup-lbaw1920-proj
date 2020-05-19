@@ -6,11 +6,6 @@
 <div class="container">
   <div id="center" class="d-flex p-3 bd-highlight justify-content-center">
     <!-- Featured Auctions Carousel -->
-    {{
-      /* Order auctions by number of bids */
-      $featured_id = App\Bid::groupBy('auction_id')->orderBy('count(*)')->select('auction_id');
-      $featured = App\Auction::whereIn('id', $featured_id);
-    }}
     <div id="featuredAuctions" class="carousel slide w-100 " data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#featuredAuctions" data-slide-to="0" class="active"></li>
