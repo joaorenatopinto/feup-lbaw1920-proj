@@ -5,11 +5,13 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'user';
+    protected $table = 'admin';
+
+    protected $guard = 'admin';
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
@@ -20,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'name', 'email', 'nif'
+        'username', 'password'
     ];
 
     /**
@@ -31,9 +33,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function auctions() {
-        return $this->hasMany('App\Auction');
-    }
-    
 }
