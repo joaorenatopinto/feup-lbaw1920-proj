@@ -1,4 +1,4 @@
-@extends('layouts.app')
+    @extends('layouts.app')
 
 @section('content')
 <link href="{{ asset('css/name.css') }}" rel="stylesheet">
@@ -14,30 +14,33 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <a href="auction.php">
-            <img class="d-block w-100 img-rounded img-fluid" src="{{App\Image::where('auction_id',$featured_id->get(0))->first()->path}}"
-              alt="First slide">
+          <a href="auction/{{$featured->first()->id}}">
+            <img class="d-block w-100 img-rounded img-fluid h-75" src="{{$featured->first()->getImage()->path}}" alt="First slide">
           </a>
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="text-light">{{ $featured->get(0)->title }}</h5>
-            <p>{{ $featured->get(0)->getHighestBid($featured_id->get(0)) }}€</p>
+            <h5 class="text-light">{{ $featured->first()->title }}</h5>
+            <p>{{ $featured->first()->getHighestBid() }}€</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 img-rounded img-fluid" src="{{App\Image::where('auction_id',$featured_id->get(1))->first()->path}}" alt="Second slide">
+          <a href="auction/{{$featured->skip(1)->first()->id}}">
+            <img class="d-block w-100 img-rounded img-fluid h-75" src="{{$featured->skip(1)->first()->getImage()->path}}" alt="Second slide">
+          </a>
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="text-light">{{ $featured->get(1)->title }}</h5>
-            <p>{{ $featured->get(1)->getHighestBid($featured_id->get(1) }}€</p>
+            <h5 class="text-light">{{ $featured->skip(1)->first()->title }}</h5>
+            <p>{{ $featured->skip(1)->first()->getHighestBid() }}€</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 img-fluid" src="{{App\Image::where('auction_id',$featured_id->get(2))->first()->path}}" alt="Third slide">
+          <a href="auction/{{$featured->skip(2)->first()->id}}">
+            <img class="d-block w-100 img-fluid h-75" src="{{$featured->skip(2)->first()->getImage()->path}}" alt="Third slide">
+          </a>
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="text-light">{{ $featured->get(2)->title }}</h5>
-            <p>{{ $featured->get(2)->getHighestBid($featured_id->get(2)) }}€</p>
+            <h5 class="text-light">{{ $featured->skip(2)->first()->title }}</h5>
+            <p>{{ $featured->skip(2)->first()->getHighestBid() }}€</p>
           </div>
         </div>
       </div>
@@ -51,6 +54,7 @@
       </a>
     </div>
   </div>
+
 
   <!-- Categories -->
   <div class="d-flex p-2 bd-highlight justify-content-center">

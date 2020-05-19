@@ -35,9 +35,9 @@ Route::post('auction/{id}/bid', 'AuctionController@bid');
 Route::get('auction/search/{term}', 'AuctionController@search');
 
 //User profile
-Route::get('user/{id}','UserController@page')->name('profile');
 Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::post('user/edit', 'UserController@edit')->name('editProfile');
+Route::get('user/{id}','UserController@page')->name('profile');
 
 // Admin Authentication
 Route::get('administration', 'Auth\AdminLoginController@showForm')->name('adminLogin');

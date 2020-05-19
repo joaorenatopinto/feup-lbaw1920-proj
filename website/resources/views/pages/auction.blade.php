@@ -25,9 +25,14 @@
                 <button type="button" class="btn btn-outline-danger">{{$auction->getHighestBid()+450}}€</button>
             </div>
             <div class="input-group mt-3">
-                <input type="number" class="form-control" placeholder="Place your Bid">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-danger px-5">Bid <i class="fas fa-coins"></i></button>
+                    <form action="{{$auction->id}}/bid" method="post">
+                        <input type="number" class="form-control" placeholder="Place your Bid">
+                        <button type="button" class="btn btn-danger px-5">Bid <i class="fas fa-coins"></i></button>
+                        <div class="form-group d-flex p-2 bd-highlight ">
+						    <input type="submit" value="Login" class="btn btn-outline-info flex-grow-1">
+					    </div>
+                    </form> 
                 </div>
             </div>
         </div>

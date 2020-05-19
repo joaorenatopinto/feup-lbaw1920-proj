@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bid;
 use App\Auction;
 use App\Category;
 use Illuminate\Http\Request;
@@ -84,7 +85,7 @@ class AuctionController extends Controller
   {
     $auction = Auction::find($id);
     $this->authorize('bid', $auction);
-    $max = $auction->getHighestBid($id);
+    $max = $auction->getHighestBid();
 
     /* increment of 1 */
     $min_bid = $max + 1;
@@ -102,5 +103,7 @@ class AuctionController extends Controller
     $bid->user_id = Auth::user()->id;
     $bid->auction_id = $id;
     $bid->save();
+
+    return redirect()->route('auction', ['id' => $id]);
   }
 }

@@ -8,7 +8,7 @@
 				<h3>Edit Profile</h3>
 			</div>
             <div class="card-body">
-                <form method="POST" action="{{ route('editProfile',['id' => Auth::id()]) }}">
+                <form method="POST" action="{{ route('editProfile') }}">
             
                     {{ csrf_field() }}
 
