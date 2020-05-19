@@ -29,7 +29,7 @@
 </header>
 @endguest
 
-@auth
+@auth('web')
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <a class="navbar-brand text-light" href="/"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60" alt="SLASH AH"></a>

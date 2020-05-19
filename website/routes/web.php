@@ -15,7 +15,7 @@
 Route::get('/', 'HomepageController@show');
 Route::get('home', 'HomepageController@show')->name('home');
 
-// Authentication
+// User Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
@@ -38,7 +38,17 @@ Route::get('user/{id}','UserController@page')->name('profile');
 Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::post('user/edit', 'UserController@edit')->name('editProfile');
 
-// API
+// Admin Authentication
+Route::get('administration', 'Auth\AdminLoginController@showForm')->name('adminLogin');
+Route::post('administration', 'Auth\AdminLoginController@login');
+
+//Admin page
+Route::get('administration/users', 'AdminController@show');
+/*
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+*/
+
+//API
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
 
 // Moderation
