@@ -21,7 +21,7 @@
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-light">{{ $featured->get(0)->title }}</h5>
-            <p>{{ $featured->get(0)->getHighestBid() }}€</p>
+            <p>{{ $featured->get(0)->getHighestBid($featured_id->get(0)) }}€</p>
           </div>
         </div>
         <div class="carousel-item">
@@ -29,7 +29,7 @@
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-light">{{ $featured->get(1)->title }}</h5>
-            <p>{{ $featured->get(1)->getHighestBid() }}€</p>
+            <p>{{ $featured->get(1)->getHighestBid($featured_id->get(1) }}€</p>
           </div>
         </div>
         <div class="carousel-item">
@@ -37,7 +37,7 @@
           <div class="black-overlay"></div>
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-light">{{ $featured->get(2)->title }}</h5>
-            <p>{{ $featured->get(2)->getHighestBid() }}€</p>
+            <p>{{ $featured->get(2)->getHighestBid($featured_id->get(2)) }}€</p>
           </div>
         </div>
       </div>
