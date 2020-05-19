@@ -75,8 +75,8 @@ class AuctionController extends Controller
       'category' => ['bail', 'required', Rule::in($categories)]
     ]);
 
-    $auction->title = $request->title;
-    $auction->description = $request->description;
+    $auction->title = $request->input('title');
+    $auction->description = $request->input('description');
 
     return back();
   }
@@ -95,14 +95,16 @@ class AuctionController extends Controller
     ]);
 
     $balance = Auth::user()->balance;
-    if($balance < $request->value){
+    if($balance < $request->input('value')){
       abort(401, 'No sei que msg ou nr meter... :/');
     }
     $bid = new Bid;
-    $bid->value = $request->value;
+    $bid->value = $request->input('value');
     $bid->user_id = Auth::user()->id;
     $bid->auction_id = $id;
     $bid->save();
+
+    Auth::user()->balance = $balance - $bid->value;
 
     return redirect()->route('auction', ['id' => $id]);
   }

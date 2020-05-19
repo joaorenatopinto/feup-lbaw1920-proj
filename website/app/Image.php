@@ -10,4 +10,8 @@ class Image extends Model
   public $timestamps  = false;
 
   protected $table = 'image';
+
+  protected $fillable = [
+      'path', 'auction_id', 'user_id'
+  ];
 }

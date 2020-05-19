@@ -27,11 +27,9 @@
             <div class="input-group mt-3">
                 <div class="input-group-append">
                     <form action="{{$auction->id}}/bid" method="post">
-                        <input type="number" class="form-control" placeholder="Place your Bid">
-                        <button type="button" class="btn btn-danger px-5">Bid <i class="fas fa-coins"></i></button>
-                        <div class="form-group d-flex p-2 bd-highlight ">
-						    <input type="submit" value="Login" class="btn btn-outline-info flex-grow-1">
-					    </div>
+                        {{ csrf_field() }}
+                        <input type="number" id="value" name="value" class="form-control" placeholder="Place your Bid">
+                        <button type="submit" class="btn btn-danger px-5">Bid <i class="fas fa-coins"></i></button>
                     </form> 
                 </div>
             </div>

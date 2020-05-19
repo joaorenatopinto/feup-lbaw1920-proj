@@ -12,6 +12,8 @@ class Auction extends Model
 
   protected $table = 'auction';
 
+  protected $fillable = ['user_id', 'title', 'category_id', 'description', 'startDate', 'closeDate', 'initialValue'];
+
   /**
    * The user this card belongs to
    */
