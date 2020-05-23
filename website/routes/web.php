@@ -45,9 +45,8 @@ Route::post('administration', 'Auth\AdminLoginController@login');
 
 //Admin page
 Route::get('administration/users', 'AdminController@show');
-/*
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-*/
+Route::get('administration/logout', 'Auth\AdminLoginController@logout')->name('adminLogout');
+
 
 //API
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
