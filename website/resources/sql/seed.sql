@@ -288,10 +288,10 @@ INSERT INTO  "category" ("name") VALUES ('Computers');
 INSERT INTO  "category" ("name") VALUES ('Antiques');
 
 -- Passwords dos admin são o username+99 
-INSERT INTO "admin" (username, password) VALUES ('guizinhos', 'b53434e5a0cd3502495a368b6d2305a4be08459c2247cb2f33df08f6cb8e0fcd');
-INSERT INTO "admin" (username, password) VALUES ('willzao', '0410ddabff7ce2b4b81ae1311f6b325157ce742edd5ba87dfa3a1dcf9be2ba49');
-INSERT INTO "admin" (username, password) VALUES ('TilhasPastilhas', 'e8a3b2f500b628a2e5076e5da4b3c73e674fbf79ba940e8bf05c62cef65f7f34');
-INSERT INTO "admin" (username, password) VALUES ('HangOn', '$2y$12$BQFl2SLjm4IFQMXKwdmX/emB23izbCHvg9znn3ipCcyTd/zXKYiCK');
+INSERT INTO "admin" (username, password) VALUES ('guizinhos', '$2y$10$jORNEtuu/Ll1jpxbQDDvAeC7HqcckvS2Rn4Sxe6DyAtEX7245FG.m');
+INSERT INTO "admin" (username, password) VALUES ('willzao', '$2y$10$3T0LeQKIxrVsnPK0OSQAkuMQBgXodC8NcOGS/ijNanYn27FdwtCL2');
+INSERT INTO "admin" (username, password) VALUES ('TilhasPastilhas', '$2y$10$S095TD74UoVYrrd5oi/pp.EJHL0V8Z61U/yQOfPP1vjAw/LrMI3wS');
+INSERT INTO "admin" (username, password) VALUES ('HangOn', '$2y$10$tA52X4iay00QRhVJXgh./eVIWBhHx3i4xt8LJePiHx1NiqBP72G7W');
 
 -- Passwords dos user são o username+99 
 -- 1 to 5 Moderators, 6-8 recommendedMods, 20 banned    
