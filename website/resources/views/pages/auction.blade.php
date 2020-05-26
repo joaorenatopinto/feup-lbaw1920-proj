@@ -8,6 +8,7 @@
     </div>
     <div class="row">
         <div class="col-sm">
+            <img class="card-img align-content-center" src="{{App\Image::where('auction_id',$auction->id)->first()->path}}" alt="Card image cap">
             <div class="text-start">{{$auction->description}}</div>
             <div class="text-center m-3">
             <h6 class="align-middle">Auction by <a href="{{ route('profile',['id' => $auction->user->id ]) }}">{{$auction->user->name}}</a></h6>
@@ -24,9 +25,12 @@
                 <button type="button" class="btn btn-outline-danger">{{$auction->getHighestBid()+450}}€</button>
             </div>
             <div class="input-group mt-3">
-                <input type="number" class="form-control" placeholder="Place your Bid">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-danger px-5">Bid <i class="fas fa-coins"></i></button>
+                    <form action="{{$auction->id}}/bid" method="post">
+                        {{ csrf_field() }}
+                        <input type="number" id="value" name="value" class="form-control" placeholder="Place your Bid">
+                        <button type="submit" class="btn btn-danger px-5">Bid <i class="fas fa-coins"></i></button>
+                    </form> 
                 </div>
             </div>
         </div>

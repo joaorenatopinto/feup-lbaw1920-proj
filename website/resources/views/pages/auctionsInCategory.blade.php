@@ -5,7 +5,7 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item active "><a href="#">Categories</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{  App\Category::find($id)->name }}</li>
         </ol>

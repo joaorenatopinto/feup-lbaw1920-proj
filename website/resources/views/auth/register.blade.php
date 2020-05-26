@@ -8,7 +8,7 @@
 				<h3>Sign Up</h3>
 			</div>
     <div class="card-body">
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
           
           {{ csrf_field() }}
 
@@ -34,6 +34,20 @@
             <input type="text" class="form-control" placeholder="Username" id="username" name="username">
           </div>
 
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="NIF" id="nif" name="nif">
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-file-picture-o"></i></span>
+            </div>
+            <input type="file" class="form-control"  name="image"/>
+          </div>
+
           <div class="input-group form-group d-flex">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -43,7 +57,7 @@
           </div>
 
           <div class="form-check form-group">
-            <input class="form-check-input align-middle" type="checkbox" value="" id="defaultCheck1">
+            <input class="form-check-input align-middle" type="checkbox" value="1" id="defaultCheck1">
             <label class="form-check-label" for="defaultCheck1">
              I have read and accept the <a href="#"> Terms and Conditions</a>
             </label>

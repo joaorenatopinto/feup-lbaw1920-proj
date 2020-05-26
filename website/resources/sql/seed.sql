@@ -288,17 +288,17 @@ INSERT INTO  "category" ("name") VALUES ('Computers');
 INSERT INTO  "category" ("name") VALUES ('Antiques');
 
 -- Passwords dos admin são o username+99 
-INSERT INTO "admin" (username, password) VALUES ('guizinhos', 'b53434e5a0cd3502495a368b6d2305a4be08459c2247cb2f33df08f6cb8e0fcd');
-INSERT INTO "admin" (username, password) VALUES ('willzao', '0410ddabff7ce2b4b81ae1311f6b325157ce742edd5ba87dfa3a1dcf9be2ba49');
-INSERT INTO "admin" (username, password) VALUES ('TilhasPastilhas', 'e8a3b2f500b628a2e5076e5da4b3c73e674fbf79ba940e8bf05c62cef65f7f34');
-INSERT INTO "admin" (username, password) VALUES ('HangOn', '$2y$12$BQFl2SLjm4IFQMXKwdmX/emB23izbCHvg9znn3ipCcyTd/zXKYiCK');
+INSERT INTO "admin" (username, password) VALUES ('guizinhos', '$2y$10$jORNEtuu/Ll1jpxbQDDvAeC7HqcckvS2Rn4Sxe6DyAtEX7245FG.m');
+INSERT INTO "admin" (username, password) VALUES ('willzao', '$2y$10$3T0LeQKIxrVsnPK0OSQAkuMQBgXodC8NcOGS/ijNanYn27FdwtCL2');
+INSERT INTO "admin" (username, password) VALUES ('TilhasPastilhas', '$2y$10$S095TD74UoVYrrd5oi/pp.EJHL0V8Z61U/yQOfPP1vjAw/LrMI3wS');
+INSERT INTO "admin" (username, password) VALUES ('HangOn', '$2y$10$tA52X4iay00QRhVJXgh./eVIWBhHx3i4xt8LJePiHx1NiqBP72G7W');
 
 -- Passwords dos user são o username+99 
 -- 1 to 5 Moderators, 6-8 recommendedMods, 20 banned    
-INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('poncho', '767ea8a7e05fa00dbe763b37d8a4f2bd6d5a0d7dd3684c410490c7ccf0f790e0', 'Gabe Itches', 'gabe.itches@lbaw.fun',200 , '271654321', 'Utilizador experiente com reconhecimento por parte dos seus clientes em todo o pais');
-INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('present', 'fc9eaeec7cf54bf86ef70d0e09f1c3faa613c4ab8f4304de6225267fa29f71ff', 'Hugh Jass', 'hjass1999@yahoo.com',3000 , '271456456', 'Experiente em venda automovel');
-INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('aquafeeling', '6586a0d7882cee8d0e4c2b142189c4abc8d82beb451e299fda6d9fef7163665a', 'Moe Lester', 'mlester98@hotmail.com',250 , '271353268', 'Experiente com venda de motas');
-INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('goose', '2383b6c2b82588b03430633bac1fa1bed973f9d4cbc1e653d50d6abaca3cb59f', 'Daniel G', 'up201602314@fe.up.pt', 880, '271536984', 'Trabalho na area da relojoaria ha mais de 10 anos ');
+INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('will', '$2y$10$0zTkm2zx3nNlkhP6VAGr.utUlCRDuonTJi8ac87sEi8MSVYKf.t3i', 'Will Ferrell', 'will@gmail.com',200 , '271654321', 'Utilizador experiente com reconhecimento por parte dos seus clientes em todo o pais');
+INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('lmoura', '$2y$10$OhOnVGXp/HmY0JdTh4dXFulXUMHVsu7OC1piJPC1xoQLVPc5UU1oO', 'Leonardo Moura', 'lmoura@gmail.com',3000 , '271456456', 'Experiente em venda automovel');
+INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('jpinto', '$2y$10$hOpZdYRmJMOL5HsFkxJFFuDtpBrW/nmL7TXJzJkTGuAwFowQ6Oj5u', 'João Pinto', 'jpinto@gmail.com',250 , '271353268', 'Experiente com venda de motas');
+INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('jcampos', '$2y$10$oSykxsqIliDUYZCmY4iqCOO4z.Pja9e9YTABQnJBDl4EqGGtTEfYW', 'João Campos', 'jcampos@gmail.com', 880, '271536984', 'Trabalho na area da relojoaria ha mais de 10 anos ');
 INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('kaliasoon', 'e56ad9ab12e30ba77e85779ad4913e47443b848963f723a60f806a0681bcc6b0', 'Kalia Soon', 'up201642314@fe.up.pt' ,20, '271536184', 'Vendedor de telemoveis novos, usados e recondicionados');
 INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('sonore', '1494b0df48109962b46f34cb9a4e17d97cf564571b66e65c0e6cf2185820236a', 'So Nore', 'sonore@gmail.com', 85, '262420090', 'Interessado na industria automovel');
 INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('spaceship', '3066125bf111e512e0933520ad03d88530c6e5da1b8b3e0c88cbcd09bea8e28d', 'Space Ship', 'spaceship@gmail.com',4500 , '264680235', 'Novo no mundo dos leilões');
@@ -339,11 +339,10 @@ INSERT INTO auction (title, description, startDate, closeDate, initialValue, cat
 INSERT INTO auction (title, description, startDate, closeDate, initialValue, category_id, user_id) VALUES (' Moeda 50 centavos Republica Portuguesa 1938 rara ', ' Moeda 50 centavos Republica Portuguesa 1938 bela rara e verdadeira.','2020-10-27 09:00:15','2020-11-27 09:00:15', 250, 5, 12);
 INSERT INTO auction (title, description, startDate, closeDate, initialValue, category_id, user_id) VALUES (' Parker Inflection ouro e laca preta ', ' Parker Inflection em ouro e laca em preto. Nova na caixa com certificado de autenticidade e garantia. ','2021-04-17 09:00:15','2021-05-17 09:00:15', 75, 5, 9);
 
-INSERT INTO "image" (path, alt,user_id) VALUES ('/img/Patilhas.jpg'   , 'Patilhas',1);
-INSERT INTO "image" (path, alt,user_id) VALUES ('/img/Risinhos.jpg'   , 'Risinhos',2);
-INSERT INTO "image" (path, alt,user_id) VALUES ('/img/Will.jpg'   , 'Will',3);
-INSERT INTO "image" (path, alt,user_id) VALUES ('/img/Standby.jpg', 'Standby',4);
-INSERT INTO "image" (path, alt,user_id) VALUES ('/img/motos.jpg'   , 'motos',5);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/1.jpg'   , 'Will',1);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/2.jpg', 'Standby',2);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/3.jpg'   , 'Risinhos',3);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/4.jpg'   , 'Patilhas',4);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction1/1.jpg'   , 'auction1',1);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction2/1.jpg'   , 'auction2',2);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction3/1.jpg'   , 'auction3',3);

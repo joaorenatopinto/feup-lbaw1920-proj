@@ -32,11 +32,12 @@ Route::get('auction/{id}', 'AuctionController@show')->name('auction');
 Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('editAuction');
 Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
+Route::get('auction/search/{term}', 'AuctionController@search');
 
 //User profile
-Route::get('user/{id}','UserController@page')->name('profile');
 Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::post('user/edit', 'UserController@edit')->name('editProfile');
+Route::get('user/{id}','UserController@page')->name('profile');
 
 // Admin Authentication
 Route::get('administration', 'Auth\AdminLoginController@showForm')->name('adminLogin');
@@ -44,9 +45,8 @@ Route::post('administration', 'Auth\AdminLoginController@login');
 
 //Admin page
 Route::get('administration/users', 'AdminController@show');
-/*
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-*/
+Route::get('administration/logout', 'Auth\AdminLoginController@logout')->name('adminLogout');
+
 
 //API
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');

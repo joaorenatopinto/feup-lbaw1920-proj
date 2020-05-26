@@ -2,8 +2,8 @@
 <div class="d-flex p-2 bd-highlight justify-content-center">
       <footer class="page-footer font-small indigo">
         <div class="footer-copyright text-center py-3">© 2020 Copyright: 
-          <a href="index.php"> SlashAh</a>
-          <a class="ml-3" href="about.php">About</div>
+          <a href="/"> SlashAh</a>
+          <a class="ml-3" href="/about">About</div>
         </div>
     </footer>
 </div>
