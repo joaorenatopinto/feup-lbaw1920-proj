@@ -53,11 +53,12 @@ function paginationResponseHandler() {
   for (let i = 0; i < auctions.length; i++) {
     let auction = auctions[i];
     let newAuctionCard = document.createElement('div');
+    let auctionImage = response.images[auction.id];
 
     newAuctionCard.className = 'card mx-auto m-3';
     newAuctionCard.innerHTML = `
     <div class="row no-gutters">
-      <img class="card-img col-md-5" src="${App\Image::where('auction_id',$auction->id)->first()->path}" alt="Card image cap">
+      <img class="card-img col-md-5" src="${auctionImage.path}" alt="${auctionImage.alt}">
       <div class="card-body col-md-7 p-3">
           <h5 class="card-title"> ${auction.title}  </h5>
           <p class="card-text"> ${auction.description}</p>

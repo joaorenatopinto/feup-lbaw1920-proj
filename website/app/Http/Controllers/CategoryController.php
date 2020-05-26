@@ -21,14 +21,16 @@ class CategoryController extends Controller
     $auctions = Auction::where('category_id', $id)->paginate(3);
 
     $bids = [];
+    $images = [];
 
     //Get highest bid for each auction
     foreach ($auctions as $auction) {
       $auct_id = $auction->id;
       $bids[$auct_id] = $auction->getHighestBid();
+      $images[$auct_id] = $auction->getImage();
     }
 
 
-    return json_encode(['auctions' => $auctions, 'bids' => $bids]);
+    return json_encode(['auctions' => $auctions, 'bids' => $bids, 'images' => $images]);
   }
 }
