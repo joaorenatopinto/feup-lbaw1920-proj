@@ -25,10 +25,10 @@
 						<input id="adminPassword" type="password" class="form-control" placeholder="password" name="password">
 					</div>
 					@error('username')
-						<div class="alert alert-danger">User:{{ $message }}</div>
+						<div class="alert alert-danger">{{ $message }}</div>
 					@enderror
 					@error('password')
-						<div class="alert alert-danger">Pass:{{ $message }}</div>
+						<div class="alert alert-danger">{{ $message }}</div>
 					@enderror
 					<div class="form-group d-flex p-2 bd-highlight ">
 						<input type="submit" value="Administrator Login" class="btn btn-outline-info flex-grow-1">
