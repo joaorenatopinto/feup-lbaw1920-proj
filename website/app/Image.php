@@ -12,6 +12,6 @@ class Image extends Model
   protected $table = 'image';
 
   protected $fillable = [
-      'path', 'auction_id', 'user_id'
+      'path', 'auction_id', 'user_id', 'alt'
   ];
 }

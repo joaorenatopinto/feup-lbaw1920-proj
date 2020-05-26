@@ -7,6 +7,8 @@ use App\Image;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class RegisterController extends Controller
 {
@@ -43,7 +45,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  Request  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -52,6 +54,8 @@ class RegisterController extends Controller
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:user',
             'password' => 'required|string|min:6|confirmed',
+            'nif' => 'required|string|unique:user',
+            
         ]);
     }
 
@@ -68,13 +72,17 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'username' => $data['username'],
-            'nif' => $data['username'],
+            'nif' => $data['nif'],
         ]);
 
-        Image::make([
-            'path' => 'img/user/1.jpg',
+        Storage::disk('images_users')->put($user->id.'.jpg',  new File($data['image']));
+
+        $img = new Image([
+            'path' => "/img/user/default.jpg",
+            'alt' => "user".$user->id,
             'user_id' => $user->id,
-        ]);
+            ]);
+        $img->save();
 
         return $user;
     }
