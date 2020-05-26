@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bid;
 use App\Auction;
 use App\Category;
+use App\Bid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
