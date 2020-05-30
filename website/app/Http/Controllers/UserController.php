@@ -54,6 +54,11 @@ class UserController extends Controller
       return view('pages.deposit');
     }
 
+    public function showExtractForm()
+    {
+      return view('pages.extract');
+    }
+
     public function deposit(Request $request)
     {
         $user = Auth::user();
@@ -84,6 +89,40 @@ class UserController extends Controller
         return redirect()->route('auction', ['id' => $id]);
         */
         Auth::user()->balance = $balance + $request->money;
+        Auth::user()->save();
+
+        return redirect()->route('home');
+    }
+    public function extract(Request $request)
+    {
+        $user = Auth::user();
+        //$this->authorize('deposit', $user);
+
+        $balance = Auth::user()->balance;
+        //$max = $auction->getHighestBid();
+
+        /* increment of 1 */
+        /*
+        $min_bid = $max + 1;
+
+        $this->validate($request, [
+        'value' => ['bail', 'required', 'min:' . $min_bid]
+        ]);
+
+        if($balance < $request->input('value')){
+        abort(401, 'No sei que msg ou nr meter... :/');
+        }
+        $bid = new Bid;
+        $bid->value = $request->input('value');
+        $bid->user_id = Auth::user()->id;
+        $bid->auction_id = $id;
+        $bid->save();
+
+        Auth::user()->balance = $balance - $bid->value;
+
+        return redirect()->route('auction', ['id' => $id]);
+        */
+        Auth::user()->balance = $balance - $request->money;
         Auth::user()->save();
 
         return redirect()->route('home');

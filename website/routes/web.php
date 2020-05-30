@@ -42,6 +42,8 @@ Route::get('user/{id}','UserController@page')->name('profile');
 //Money
 Route::get('deposit', 'UserController@showDepositForm')->name('showDeposit');
 Route::post('deposit', 'UserController@deposit')->name('deposit');
+Route::get('extract', 'UserController@showExtractForm')->name('showExtract');
+Route::post('extract', 'UserController@extract')->name('extract');
 
 
 

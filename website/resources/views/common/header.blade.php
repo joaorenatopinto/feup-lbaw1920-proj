@@ -69,7 +69,9 @@
                     <a href="{{ route('showDeposit') }}" >
                      <button class="btn btn-block btn-danger">Deposit Money</button>
                     </a>
-                    <button class="btn btn-block btn-outline-danger">Extract Money</button>
+                    <a href="{{ route('showExtract') }}" >
+                      <button class="btn btn-block btn-outline-danger">Extract Money</button>
+                    </a>
                   </div>
                 </div>
               </div>
