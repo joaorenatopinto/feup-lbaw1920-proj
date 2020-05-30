@@ -66,8 +66,8 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <a href="{{ route('deposit') }}" >
-                     <button class="btn btn-block btn-danger" ">Deposit Money</button>
+                    <a href="{{ route('showDeposit') }}" >
+                     <button class="btn btn-block btn-danger">Deposit Money</button>
                     </a>
                     <button class="btn btn-block btn-outline-danger">Extract Money</button>
                   </div>

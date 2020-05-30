@@ -54,15 +54,16 @@ class UserController extends Controller
       return view('pages.deposit');
     }
 
-    public function deposit(Request $request, $id)
+    public function deposit(Request $request)
     {
         $user = Auth::user();
-        $this->authorize('deposit', $user);
+        //$this->authorize('deposit', $user);
 
         $balance = Auth::user()->balance;
         //$max = $auction->getHighestBid();
 
         /* increment of 1 */
+        /*
         $min_bid = $max + 1;
 
         $this->validate($request, [
@@ -81,5 +82,10 @@ class UserController extends Controller
         Auth::user()->balance = $balance - $bid->value;
 
         return redirect()->route('auction', ['id' => $id]);
+        */
+        Auth::user()->balance = $balance + $request->money;
+        Auth::user()->save();
+
+        return redirect()->route('home');
     }
 }

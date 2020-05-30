@@ -40,7 +40,9 @@ Route::post('user/edit', 'UserController@edit')->name('editProfile');
 Route::get('user/{id}','UserController@page')->name('profile');
 
 //Money
-Route::get('deposit', 'UserController@showDepositForm')->name('deposit');
+Route::get('deposit', 'UserController@showDepositForm')->name('showDeposit');
+Route::post('deposit', 'UserController@deposit')->name('deposit');
+
 
 
 // Admin Authentication
