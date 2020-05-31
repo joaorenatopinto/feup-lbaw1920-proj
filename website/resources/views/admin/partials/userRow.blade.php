@@ -19,7 +19,7 @@
     <td class="align-middle text-danger">INVALID STATUS</td>
   @endif
   <td class="align-middle">
-    <a href="#" class="btn btn-outline-info btn-sm mb-1 w-100">Promote</a>
-    <a href="#" class="btn btn-outline-danger btn-sm w-100">Ban</a>
+  <a href="#" class="btn btn-outline-info btn-sm mb-1 w-100">Promote</a>
+    <a href="{{ route('banUser', ['id' => $user->id]) }}" class="btn btn-outline-danger btn-sm w-100">Ban</a>
   </td>
 </tr>

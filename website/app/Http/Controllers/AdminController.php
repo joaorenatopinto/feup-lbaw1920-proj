@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Admin;
 use App\Auction;
 use App\User;
+use App\UserStatus;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -35,6 +37,23 @@ class AdminController extends Controller
     if (Auth::guard('admin')->check()) {
 
       return view('admin.mods');
+    }
+
+    return redirect(route('home'));
+  }
+
+  public function banUser($userId) {
+    if (Auth::guard('admin')->check()) {
+      $status = new UserStatus;
+
+      $status->status = 'banned';
+      $status->datechanged = date("Y-m-d");
+      $status->user_id = $userId;
+      $status->admin_id = Auth::guard('admin')->id();
+
+      $status->save();
+
+      return redirect()->back();
     }
 
     return redirect(route('home'));

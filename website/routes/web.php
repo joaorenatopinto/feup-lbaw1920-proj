@@ -38,6 +38,7 @@ Route::get('auction/search/{term}', 'AuctionController@search');
 Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::post('user/edit', 'UserController@edit')->name('editProfile');
 Route::get('user/{id}','UserController@page')->name('profile');
+Route::get('user/{id}/ban', 'AdminController@banUser')->name('banUser');
 
 //Money
 Route::get('deposit', 'UserController@showDepositForm')->name('showDeposit');
