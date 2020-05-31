@@ -54,6 +54,10 @@ Route::post('administration', 'Auth\AdminLoginController@login');
 //Admin page
 Route::get('administration/logout', 'Auth\AdminLoginController@logout')->name('adminLogout');
 Route::get('administration/users', 'AdminController@users')->name('adminUsers');
+Route::get('administration/auctions', 'AdminController@auctions')->name('adminAuctions');
+Route::get('administration/moderators', 'AdminController@mods')->name('adminMods');
+Route::get('administration/statistics', 'AdminController@stats')->name('adminStats');
+Route::get('administration/categories', 'AdminController@categories')->name('adminCategories');
 
 //API
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
