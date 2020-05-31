@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bid;
 use App\Auction;
 use App\Category;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -91,20 +92,34 @@ class AuctionController extends Controller
     $min_bid = $max + 1;
 
     $this->validate($request, [
-      'value' => ['bail', 'required', 'min:' . $min_bid]
+      'value' => ['required', 'numeric' ,'min:' . $min_bid]
     ]);
 
     $balance = Auth::user()->balance;
     if($balance < $request->input('value')){
       abort(401, 'No sei que msg ou nr meter... :/');
     }
+    
     $bid = new Bid;
     $bid->value = $request->input('value');
     $bid->user_id = Auth::user()->id;
-    $bid->auction_id = $id;
+    $bid->auction_id = $auction->id;
     $bid->save();
+    
+    
 
+    $transaction = new Transaction;
+    $transaction->value = $bid->value;
+    $transaction->description = 'New bid of value ' . $bid->value . ' $ on auction ' . $auction->title;
+    $transaction->sender_id = Auth::user()->id;
+    $transaction->receiver_id = $auction->user_id;
+    $transaction->is_reserved = true;
+    $transaction->auction =$id;
+    $transaction->save();
+
+    //TODO REMOVE LINE AFTER TRIIGERS ON TRANSACTIONS WORK
     Auth::user()->balance = $balance - $bid->value;
+    Auth::user()->save();
 
     return redirect()->route('auction', ['id' => $id]);
   }
