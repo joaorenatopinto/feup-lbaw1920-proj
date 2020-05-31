@@ -17,14 +17,20 @@
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" class="form-control" placeholder="username" name="username" id="username">
-						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
 						<input type="password" class="form-control" placeholder="password" id="password" name="password">
-                    </div>
+					</div>
+					
+					@error('username')
+						<div class="alert alert-danger">{{ $message }}</div>
+					@enderror
+					@error('password')
+						<div class="alert alert-danger">{{ $message }}</div>
+					@enderror
                     
                     <label>
                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me

@@ -63,6 +63,28 @@
             </label>
           </div>
 
+          @error('name')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+          @error('lastName')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+          @error('email')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+          @error('username')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+          @error('nif')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+          @error('image')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+          @error('password')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+
 					<div class="form-group d-flex p-2 bd-highlight ">
 						<input type="submit" value="Sign Up" class="btn btn-outline-info flex-grow-1">
           </div>
