@@ -32,7 +32,7 @@ Route::get('auction/{id}', 'AuctionController@show')->name('auction');
 Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('editAuction');
 Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
-Route::get('auction/search/{term}', 'AuctionController@search');
+Route::get('auction/search/{term}', 'AuctionController@searchPage');
 
 //User profile
 Route::get('user/edit', 'UserController@editPage')->name('editPage');

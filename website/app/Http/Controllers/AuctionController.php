@@ -108,4 +108,19 @@ class AuctionController extends Controller
 
     return redirect()->route('auction', ['id' => $id]);
   }
+
+  public function searchPage($term)
+  {
+    # TODO Need to check if auction is open
+    $auctions = Auction::search($term)->get();
+    return view('pages.search', compact('auctions'));
+  }
+
+  public function scopeSearch($query, $search)
+  {
+    if (!$search)
+      return $query;
+    return $query->whereRaw("to_tsvector('english', title || ' ' || description) @@ to_tsquery(\'english\', ?)", [$search])
+      ->orderByRaw("ts_rank(to_tsvector('english', title || ' ' || description), to_tsquery(\'english\', ?)) DESC", [$search]);
+  }
 }
