@@ -39,6 +39,14 @@ Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::post('user/edit', 'UserController@edit')->name('editProfile');
 Route::get('user/{id}','UserController@page')->name('profile');
 
+//Money
+Route::get('deposit', 'UserController@showDepositForm')->name('showDeposit');
+Route::post('deposit', 'UserController@deposit')->name('deposit');
+Route::get('extract', 'UserController@showExtractForm')->name('showExtract');
+Route::post('extract', 'UserController@extract')->name('extract');
+
+
+
 // Admin Authentication
 Route::get('administration', 'Auth\AdminLoginController@showForm')->name('adminLogin');
 Route::post('administration', 'Auth\AdminLoginController@login');

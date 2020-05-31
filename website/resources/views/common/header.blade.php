@@ -46,7 +46,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <form class="form-inline my-2 my-lg-0 ">
-              <a class="btn btn-danger mr-2 text-light" href="{{ route('createAuction') }}">Create Auction</a>
+              <a class="btn btn-danger mr-2 text-light">Create Auction</a>
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             </form>
           </li>
@@ -66,8 +66,12 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <button class="btn btn-block btn-danger">Deposit Money</button>
-                    <button class="btn btn-block btn-outline-danger">Extract Money</button>
+                    <a href="{{ route('showDeposit') }}" >
+                     <button class="btn btn-block btn-danger">Deposit Money</button>
+                    </a>
+                    <a href="{{ route('showExtract') }}" >
+                      <button class="btn btn-block btn-outline-danger">Extract Money</button>
+                    </a>
                   </div>
                 </div>
               </div>
