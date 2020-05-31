@@ -13,7 +13,7 @@ class AdminController extends Controller
 
   public function users() {
     if (Auth::guard('admin')->check()) {
-      $users = User::paginate(5);
+      $users = User::orderBy('id')->paginate(10);
 
       return view('admin.users', ['users' => $users]);
     }

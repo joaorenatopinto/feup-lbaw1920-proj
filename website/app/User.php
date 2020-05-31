@@ -42,4 +42,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Auction');
     }
     
+    public function status() {
+        return $this->hasMany('App\UserStatus');
+    }
+
+    public function getLastStatus() {
+        return $this->status->sortByDesc('datechanged')->first();
+      }
 }
