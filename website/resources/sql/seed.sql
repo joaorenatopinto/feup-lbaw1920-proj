@@ -84,7 +84,7 @@ CREATE TABLE "transaction" (
     date DATE NOT NULL DEFAULT now(),
     description VARCHAR NOT NULL,
     sender_id INTEGER REFERENCES "user"(id),
-    receiver_id INTEGER NOT NULL REFERENCES "user"(id) CHECK (NOT (sender_id IS NULL AND receiver_id IS NULL)),
+    receiver_id INTEGER REFERENCES "user"(id) CHECK (NOT (sender_id IS NULL AND receiver_id IS NULL)),
     is_reserved BOOLEAN NOT NULL,
     auction INTEGER REFERENCES auction(id)
 );

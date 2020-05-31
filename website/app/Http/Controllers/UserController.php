@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -61,67 +62,43 @@ class UserController extends Controller
 
     public function deposit(Request $request)
     {
-        $user = Auth::user();
+        //$user = Auth::user();
         //$this->authorize('deposit', $user);
 
         $balance = Auth::user()->balance;
-        //$max = $auction->getHighestBid();
 
-        /* increment of 1 */
-        /*
-        $min_bid = $max + 1;
+        $transaction = new Transaction;
+        $transaction->value = $request->money;
+        $transaction->description = 'Deposit of value ' . $request->money;
+        $transaction->sender_id = null;
+        $transaction->receiver_id = Auth::user()->id;
+        $transaction->is_reserved = false;
+        $transaction->auction = null;
+        $transaction->save();
+    
 
-        $this->validate($request, [
-        'value' => ['bail', 'required', 'min:' . $min_bid]
-        ]);
-
-        if($balance < $request->input('value')){
-        abort(401, 'No sei que msg ou nr meter... :/');
-        }
-        $bid = new Bid;
-        $bid->value = $request->input('value');
-        $bid->user_id = Auth::user()->id;
-        $bid->auction_id = $id;
-        $bid->save();
-
-        Auth::user()->balance = $balance - $bid->value;
-
-        return redirect()->route('auction', ['id' => $id]);
-        */
         Auth::user()->balance = $balance + $request->money;
         Auth::user()->save();
 
         return redirect()->route('home');
     }
+
     public function extract(Request $request)
     {
-        $user = Auth::user();
+        //$user = Auth::user();
         //$this->authorize('deposit', $user);
 
         $balance = Auth::user()->balance;
-        //$max = $auction->getHighestBid();
 
-        /* increment of 1 */
-        /*
-        $min_bid = $max + 1;
-
-        $this->validate($request, [
-        'value' => ['bail', 'required', 'min:' . $min_bid]
-        ]);
-
-        if($balance < $request->input('value')){
-        abort(401, 'No sei que msg ou nr meter... :/');
-        }
-        $bid = new Bid;
-        $bid->value = $request->input('value');
-        $bid->user_id = Auth::user()->id;
-        $bid->auction_id = $id;
-        $bid->save();
-
-        Auth::user()->balance = $balance - $bid->value;
-
-        return redirect()->route('auction', ['id' => $id]);
-        */
+        $transaction = new Transaction;
+        $transaction->value = $request->money;
+        $transaction->description = 'Withdrawal of value ' . $request->money;
+        $transaction->sender_id = Auth::user()->id;
+        $transaction->receiver_id = null;
+        $transaction->is_reserved = false;
+        $transaction->auction = null;
+        $transaction->save();
+        
         Auth::user()->balance = $balance - $request->money;
         Auth::user()->save();
 
