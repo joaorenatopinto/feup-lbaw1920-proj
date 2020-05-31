@@ -18,8 +18,8 @@
   @else 
     <td class="align-middle text-danger">INVALID STATUS</td>
   @endif
-  <td class="d-flex justify-content-center">
-    <a href="#" class="btn btn-outline-info btn-sm mr-1">Promote</a>
-    <a href="#" class="btn btn-outline-danger btn-sm">Ban</a>
+  <td class="align-middle">
+    <a href="#" class="btn btn-outline-info btn-sm mb-1 w-100">Promote</a>
+    <a href="#" class="btn btn-outline-danger btn-sm w-100">Ban</a>
   </td>
 </tr>

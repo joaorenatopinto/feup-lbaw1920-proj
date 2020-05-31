@@ -23,7 +23,7 @@ class AdminController extends Controller
 
   public function auctions() {
     if (Auth::guard('admin')->check()) {
-      $auctions = Auction::paginate(5);
+      $auctions = Auction::paginate(10);
 
       return view('admin.auctions', ['auctions' => $auctions]);
     }

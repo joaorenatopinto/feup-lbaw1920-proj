@@ -3,9 +3,7 @@
 namespace App;
 
 use DateTime;
-use Illuminate\Contracts\Console\Application;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Date;
 
 class Auction extends Model
 {
@@ -35,7 +33,7 @@ class Auction extends Model
     else return $max;
   }
 
-  public function getCategory() {
+  public function category() {
     return $this->belongsTo('App\Category');
   }
 
