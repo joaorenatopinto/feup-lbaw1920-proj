@@ -2,8 +2,10 @@
 
 namespace App;
 
+use DateTime;
 use Illuminate\Contracts\Console\Application;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Date;
 
 class Auction extends Model
 {
@@ -33,8 +35,27 @@ class Auction extends Model
     else return $max;
   }
 
-  public function getCategory()
-    {
-        return $this->belongsTo('App\Category');
-    }
+  public function getCategory() {
+    return $this->belongsTo('App\Category');
+  }
+
+  public function status() {
+    return $this->hasMany('App\AuctionStatus');
+  }
+
+  public function getLastStatus() {
+    return $this->status->sortByDesc('datechanged')->first();
+  }
+
+  /**
+   * Returns a string with the time left for the auction to end
+   */
+  public function timeLeft() {
+    $now = new DateTime();
+    $close = new DateTime($this->closedate);
+
+    $dif = $now->diff($close);
+
+    return  $dif->y . 'y ' . $dif->m . 'm ' . $dif->d . 'd ' . $dif->h . 'h ' . $dif->m . 'm';
+  }
 }
