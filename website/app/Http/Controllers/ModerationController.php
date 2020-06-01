@@ -11,7 +11,7 @@ class ModerationController extends Controller
 {
   //TODO FIX POLICIES
   public function showUsers() {
-    $this->authorize('mod');
+    $this->authorize('mod', Auth::user());
     return view('pages.moderation_users');
   }
 

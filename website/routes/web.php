@@ -65,7 +65,7 @@ Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
 
 // Moderation
 // Route::get('moderation', function(){return redirect('moderation/users');});
-Route::get('moderation/users', 'ModerationController@showUsers');
+Route::get('moderation/users', 'ModerationController@showUsers')->name('modUsers');
 Route::get('moderation/auctions', 'ModerationController@showAuctions');
 Route::get('moderation/reports', 'ModerationController@showReports');
 Route::post('user/{id}/ban', 'ModerationController@banUser')->name('banUser');

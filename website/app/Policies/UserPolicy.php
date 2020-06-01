@@ -16,4 +16,8 @@ class UserPolicy
   {
     return Auth::check();
   }
+
+  public function mod(User $user) {
+    return $user->getLastStatus()->status == 'moderator';
+  }
 }
