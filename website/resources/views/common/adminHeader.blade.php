@@ -13,7 +13,7 @@
           <a class="text-white" href="{{ route('adminAuctions') }}">Auctions</a>
         </li>
         <li class="nav-item">
-          <a class="text-white" href="{{ route('adminMods') }}">Mod Actions</a>
+          <a class="text-white" href="{{ route('adminMods') }}">Moderation Reports</a>
         </li>
         <li class="nav-item">
           <a class="text-white" href="{{ route('adminStats') }}">Statistics</a>

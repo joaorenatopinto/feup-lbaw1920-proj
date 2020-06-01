@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use App\Auction;
+use App\AuctionStatus;
 use App\User;
 use App\UserStatus;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -33,27 +35,26 @@ class AdminController extends Controller
     return redirect(route('home'));
   }
 
-  public function mods() {
+  public function mods(Request $request) {
     if (Auth::guard('admin')->check()) {
+      $userStatus = UserStatus::all();
+      $auctionStatus = AuctionStatus::all();
+      $allStatus = $userStatus->merge($auctionStatus)->sortByDesc('datechanged')->filter(function ($value, $key) {
+        return $value['admin_id'] != null || $value['moderator_id'] != null;
+      });      
 
-      return view('admin.mods');
-    }
+      $perPage = 10;
+      $page = $request['page'];
 
-    return redirect(route('home'));
-  }
+      $pagination = new LengthAwarePaginator(
+        $allStatus->forPage($page,$perPage),
+        $allStatus->count(),
+        $perPage,
+        $page,
+        ['path' => route('adminMods')]
+      );
 
-  public function banUser($userId) {
-    if (Auth::guard('admin')->check()) {
-      $status = new UserStatus;
-
-      $status->status = 'banned';
-      $status->datechanged = date("Y-m-d");
-      $status->user_id = $userId;
-      $status->admin_id = Auth::guard('admin')->id();
-
-      $status->save();
-
-      return redirect()->back();
+      return view('admin.mods', ['actions' => $pagination]);
     }
 
     return redirect(route('home'));

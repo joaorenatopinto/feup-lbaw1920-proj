@@ -11,5 +11,15 @@ class AuctionStatus extends Model
 
   protected $table = 'auctionstatus';
 
-  
+  public function auction() {
+    return $this->belongsTo('App\Auction');
+  }
+
+  public function admin() {
+    return $this->belongsTo('App\Admin');
+  }
+
+  public function moderator() {
+    return $this->belongsTo('App\User');
+  }
 }

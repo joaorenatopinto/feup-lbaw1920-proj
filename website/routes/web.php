@@ -12,6 +12,7 @@
 */
 
 // Home
+
 Route::get('/', 'HomepageController@show');
 Route::get('home', 'HomepageController@show')->name('home');
 
@@ -38,7 +39,6 @@ Route::get('auction/search/{term}', 'AuctionController@search');
 Route::get('user/edit', 'UserController@editPage')->name('editPage');
 Route::post('user/edit', 'UserController@edit')->name('editProfile');
 Route::get('user/{id}','UserController@page')->name('profile');
-Route::get('user/{id}/ban', 'AdminController@banUser')->name('banUser');
 
 //Money
 Route::get('deposit', 'UserController@showDepositForm')->name('showDeposit');
@@ -56,7 +56,7 @@ Route::post('administration', 'Auth\AdminLoginController@login');
 Route::get('administration/logout', 'Auth\AdminLoginController@logout')->name('adminLogout');
 Route::get('administration/users', 'AdminController@users')->name('adminUsers');
 Route::get('administration/auctions', 'AdminController@auctions')->name('adminAuctions');
-Route::get('administration/moderators', 'AdminController@mods')->name('adminMods');
+Route::get('administration/mods', 'AdminController@mods')->name('adminMods');
 Route::get('administration/statistics', 'AdminController@stats')->name('adminStats');
 Route::get('administration/categories', 'AdminController@categories')->name('adminCategories');
 
@@ -68,5 +68,5 @@ Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
 Route::get('moderation/users', 'ModerationController@showUsers');
 Route::get('moderation/auctions', 'ModerationController@showAuctions');
 Route::get('moderation/reports', 'ModerationController@showReports');
-Route::post('user/{id}/ban', 'ModerationController@banUser');
+Route::post('user/{id}/ban', 'ModerationController@banUser')->name('banUser');
 Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction');
