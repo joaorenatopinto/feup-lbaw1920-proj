@@ -59,4 +59,35 @@ class AdminController extends Controller
 
     return redirect(route('home'));
   }
+
+  public function promote(Request $request, $userId) {
+    if (Auth::guard('admin')->check()) {
+      $status = new UserStatus;
+
+      if ($request['promote'] == '1') {
+        //promote the user
+        $status->status = 'moderator';
+        $status->datechanged = date("Y-m-d H:i:s");
+        $status->user_id = $userId;
+        $status->admin_id = Auth::guard('admin')->id();
+
+        $status->save();
+
+        return redirect()->back();
+      }
+      else {
+        //demote the user
+        $status->status = 'active';
+        $status->datechanged = date("Y-m-d H:i:s");
+        $status->user_id = $userId;
+        $status->admin_id = Auth::guard('admin')->id();
+
+        $status->save();
+
+        return redirect()->back();
+      }
+    }
+
+    return redirect(route('home'));
+  }
 }

@@ -10,6 +10,7 @@
         </th>
         <td class="align-middle">User</td>
     @endif
+
     <td class="align-middle">{{ $action->datechanged }}</td>
 
     @if($action->admin_id != null)
@@ -52,5 +53,13 @@
         <td class="align-middle">
             <a href="#" class="btn btn-outline-info btn-sm w-100">Promote</a>
         </td>
+    @elseif($action->status == 'moderator')
+        <td class="align-middle text-info">{{ $action->status }}</td>
+        <td class="align-middle">
+            <a href="#" class="btn btn-outline-info btn-sm w-100">Demote</a>
+        </td>
+    @else
+        <td class="align-middle">{{ $action->status }}</td>
+        <td class="align-middle">-</td>
     @endif
 </tr>
