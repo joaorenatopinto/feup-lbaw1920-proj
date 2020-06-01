@@ -14,8 +14,9 @@
       <div class="d-flex justify-content-end flex-grow w-100">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <form class="form-inline my-2 my-lg-0 ">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form action="/auction/search" method="post" class="form-inline my-2 my-lg-0 ">
+              {{ csrf_field() }}
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
             </form>
           </li>
 

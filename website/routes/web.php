@@ -33,6 +33,7 @@ Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('editAuc
 Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
 Route::get('auction/search/{term}', 'AuctionController@searchPage');
+Route::post('auction/search/', 'AuctionController@searchPost');
 
 //User profile
 Route::get('user/edit', 'UserController@editPage')->name('editPage');

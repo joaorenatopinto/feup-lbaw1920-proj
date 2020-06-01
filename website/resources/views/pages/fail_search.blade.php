@@ -10,10 +10,10 @@
         </ol>
     </nav>
 
-<div class="d-flex justify-content-center" id="search_auctions">
-        <div id="auction_cards">
-            @each('partials.auctionCard', $auctions, 'auction')
-        </div>
+    <div class="d-flex justify-content-center" id="search_auctions">
+      <div class="mt-5">
+          NO AUCTIONS FOUND
+      </div>
     </div>
 </div>
 @endsection

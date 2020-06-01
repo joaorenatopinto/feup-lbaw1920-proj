@@ -37,4 +37,14 @@ class Auction extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+  public function scopeSearch($query, $search)
+  {
+    $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~'];
+    $search = str_replace($reservedSymbols, '', $search);
+    if (!$search)
+      return $query;
+    $search = "%{$search}%";
+    return $query->orWhereRaw("CONCAT(title, ' ', description) LIKE ?", [$search]);
+  }
 }
