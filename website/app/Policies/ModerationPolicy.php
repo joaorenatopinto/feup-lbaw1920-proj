@@ -17,6 +17,6 @@ class ModerationPolicy
   {
     $current_user_id = $user->id;
     $status = DB::select('select status from user_status where user_id = ?', [$current_user_id]);
-    return $status === 'mod';
+    return $status === 'mod' || Auth::guard('admin')->check();
   }
 }

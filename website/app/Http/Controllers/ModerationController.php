@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\UserStatus;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class ModerationController extends Controller
 {
+  //TODO FIX POLICIES
     public function showUsers() {
       $this->authorize('mod');
       return view('pages.moderation_users');
@@ -22,10 +23,38 @@ class ModerationController extends Controller
       $this->authorize('mod');
       return view('pages.moderation_reports');
     }
+     
+    public function banUser(Request $request, $userId) {
+      //TODO now only works for mods
 
-    public function banUser() {
-      $this->authorize('mod');
-      // do stuff
+      if (Auth::guard('admin')->check()) {
+        $status = new UserStatus;
+
+        if ($request['ban'] == '1') {
+          //ban the user
+          $status->status = 'banned';
+          $status->datechanged = date("Y-m-d H:i:s");
+          $status->user_id = $userId;
+          $status->admin_id = Auth::guard('admin')->id();
+
+          $status->save();
+
+          return redirect()->back();
+        }
+        else {
+          //Unban the user
+          $status->status = 'active';
+          $status->datechanged = date("Y-m-d H:i:s");
+          $status->user_id = $userId;
+          $status->admin_id = Auth::guard('admin')->id();
+
+          $status->save();
+
+          return redirect()->back();
+        }
+      }
+
+      return redirect(route('home'));
     }
 
     public function cancelAuction() {

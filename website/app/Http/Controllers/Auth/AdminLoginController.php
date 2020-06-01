@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
@@ -38,7 +40,7 @@ class AdminLoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function getUser(){
+    public function getUser(Request $request){
         return $request->user();
     }
 
@@ -47,6 +49,11 @@ class AdminLoginController extends Controller
     }
 
     public function showForm(){
+        if (Auth::guard('admin')->check()) {
+            return redirect(route('adminUsers'));
+        }
+
+
         return view('auth.adminLogin'); 
     }
 

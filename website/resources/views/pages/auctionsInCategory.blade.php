@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<script type="text/javascript" src={{ asset('js/category.js') }} defer> </script>
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
