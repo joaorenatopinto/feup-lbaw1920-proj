@@ -12,6 +12,7 @@
 */
 
 // Home
+
 Route::get('/', 'HomepageController@show');
 Route::get('home', 'HomepageController@show')->name('home');
 
@@ -51,9 +52,12 @@ Route::get('administration', 'Auth\AdminLoginController@showForm')->name('adminL
 Route::post('administration', 'Auth\AdminLoginController@login');
 
 //Admin page
-Route::get('administration/users', 'AdminController@show');
 Route::get('administration/logout', 'Auth\AdminLoginController@logout')->name('adminLogout');
-
+Route::get('administration/users', 'AdminController@users')->name('adminUsers');
+Route::get('administration/auctions', 'AdminController@auctions')->name('adminAuctions');
+Route::get('administration/mods', 'AdminController@mods')->name('adminMods');
+Route::get('administration/statistics', 'AdminController@stats')->name('adminStats');
+Route::get('administration/categories', 'AdminController@categories')->name('adminCategories');
 
 //API
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
@@ -63,5 +67,5 @@ Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
 Route::get('moderation/users', 'ModerationController@showUsers');
 Route::get('moderation/auctions', 'ModerationController@showAuctions');
 Route::get('moderation/reports', 'ModerationController@showReports');
-Route::post('user/{id}/ban', 'ModerationController@banUser');
+Route::post('user/{id}/ban', 'ModerationController@banUser')->name('banUser');
 Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction');

@@ -47,4 +47,11 @@ class User extends Authenticatable
         $transactions = Transaction::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->get()->reverse();
         return $transactions;
     }
+    public function status() {
+        return $this->hasMany('App\UserStatus');
+    }
+
+    public function getLastStatus() {
+        return $this->status->sortByDesc('datechanged')->first();
+      }
 }
