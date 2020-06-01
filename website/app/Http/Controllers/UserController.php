@@ -50,6 +50,11 @@ class UserController extends Controller
         return redirect()->route('profile', ['id' => $user->id]);
     }
 
+    public function showStatement()
+    {
+        return view('pages.statement');
+    }
+
     public function showDepositForm()
     {
       return view('pages.deposit');

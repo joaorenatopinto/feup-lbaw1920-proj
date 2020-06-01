@@ -34,19 +34,17 @@ Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
 Route::get('auction/search/{term}', 'AuctionController@search');
 
-//User profile
-Route::get('user/edit', 'UserController@editPage')->name('editPage');
-Route::post('user/edit', 'UserController@edit')->name('editProfile');
-Route::get('user/{id}','UserController@page')->name('profile');
-
 //Balance
-Route::get('user/{id}/statement'. 'UserController@showStatement')->name('showStatement');
+Route::get('user/statement', 'UserController@showStatement')->name('showStatement');
 Route::get('deposit', 'UserController@showDepositForm')->name('showDeposit');
 Route::post('deposit', 'UserController@deposit')->name('deposit');
 Route::get('withdrawal', 'UserController@showWithdrawalForm')->name('showWithdrawal');
 Route::post('withdrawal', 'UserController@withdrawal')->name('withdrawal');
 
-
+//User profile
+Route::get('user/edit', 'UserController@editPage')->name('editPage');
+Route::post('user/edit', 'UserController@edit')->name('editProfile');
+Route::get('user/{id}','UserController@page')->name('profile');
 
 // Admin Authentication
 Route::get('administration', 'Auth\AdminLoginController@showForm')->name('adminLogin');
