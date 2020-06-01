@@ -55,9 +55,9 @@ class UserController extends Controller
       return view('pages.deposit');
     }
 
-    public function showExtractForm()
+    public function showWithdrawalForm()
     {
-      return view('pages.extract');
+      return view('pages.withdrawal');
     }
 
     public function deposit(Request $request)
@@ -83,7 +83,7 @@ class UserController extends Controller
         return redirect()->route('home');
     }
 
-    public function extract(Request $request)
+    public function Withdrawal(Request $request)
     {
         //$user = Auth::user();
         //$this->authorize('deposit', $user);
