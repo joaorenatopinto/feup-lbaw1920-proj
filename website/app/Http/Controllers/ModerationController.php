@@ -25,7 +25,7 @@ class ModerationController extends Controller
     }
      
     public function banUser(Request $request, $userId) {
-      //TODO now only works for mods
+      //TODO now only works for admins
 
       if (Auth::guard('admin')->check()) {
         $status = new UserStatus;
