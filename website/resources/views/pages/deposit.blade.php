@@ -2,22 +2,28 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('deposit') }}">
-            
+<div class="container mt-5">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Deposit</h3>
+			</div>
+            <div class="card-body">
+                <form method="POST" action="{{ route('deposit') }}">
                     {{ csrf_field() }}
-
                     <div class="input-group form-group d-flex">
-                        <input  type="number" 
-                                class="form-control mr-3" 
-                                placeholder="Money to deposit" 
-                                value="{{ Auth::user()->name }}"
-                                name = "money">
+                        <input  type="number" class="form-control mr-3" placeholder="Money to deposit" value="{{ Auth::user()->name }}" name = "money" min="1" required>
                     </div>
-
-
-                <div class="form-group d-flex p-2 bd-highlight ">
-                    <input type="submit" value="Submit" class="btn btn-outline-info flex-grow-1">
-                </div>
-            </form>
-
+                    @error('money')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="form-group d-flex p-2 bd-highlight ">
+                        <input type="submit" value="Submit" class="btn btn-dark flex-grow-1">
+                    </div>
+                </form>
+            </div>
+    
+        </div>
+	</div>
+</div>
 @endsection

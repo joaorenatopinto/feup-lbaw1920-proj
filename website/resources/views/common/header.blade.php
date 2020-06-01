@@ -66,15 +66,9 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <a href="{{ route('showDeposit') }}" >
-                     <button class="btn btn-block btn-danger">Deposit Money</button>
-                    </a>
-                    <a href="{{ route('showWithdrawal') }}" >
-                      <button class="btn btn-block btn-outline-danger">Withdraw Money</button>
-                    </a>
-                    <a href = "{{ route('showStatement',['id' => Auth::id()]) }}" >
-                      <button class="btn btn-block btn-outline-danger">Check Statement</button>
-                    </a>
+                    <a href="{{ route('showDeposit') }}" class="m-1 btn btn-block btn-dark">Deposit Money </a>
+                    <a href="{{ route('showWithdrawal') }}" class="m-1 btn btn-block btn-outline-dark">Withdraw Money </a>
+                    <a href = "{{ route('showStatement',['id' => Auth::id()]) }}"class="m-1 btn btn-block btn-outline-dark">Check Statement </a>
                   </div>
                 </div>
               </div>
