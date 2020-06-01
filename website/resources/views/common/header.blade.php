@@ -60,7 +60,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Money Management</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Balance Management</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -69,8 +69,11 @@
                     <a href="{{ route('showDeposit') }}" >
                      <button class="btn btn-block btn-danger">Deposit Money</button>
                     </a>
-                    <a href="{{ route('showExtract') }}" >
-                      <button class="btn btn-block btn-outline-danger">Extract Money</button>
+                    <a href="{{ route('showWithdrawal') }}" >
+                      <button class="btn btn-block btn-outline-danger">Withdraw Money</button>
+                    </a>
+                    <a href = "{{ route('showStatement',['id' => Auth::id()]) }}" >
+                      <button class="btn btn-block btn-outline-danger">Check Statement</button>
                     </a>
                   </div>
                 </div>

@@ -2,14 +2,14 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('extract') }}">
+<form method="POST" action="{{ route('withdrawal') }}">
             
                     {{ csrf_field() }}
 
                     <div class="input-group form-group d-flex">
                         <input  type="number" 
                                 class="form-control mr-3" 
-                                placeholder="Money to extract" 
+                                placeholder="Money to Withdraw" 
                                 value="{{ Auth::user()->name }}"
                                 name = "money">
                     </div>

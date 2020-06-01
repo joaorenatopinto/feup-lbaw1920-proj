@@ -42,4 +42,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Auction');
     }
     
+    public function transactions()
+    {
+        $transactions = Transaction::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->get()->reverse();
+        return $transactions;
+    }
 }
