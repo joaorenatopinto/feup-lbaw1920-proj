@@ -44,7 +44,7 @@ class User extends Authenticatable
     
     public function transactions()
     {
-        $transactions = Transaction::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->get();
+        $transactions = Transaction::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->get()->reverse();
         return $transactions;
     }
 }
