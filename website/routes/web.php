@@ -69,4 +69,4 @@ Route::get('moderation/users', 'ModerationController@showUsers');
 Route::get('moderation/auctions', 'ModerationController@showAuctions');
 Route::get('moderation/reports', 'ModerationController@showReports');
 Route::post('user/{id}/ban', 'ModerationController@banUser')->name('banUser');
-Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction');
+Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction')->name('cancelAuction');
