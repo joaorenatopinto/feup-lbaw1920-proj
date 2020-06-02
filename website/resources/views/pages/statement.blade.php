@@ -15,6 +15,7 @@
                 @each('partials.transaction', Auth::user()->transactions(), 'transaction')
             </tbody>
         </table>
+        {{ Auth::user()->transactions()->links() }}
     </div>
 </div>
 @endsection
