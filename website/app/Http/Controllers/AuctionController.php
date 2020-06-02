@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bid;
+use App\Image;
 use App\Auction;
 use App\Category;
 use App\Transaction;
@@ -40,17 +41,24 @@ class AuctionController extends Controller
     ]);
 
     $category = Category::where('name',$request['category'])->first();
+    $date = $request['closeDate'].' '.$request['time'];
 
     $auction = new Auction;
-
     $auction->title = $request['title'];
     $auction->description = $request['description'];
-    $auction->closedate = $request['closeDate'];
     $auction->initialvalue = $request['initialValue'];
+    $auction->closedate = \Carbon\Carbon::parse($date);
     $auction->category_id = $category->id;
     $auction->user_id = Auth::user()->id;
-
     $auction->save();
+    
+    $img = new Image([
+      'path' => "/img/user/default.jpg",
+      'alt' => "auction".$auction->id,
+      'auction_id' => $auction->id,
+      ]);
+  $img->save();
+
 
     return redirect()->route('auction', ['id' => $auction->id]);
   }
