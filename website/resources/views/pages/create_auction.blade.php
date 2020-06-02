@@ -9,7 +9,7 @@
 				<h3>New Auction</h3>
 			</div>
 			<div class="card-body">
-                <form method="POST" action="{{ route('auctionCreate') }}">
+                <form method="POST" action="{{ route('auctionCreate') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -31,11 +31,11 @@
                     @enderror
                     <div class="form-group">
                         <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Product Pictures</label>
+                            <input type="file" name="image" class="form-control custom-file-input" id="image">
+                            <label class="custom-file-label" for="image">Product Pictures</label>
                         </div>
                     </div>
-                    @error('customFile')
+                    @error('image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <h6 class="card-title mt-5">Auction Configuration</h5>

@@ -52,8 +52,11 @@ class AuctionController extends Controller
     $auction->user_id = Auth::user()->id;
     $auction->save();
     
+    $path = '/img/auction/auction'.$auction->id.'/1.'.$request['image']->getClientOriginalExtension();
+    $request['image']->move(public_path('img/auction/auction'.$auction->id), '1.' . $request['image']->getClientOriginalExtension());
+
     $img = new Image([
-      'path' => "/img/user/default.jpg",
+      'path' => $path,
       'alt' => "auction".$auction->id,
       'auction_id' => $auction->id,
       ]);
