@@ -35,8 +35,9 @@ class ModerationController extends Controller
     if (Auth::guard('admin')->check()) {
       $status->admin_id = Auth::guard('admin')->id();
     }
-    else if (Auth::user()->can('cancelAuction',$userId)) {
-      $status->moderator = Auth::id();
+    else if (($request['ban'] == '1' && Auth::user()->can('ban',User::find($userId))) || 
+      ($request['ban'] == '0' && Auth::user()->can('unban',User::find($userId))) ) {
+      $status->moderator_id = Auth::id();
     }
     else {
       throw new AuthorizationException;

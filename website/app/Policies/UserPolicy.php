@@ -27,12 +27,19 @@ class UserPolicy
    * The user must not be a moderator 
    * The user must not be already banned
    */
-  public function ban(User $mod, $userId) {
-    $user = User::find($userId);
-
+  public function ban(User $mod, User $user) {
     return $mod->getLastStatus()->status == 'moderator' && 
       $user->getLastStatus()->status != 'moderator' && 
       $user->getLastStatus()->status != 'banned';
+  }
+
+  /**
+   * The user is a moderator
+   * The user is already banned
+   */
+  public function unban(User $mod, User $user) {
+    return $mod->getLastStatus()->status == 'moderator' && 
+      $user->getLastStatus()->status == 'banned';
   }
 
   public function closeAuction(User $mod, $auctionId) {
