@@ -5,104 +5,80 @@
 <div class="container mt-5">
 	<div class="row justify-content-center">
 		<div class="card col-sm-7 col-11">
-			<div class="card-header">
+			<div class="card-header mt-3">
 				<h3>New Auction</h3>
 			</div>
 			<div class="card-body">
-                <form method="POST" action="/auction/create">
-
+                <form method="POST" action="{{ route('auctionCreate') }}">
                     {{ csrf_field() }}
-
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Auction Title" name="title" id="title">
+						<input type="text" class="form-control" placeholder="Auction Title" name="title" id="title" required>
 					</div>
-
+                    @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
 						</div>
-						<textarea class="form-control" placeholder="Auction Description" name="description" id="description"></textarea>
+						<textarea class="form-control" placeholder="Auction Description" name="description" id="description" required></textarea>
 					</div>
-
+                    @error('description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <div class="custom-file">
                             <input type="file" name="image" class="custom-file-input" id="customFile">
                             <label class="custom-file-label" for="customFile">Product Pictures</label>
                         </div>
                     </div>
-
+                    @error('customFile')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <h6 class="card-title mt-5">Auction Configuration</h5>
 
                     <div class="form-group">
                         <label for="category">Auction Category</label>
-                           <select class="form-control" id="category" name="category">
+                           <select class="form-control" id="category" name="category" required>
                                 @foreach( App\Category::all() as $category)
                                     <option>{{$category->name}}</option>
                                 @endforeach
                         </select>
                     </div>
-
+                    @error('category')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <label for="closeDate">Auction Closing Date</label>
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-calendar-week"></i></span>
-						</div>
-						<input type="date" class="form-control" name="closeDate" id="closeDate">
+                    <div class="input-group form-group row">
+                        <div>
+                            <input type="date" placeholder="date" name="closeDate" class="form-control ml-3" id="closeDate" min="{{ now()->format('Y-m-d') }}" required>
+                        </div>
+                        @error('closeDate')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <div>
+                            <input class="form-control ml-5" type="time" name="time" id="time" value="13:45:00" id="example-time-input" required>
+                        </div>
+                        @error('money')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
 					</div>
 
-                    <label for="initialValue">Minimum Price</label>
+                    <label for="initialValue">Initial Value</label>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
 						</div>
-						<input type="number" value="5" class="form-control" name="initialValue" id="initialValue">
+                        <input type="number" value="5" min="1" max="1000000" class="form-control" name="initialValue" id="initialValue" required>
 					</div>
-
-                    <label for="auctionMinInc">Minimum Increment</label>
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-arrow-up"></i></i></span>
-						</div>
-						<input type="number" name="mininc" value="1" class="form-control" id="auctionMinInc">
-					</div>
-
-                    <a data-toggle="collapse" aria-expanded="false" aria-controls="advOptions" href="#advOptions">
-                        <h6>Advanced Options</h6>
-                    </a>
-
-                    <div class="collapse my-3" id="advOptions">
-                        <label for="auctionMaxPrice">Minimum Increment</label>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-arrow-up"></i></i></span>
-                            </div>
-                            <input type="number" name="maxprice" value="100" class="form-control" id="auctionMaxPrice">
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>
-                            </div>
-                            <input type="text" class="form-control" value="Closed Auction" disabled>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>
-                            </div>
-                            <input type="text" class="form-control" value="Automatic Bid Price" disabled>
-                        </div>
-                    </div>
-
+                    @error('initialValue')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
 					<div class="form-group d-flex p-2 bd-highlight ">
-						<input type="submit" value="Create Auction" class="btn btn-info flex-grow-1">
+						<input type="submit" value="Create Auction" class="btn btn-dark flex-grow-1">
 					</div>
                 </form>
 			</div>

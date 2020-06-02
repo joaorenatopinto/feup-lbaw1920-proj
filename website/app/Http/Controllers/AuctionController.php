@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Arr;
 
 class AuctionController extends Controller
 {
@@ -29,18 +30,16 @@ class AuctionController extends Controller
   {
     $this->authorize('create', Auction::class);
 
-    $now = date('Y-m-d');
-    $categories = DB::select('select name from category', []);
-
+    $categories = Arr::pluck(DB::select('select name from category', []),'name');
     $this->validate($request, [
       'title' => 'bail|required|max:255',
       'description' => 'bail|required|max:1500',
-      'closeDate' => 'bail|required|date_format:Y-m-d|after:' . $now,
-      'initialValue' => 'bail|required|min:5',
+      'closeDate' => 'bail|required|date_format:Y-m-d|after:' . now()->format('Y-m-d'),
+      'initialValue' => 'bail|required|numeric|min:1',
       'category' => ['bail', 'required', Rule::in($categories)]
     ]);
 
-    $category_id = Category::where('name',$request['category'])->first();
+    $category = Category::where('name',$request['category'])->first();
 
     $auction = new Auction;
 
@@ -48,10 +47,8 @@ class AuctionController extends Controller
     $auction->description = $request['description'];
     $auction->closedate = $request['closeDate'];
     $auction->initialvalue = $request['initialValue'];
-    $auction->category_id = $category_id->id;
+    $auction->category_id = $category->id;
     $auction->user_id = Auth::user()->id;
-
-    print($auction);
 
     $auction->save();
 
