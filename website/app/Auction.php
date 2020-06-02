@@ -27,9 +27,8 @@ class Auction extends Model
   }
 
   public function getHighestBid(){
-    $auction = Auction::where('id', $this->id);
     $max = Bid::where('auction_id', $this-> id)->max('value');
-    if($max == null) return $auction->initialValue;
+    if($max == null) return $this->initialvalue;
     else return $max;
   }
 
