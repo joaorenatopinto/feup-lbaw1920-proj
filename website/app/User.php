@@ -42,4 +42,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Auction');
     }
     
+    public function transactions()
+    {
+        $transactions = Transaction::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->orderBy('date','desc')->paginate(10);
+        return $transactions;
+    }
+    public function status() {
+        return $this->hasMany('App\UserStatus');
+    }
+
+    public function getLastStatus() {
+        return $this->status->sortByDesc('datechanged')->first();
+      }
 }

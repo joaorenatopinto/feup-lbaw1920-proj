@@ -12,4 +12,7 @@ class Category extends Model
 
   protected $table = 'category';
 
+  public function auctions() {
+    return $this->hasMany('App\Auction');
+  }
 }

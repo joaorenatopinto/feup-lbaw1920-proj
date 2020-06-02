@@ -1,20 +1,38 @@
 @section('header')
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand text-light" href="#"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60"
-        alt="SLASH AH"></a>
-    <div class="d-flex justify-content-end flex-grow w-100">
-      <ul class="navbar-nav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60"
+      alt="SLASH AH"></a>
 
+    <div class="my-2 my-lg-0 collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="text-white" href="">{{ Auth::guard('admin')->user()->username }}</a>
-          <a class="navbar-brand text-white" href="{{ route('adminLogout') }}">
-            <i class="fas fa-door-open m-2"></i>
-          </a>
+          <a class="text-white" href="{{ route('adminUsers') }}">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white" href="{{ route('adminAuctions') }}">Auctions</a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white" href="{{ route('adminMods') }}">Moderation Reports</a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white" href="{{ route('adminStats') }}">Statistics</a>
+        </li>
+        <li class="nav-item">
+          <a class="text-white" href="{{ route('adminCategories') }}">Categories</a>
         </li>
       </ul>
     </div>
-  </nav>
 
+    <a class="nav-link text-white" href="{{ route('adminUsers') }}">{{ Auth::guard('admin')->user()->username }}</a>
+
+    <a class="navbar-brand nav-link text-white" href="{{ route('adminLogout') }}">
+      <i class="fas fa-door-open m-2"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
 </header>
 @show

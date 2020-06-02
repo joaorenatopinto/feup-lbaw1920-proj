@@ -37,6 +37,17 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <a class="navbar-brand text-light" href="/"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60"
         alt="SLASH AH"></a>
+
+    @if(Auth::user()->getLastStatus()->status == 'moderator')
+      <div class="nav-item dropdown"> 
+        <a href="" class="nav-link text-light dropdown-toggle" data-toggle="dropdown" id=dropdownMod>Moderation</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMod">
+        <a href="{{route('modUsers')}}" class="dropdown-item">Users</a>
+          <a href="{{route('modAuctions')}}" class="dropdown-item">Auctions</a>
+        </div>
+      </div>
+    @endif
+    
     <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -47,7 +58,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <form class="form-inline my-2 my-lg-0 ">
-              <a class="btn btn-danger mr-2 text-light">Create Auction</a>
+              <a href="{{ route('createAuction') }}" class="btn btn-danger mr-2 text-light">Create Auction</a>
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             </form>
           </li>
@@ -61,18 +72,15 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Money Management</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Balance Management</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <a href="{{ route('showDeposit') }}" >
-                     <button class="btn btn-block btn-danger">Deposit Money</button>
-                    </a>
-                    <a href="{{ route('showExtract') }}" >
-                      <button class="btn btn-block btn-outline-danger">Extract Money</button>
-                    </a>
+                    <a href="{{ route('showDeposit') }}" class="m-1 btn btn-block btn-dark">Deposit Money </a>
+                    <a href="{{ route('showWithdrawal') }}" class="m-1 btn btn-block btn-outline-dark">Withdraw Money </a>
+                    <a href = "{{ route('showStatement',['id' => Auth::id()]) }}"class="m-1 btn btn-block btn-outline-dark">Check Statement </a>
                   </div>
                 </div>
               </div>

@@ -28,8 +28,11 @@
                 <div class="input-group-append">
                     <form action="{{$auction->id}}/bid" method="post">
                         {{ csrf_field() }}
-                        <input type="number" id="value" name="value" class="form-control" placeholder="Place your Bid">
+                        <input type="number" id="value" name="value" class="form-control" placeholder="Place your Bid" min="{{$auction->getHighestBid() + 1}}" required >
                         <button type="submit" class="btn btn-danger px-5">Bid <i class="fas fa-coins"></i></button>
+                        @error('value')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </form> 
                 </div>
             </div>
