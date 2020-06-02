@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Image;
 use App\Http\Controllers\Controller;
+use App\UserStatus;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Storage;
@@ -83,6 +84,12 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             ]);
         $img->save();
+
+        $status = new UserStatus;
+        $status->datechanged = date("Y-m-d H:i:s");
+        $status->user_id = $user->id;
+        $status->status = 'active';
+        $status->save();
 
         return $user;
     }
