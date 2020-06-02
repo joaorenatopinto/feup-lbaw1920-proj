@@ -12,7 +12,7 @@ class Auction extends Model
 
   protected $table = 'auction';
 
-  protected $fillable = ['user_id', 'title', 'category_id', 'description', 'startDate', 'closeDate', 'initialValue'];
+  protected $fillable = ['user_id', 'title', 'category_id', 'initialvalue', 'description', 'startdate', 'closedate'];
 
   /**
    * The user this card belongs to
@@ -26,10 +26,10 @@ class Auction extends Model
     return $image;
   }
 
-  public function getHighestBid(){
+  public function getHighestBid() {
     $auction = Auction::where('id', $this->id);
     $max = Bid::where('auction_id', $this-> id)->max('value');
-    if($max == null) return $auction->initialValue;
+    if($max == null) return $this->initialvalue;
     else return $max;
   }
 

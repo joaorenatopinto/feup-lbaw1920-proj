@@ -75,10 +75,10 @@ class RegisterController extends Controller
             'nif' => $data['nif'],
         ]);
 
-        Storage::disk('images_users')->put($user->id.'.jpg',  new File($data['image']));
+        $data['image']->move(public_path('img/user'), $user->id);
 
         $img = new Image([
-            'path' => "/img/user/default.jpg",
+            'path' => "/img/user/" . $user->id,
             'alt' => "user".$user->id,
             'user_id' => $user->id,
             ]);
