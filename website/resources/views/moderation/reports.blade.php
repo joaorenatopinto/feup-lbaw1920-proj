@@ -10,11 +10,9 @@
                         <th scope="col" class="align-middle">#</th>
                         <th scope="col" class="align-middle">Auction's Title</a></th>
                         <th scope="col" class="align-middle">Owner</a></th>
-                        <th scope="col" class="align-middle">Description</th>
+                        <th scope="col" class="align-middle">Auction's Status</a></th>
                         <th scope="col" class="align-middle">Report Date</th>
-                        <th scope="col" class="align-middle">Current Bid</th>
-                        <th scope="col" class="align-middle">Category</th>
-                        <th scope="col" class="align-middle">Status</a></th>
+                        <th scope="col" class="align-middle">Report Description</th>
                         <th scope="col" class="align-middle">Actions</th>
                     </thead>
                     
