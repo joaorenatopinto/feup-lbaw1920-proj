@@ -33,6 +33,8 @@ Route::get('auction/{id}', 'AuctionController@show')->name('auction');
 Route::get('auction/{id}/edit', 'AuctionController@showEditForm')->name('editAuction');
 Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
+Route::get('auction/{id}/report', 'AuctionController@showReportForm')->name('reportAuction');
+Route::post('auction/{id}/report', 'AuctionController@report')->name('report');
 Route::get('auction/search/{term}', 'AuctionController@search');
 
 //Balance

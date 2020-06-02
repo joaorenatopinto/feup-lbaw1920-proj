@@ -7,6 +7,8 @@ use App\Image;
 use App\Auction;
 use App\AuctionStatus;
 use App\Category;
+use App\Report;
+use App\ReportStatus;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -98,6 +100,33 @@ class AuctionController extends Controller
     return back();
   }
 
+  public function showReportForm($id)
+  {
+    $auction = Auction::find($id);
+    return view('pages.report_auction', ['auction' => $auction]);
+  }
+
+  public function report(Request $request, $id)
+  {
+    $this->validate($request, [
+      'description' => 'bail|required|max:1500',
+    ]);
+
+    $report = new Report();
+    $report->user_id = Auth::user()->id;
+    $report->auction_id = $id;
+    $report->description = $request['description'];
+    $report->save();
+    
+    $report_status = new ReportStatus();
+    $report_status->datechanged = date("Y-m-d H:i:s");
+    $report_status->type = 'notSeen';
+    $report_status->report_id = $report->id;
+    $report_status->save();
+
+    return redirect()->route('auction', ['id' => $id]);
+  }
+
   public function bid(Request $request, $id)
   {
     $auction = Auction::find($id);
@@ -122,8 +151,6 @@ class AuctionController extends Controller
     $bid->auction_id = $auction->id;
     $bid->save();
     
-    
-
     $transaction = new Transaction;
     $transaction->value = $bid->value;
     $transaction->description = 'New bid of value ' . $bid->value . ' $ on auction ' . $auction->title;

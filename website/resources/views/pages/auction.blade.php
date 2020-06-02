@@ -42,6 +42,7 @@
         <div class="col-sm text-center">
             <h3>{{$auction->closedate}}</h3>
         </div>
+        <a class="btn btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}" role="button">Report</a>
     </div>
 </div>
 
