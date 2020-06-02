@@ -12,9 +12,9 @@
           <div class="d-flex justify-content-end flex-grow w-100">
             <ul class="navbar-nav" style="align-items: center; display: flex;">
               <li class="nav-item">
-                <form action="/auction/search" method="post" class="form-inline my-2 my-lg-0" style="max-height: 2em; margin: auto 5% 0 auto; padding:0">
+                <form action="/auction/search" method="post" class="form-inline" style="max-height: 2em; margin: auto 5% 0 auto; padding:0">
                   {{ csrf_field() }}
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" style="max-height: 2em;">
+                  <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search" style="max-height: 2em;">
                 </form>
               </li>
 

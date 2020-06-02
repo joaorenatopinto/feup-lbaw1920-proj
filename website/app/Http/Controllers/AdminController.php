@@ -16,9 +16,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller {
 
-  public function users() {
-    if(Auth::guard('admin')->check()) { 
-      $users = User::orderBy('id')->paginate(10);
+  public function users(Request $request) {
+    if(Auth::guard('admin')->check()) {
+      if($request->filled('username')) {
+        $term = $request->username;
+        $users = User::search($term)->paginate(10);
+      } else {
+        $users = User::orderBy('id')->paginate(10);
+      }
 
       return view('admin.users', ['users' => $users]);
     }
@@ -26,9 +31,14 @@ class AdminController extends Controller {
     return redirect()->route('home');
   }
 
-  public function auctions() {
+  public function auctions(Request $request) {
     if (Auth::guard('admin')->check()) {
-      $auctions = Auction::paginate(10);
+      if($request->filled('auction')) {
+        $term = $request->auction;
+        $auctions = Auction::search($term)->paginate(10);
+      } else {
+        $auctions = Auction::orderBy('id')->paginate(10);
+      }
 
       return view('admin.auctions', ['auctions' => $auctions]);
     }
@@ -42,7 +52,7 @@ class AdminController extends Controller {
       $auctionStatus = AuctionStatus::all();
       $allStatus = $userStatus->merge($auctionStatus)->sortByDesc('datechanged')->filter(function ($value, $key) {
         return $value['admin_id'] != null || $value['moderator_id'] != null;
-      });      
+      });
 
       $perPage = 10;
       $page = $request['page'];
