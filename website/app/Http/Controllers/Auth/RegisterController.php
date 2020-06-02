@@ -75,10 +75,10 @@ class RegisterController extends Controller
             'nif' => $data['nif'],
         ]);
 
-        $data['image']->move(public_path('img/user'), $user->id);
+        $data['image']->move(public_path('img/user'), $user->id.'.'.$data['image']->getClientOriginalExtension());
 
         $img = new Image([
-            'path' => "/img/user/" . $user->id,
+            'path' => "/img/user/" . $user->id.'.'.$data['image']->getClientOriginalExtension(),
             'alt' => "user".$user->id,
             'user_id' => $user->id,
             ]);
