@@ -64,6 +64,7 @@ Route::post('user/{id}/promote', 'AdminController@promote')->name('promote');
 
 //API
 Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
+Route::get('api/administration/statistics', 'AdminController@getStats');
 
 // Moderation
 Route::get('moderation/users', 'ModerationController@showUsers')->name('modUsers');

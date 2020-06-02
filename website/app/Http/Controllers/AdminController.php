@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Admin;
 use App\Auction;
 use App\AuctionStatus;
+use App\Category;
 use App\User;
 use App\UserStatus;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 //Note: we can not use policies for admins because they use a custom guard
 
@@ -23,7 +26,7 @@ class AdminController extends Controller {
       return view('admin.users', ['users' => $users]);
     }
 
-    return redirect()->route('home');
+    throw new AuthorizationException;
   }
 
   public function auctions() {
@@ -33,7 +36,7 @@ class AdminController extends Controller {
       return view('admin.auctions', ['auctions' => $auctions]);
     }
 
-    return redirect()->route('home');
+    throw new AuthorizationException;
   }
 
   public function mods(Request $request) {
@@ -58,7 +61,39 @@ class AdminController extends Controller {
       return view('admin.mods', ['actions' => $pagination]);
     }
 
-    return redirect()->route('home');
+    throw new AuthorizationException;
+  }
+
+  public function stats() {
+    if(Auth::guard('admin')->check()) { 
+
+      return view('admin.statistics');
+    }
+
+    throw new AuthorizationException;
+  }
+
+  public function getStats() {
+    if(Auth::guard('admin')->check()) { 
+      $auctionsPerCategory = DB::table('category')->join('auction','category.id','auction.category_id')
+      ->select('name',DB::raw('count(auction.id) as auctions'))->groupBy('category.name')->get();
+
+      $bids = Category::all();
+      $auctions = Auction::all();
+
+      //Set count to 0
+      foreach ($bids as $bid) {
+        $bid['total'] = 0;
+      }
+
+      foreach ($auctions as $auction) {
+        $bids[$auction->category_id-1]['total'] += Auction::find($auction['id'])->getHighestBid();
+      }
+
+      return json_encode(['auctions' => $auctionsPerCategory, 'bids' => $bids]);
+    }
+
+    throw new AuthorizationException;
   }
 
   public function promote(Request $request, $userId) {
@@ -89,6 +124,6 @@ class AdminController extends Controller {
       }
     }
 
-    return redirect()->route('home');
+    throw new AuthorizationException;
   }
 }
