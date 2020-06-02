@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bid;
 use App\Image;
 use App\Auction;
+use App\AuctionStatus;
 use App\Category;
 use App\Transaction;
 use Illuminate\Http\Request;
@@ -60,7 +61,14 @@ class AuctionController extends Controller
       'alt' => "auction".$auction->id,
       'auction_id' => $auction->id,
       ]);
-  $img->save();
+    $img->save();
+
+    $status = new AuctionStatus();
+    $status->datechanged = date("Y-m-d H:i:s");
+    $status->auction_id = $auction->id;
+    $status->status = 'ongoing';
+
+    $status->save();
 
 
     return redirect()->route('auction', ['id' => $auction->id]);
