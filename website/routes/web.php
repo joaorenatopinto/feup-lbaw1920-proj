@@ -68,7 +68,7 @@ Route::get('api/category/{id}','CategoryController@getCategoryPageAjax');
 // Moderation
 Route::get('moderation/users', 'ModerationController@showUsers')->name('modUsers');
 Route::get('moderation/auctions', 'ModerationController@showAuctions')->name('modAuctions');
-Route::get('moderation/reports', 'ModerationController@showReports');
+Route::get('moderation/reports', 'ModerationController@showReports')->name('modReports');
 Route::post('user/{id}/ban', 'ModerationController@banUser')->name('banUser');
 Route::post('user/{id}/recommend', 'ModerationController@recommendMod')->name('recommend');
 Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction')->name('cancelAuction');

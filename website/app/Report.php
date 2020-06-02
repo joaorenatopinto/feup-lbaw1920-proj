@@ -18,4 +18,8 @@ class Report extends Model
     public function getLastStatus() {
         return $this->status->sortByDesc('datechanged')->first();
     }
+
+    public function auction() {
+        return $this->belongsTo('App\Auction');
+    }
 }

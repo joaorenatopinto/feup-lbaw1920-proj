@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Auction;
 use App\AuctionStatus;
+use App\Report;
 use App\User;
 use App\UserStatus;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -30,7 +31,10 @@ class ModerationController extends Controller
 
   public function showReports() {
     $this->authorize('mod', Auth::user());
-    return view('pages.moderation_reports');
+
+    $reports = Report::orderBy('id')->paginate(10);
+
+    return view('moderation.reports',['reports' => $reports]);
   }
      
   public function banUser(Request $request, $userId) {
