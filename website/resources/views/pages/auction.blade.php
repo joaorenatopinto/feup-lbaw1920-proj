@@ -12,17 +12,21 @@
                 alt="Card image cap">
         </div>
 
-        <div class="col-sm-4 text-center">
-            <img src="{{ $auction->user->getImage()->path }}" class="rounded-circle img-thumbnail w-50">
+        <div class="col-sm-4 ">
+            <h4 class ="text-center">Seller</h4>
+            <a href="{{ route('profile',['id' => $auction->user->id ]) }}">
+            <div class="col text-center">
+                <img src="{{ $auction->user->getImage()->path }}" class="rounded-circle mx-auto img-thumbnail w-50">
+            </div>
             <h6 class="align-middle text-center">
-                <a href="{{ route('profile',['id' => $auction->user->id ]) }}">{{$auction->user->name}}</a>
+                {{$auction->user->name}}</a>
             </h6>
 
-            <div class="col-sm card text-center p-0">
+            <div class="col-sm card p-0 text-left">
                 <div class="card-header">
-                    <h4>{{$auction->getHighestBid()}}€</h4>
+                    <h4>Current Bid: {{$auction->getHighestBid()}}€</h4>
                 </div>
-                <h6 class="mt-3 card-title">Quick Bid</h6>
+                <h6 class="mt-3 card-title text-center ">Quick Bid</h6>
                 <div class="input-group d-flex justify-content-around">
                     <button type="button" class="btn btn-outline-danger">{{$auction->getHighestBid()+150}}€</button>
                     <button type="button" class="btn btn-outline-danger">{{$auction->getHighestBid()+300}}€</button>
@@ -43,38 +47,14 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
+                <div class="row text-center mt-2">
+                    <div id=demo class="col-sm font-weight-bold">
 
-    </div>
-
-    <div class="row justify-content-between">
-        <div class="col-sm-7">
-            <div class=" mt-3 mx-0 text-start h5 p-0">{{$auction->description}}</div>
-        </div>
-        <a class="btn btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}" role="button">Report</a>
-    </div>
-
-</div>
-
-
-<div class="row mt-5">
-    <div class="col-sm text-center">
-        <h3>{{$auction->closedate}}</h3>
-    </div>
-</div>
-
-<div class="py-3">
-    <div class="row">
-        <div class="col-sm-2 mx-auto">
-
-            <div class="rounded bg-gradient-1 text-black shadow p-5 text-center mb-5">
-                <p class="mb-4 font-weight-bold text-uppercase">Ends in</p>
-                <p id="demo"></p>
-
+                    </div>
+                </div>
                 <script>
                     // Set the date we're counting down to
-                    var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+                    var countDownDate = new Date("{{$auction->closedate}}").getTime();
 
                     // Update the count down every 1 second
                     var x = setInterval(function () {
@@ -92,7 +72,8 @@
                         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
                         // Display the result in the element with id="demo"
-                        document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+                        document.getElementById("demo").innerHTML = "ENDS IN: " + days + "d " + hours +
+                            "h " +
                             minutes + "m " + seconds + "s ";
 
                         // If the count down is finished, write some text
@@ -102,14 +83,30 @@
                         }
                     }, 1000);
                 </script>
-
-                <div id="clock-b" class="countdown-circles d-flex flex-wrap justify-content-center pt-4"></div>
             </div>
-
+            <div class="col text-right mt-2">
+                <a class="btn-sm btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}"
+                    role="button">Report</a>
+            </div>
         </div>
 
     </div>
+
+    <div class="row justify-content-between">
+        <div class="col-sm-7">
+            <div class=" mt-3 mx-0 text-start h5 p-0">{{$auction->description}}</div>
+        </div>
+        <div class="row">
+            <div class="col mx-auto">
+
+
+            </div>
+        </div>
+    </div>
+
 </div>
+
+
 
 
 @endsection
