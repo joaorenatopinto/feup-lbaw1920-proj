@@ -41,7 +41,7 @@ class User extends Authenticatable
     public function auctions() {
         return $this->hasMany('App\Auction');
     }
-    
+
     public function transactions()
     {
         $transactions = Transaction::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->orderBy('date','desc')->paginate(10);
@@ -53,5 +53,15 @@ class User extends Authenticatable
 
     public function getLastStatus() {
         return $this->status->sortByDesc('datechanged')->first();
-      }
+    }
+
+    public function scopeSearch($query, $search) {
+        $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~'];
+        $search = str_replace($reservedSymbols, '', $search);
+        if (!$search)
+          return $query;
+        $search = strtoupper($search);
+        $search = "%{$search}%";
+        return $query->orWhereRaw("upper(username) LIKE ?", [$search]);
+    }
 }

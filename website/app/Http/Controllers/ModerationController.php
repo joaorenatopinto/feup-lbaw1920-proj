@@ -12,18 +12,26 @@ use Illuminate\Support\Facades\Auth;
 
 class ModerationController extends Controller
 {
-  public function showUsers() {
+  public function showUsers(Request $request) {
     $this->authorize('mod', Auth::user());
-
-    $users = User::orderBy('id')->paginate(10);
+    if($request->filled('username')) {
+      $term = $request->username;
+      $users = User::search($term)->paginate(10);
+    } else {
+      $users = User::orderBy('id')->paginate(10);
+    }
 
     return view('moderation.users', ['users' => $users]);
   }
 
-  public function showAuctions() {
+  public function showAuctions(Request $request) {
     $this->authorize('mod', Auth::user());
-
-    $auctions = Auction::orderBy('id')->paginate(10);
+    if($request->filled('auction')) {
+      $term = $request->auction;
+      $auctions = Auction::search($term)->paginate(10);
+    } else {
+      $auctions = Auction::orderBy('id')->paginate(10);
+    }
 
     return view('moderation.auctions',['auctions' => $auctions]);
   }
@@ -32,14 +40,14 @@ class ModerationController extends Controller
     $this->authorize('mod', Auth::user());
     return view('pages.moderation_reports');
   }
-     
+
   public function banUser(Request $request, $userId) {
     $status = new UserStatus;
-    
+
     if (Auth::guard('admin')->check()) {
       $status->admin_id = Auth::guard('admin')->id();
     }
-    else if (($request['ban'] == '1' && Auth::user()->can('ban',User::find($userId))) || 
+    else if (($request['ban'] == '1' && Auth::user()->can('ban',User::find($userId))) ||
       ($request['ban'] == '0' && Auth::user()->can('unban',User::find($userId))) ) {
       $status->moderator_id = Auth::id();
     }
@@ -68,9 +76,9 @@ class ModerationController extends Controller
   }
 
   public function recommendMod(Request $request, $userId) {
-    if (($request['recommend'] == '1' && Auth::user()->can('recommend',User::find($userId))) || 
+    if (($request['recommend'] == '1' && Auth::user()->can('recommend',User::find($userId))) ||
       ($request['recommend'] == 0 && Auth::user()->can('cancelRecommendation',User::find($userId)))) {
-      
+
       $status = new UserStatus();
 
       $status->moderator_id = Auth::id();
@@ -113,7 +121,7 @@ class ModerationController extends Controller
 
     $status->datechanged = date("Y-m-d H:i:s");
     $status->auction_id = $auctionId;
-      
+
     if ($request['cancel'] == '1') {
       //cancel the auction
       $status->status = 'removed';
@@ -127,7 +135,7 @@ class ModerationController extends Controller
     }
 
     $status->save();
-        
+
     return redirect()->back();
   }
 }

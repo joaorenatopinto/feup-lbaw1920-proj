@@ -2,21 +2,22 @@
 
 @guest
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand text-light" href="/"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60"
-        alt="SLASH AH"></a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="max-height: 3em; padding: 0">
+    <a class="navbar-brand text-light" href="/" style="max-height: 2em; margin-left: 5%; padding:0">
+      <img src="{{ asset('img/logo_white.png') }}" style="max-height: 2em; padding:0" alt="SLASH AH">
+    </a>
     <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="max-height: 2em; margin-right: 5%; padding:0">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="d-flex justify-content-end flex-grow w-100">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="align-items: center; display: flex;">
           <li class="nav-item">
-            <form action="/auction/search" method="post" class="form-inline my-2 my-lg-0 ">
+            <form action="/auction/search" method="post" class="form-inline my-2 my-lg-0" style="max-height: 2em; margin: auto 5% 0 auto; padding:0">
               {{ csrf_field() }}
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" style="max-height: 2em;">
             </form>
           </li>
 
@@ -34,12 +35,13 @@
 
 @auth('web')
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand text-light" href="/"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60"
-        alt="SLASH AH"></a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="max-height: 3em; padding: 0">
+    <a class="navbar-brand text-light" href="/" style="max-height: 2em; margin-left: 5%; padding:0">
+        <img src="{{ asset('img/logo_white.png') }}" style="max-height: 2em; padding:0" alt="SLASH AH">
+    </a>
 
     @if(Auth::user()->getLastStatus()->status == 'moderator')
-      <div class="nav-item dropdown"> 
+      <div class="nav-item dropdown">
         <a href="" class="nav-link text-light dropdown-toggle" data-toggle="dropdown" id=dropdownMod>Moderation</a>
         <div class="dropdown-menu" aria-labelledby="dropdownMod">
         <a href="{{route('modUsers')}}" class="dropdown-item">Users</a>
@@ -47,19 +49,19 @@
         </div>
       </div>
     @endif
-    
+
     <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="max-height: 2em; margin-right: 5%; padding:0">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="d-flex justify-content-end flex-grow w-100">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="align-items: center; display: flex;">
           <li class="nav-item">
-            <form class="form-inline my-2 my-lg-0 ">
-              <a href="{{ route('createAuction') }}" class="btn btn-danger mr-2 text-light">Create Auction</a>
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form action="/auction/search" method="post" class="form-inline my-2 my-lg-0" style="max-height: 2em; margin: auto 5% 0 auto; padding:0">
+              {{ csrf_field() }}
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" style="max-height: 2em;">
             </form>
           </li>
           <li class="nav-item">

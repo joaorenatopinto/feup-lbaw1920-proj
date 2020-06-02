@@ -1,8 +1,9 @@
 @section('header')
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60"
-      alt="SLASH AH"></a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="max-height: 3em; padding: 0">
+    <a class="navbar-brand text-light" href="/" style="max-height: 2em; margin-left: 5%; padding:0">
+      <img src="{{ asset('img/logo_white.png') }}" style="max-height: 2em; padding:0" alt="SLASH AH">
+    </a>
 
     <div class="my-2 my-lg-0 collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
