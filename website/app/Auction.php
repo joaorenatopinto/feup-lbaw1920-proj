@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Contracts\Console\Application;
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
 class Auction extends Model
@@ -12,7 +12,7 @@ class Auction extends Model
 
   protected $table = 'auction';
 
-  protected $fillable = ['user_id', 'title', 'category_id', 'description', 'startDate', 'closeDate', 'initialValue'];
+  protected $fillable = ['user_id', 'title', 'category_id', 'initialvalue', 'description', 'startdate', 'closedate'];
 
   /**
    * The user this card belongs to
@@ -26,15 +26,34 @@ class Auction extends Model
     return $image;
   }
 
-  public function getHighestBid(){
+  public function getHighestBid() {
     $auction = Auction::where('id', $this->id);
     $max = Bid::where('auction_id', $this-> id)->max('value');
-    if($max == null) return $auction->initialValue;
+    if($max == null) return $this->initialvalue;
     else return $max;
   }
 
-  public function getCategory()
-    {
-        return $this->belongsTo('App\Category');
-    }
+  public function category() {
+    return $this->belongsTo('App\Category');
+  }
+
+  public function status() {
+    return $this->hasMany('App\AuctionStatus');
+  }
+
+  public function getLastStatus() {
+    return $this->status->sortByDesc('datechanged')->first();
+  }
+
+  /**
+   * Returns a string with the time left for the auction to end
+   */
+  public function timeLeft() {
+    $now = new DateTime();
+    $close = new DateTime($this->closedate);
+
+    $dif = $now->diff($close);
+
+    return  $dif->y . 'y ' . $dif->m . 'm ' . $dif->d . 'd ' . $dif->h . 'h ' . $dif->m . 'm';
+  }
 }

@@ -52,6 +52,7 @@
         <div class="col-sm-7">
             <div class=" mt-3 mx-0 text-start h5 p-0">{{$auction->description}}</div>
         </div>
+        <a class="btn btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}" role="button">Report</a>
     </div>
 
 </div>
