@@ -34,7 +34,7 @@ class UserPolicy
   }
 
   /**
-   * The user is a moderator
+   * The mod is a moderator
    * The user is already banned
    */
   public function unban(User $mod, User $user) {
@@ -42,8 +42,30 @@ class UserPolicy
       $user->getLastStatus()->status == 'banned';
   }
 
+
+  /**
+   * The mod is a moderator
+   * The user is active
+   */
+  public function recommend(User $mod, User $user) {
+    return $mod->getLastStatus()->status == 'moderator' &&
+      $user->getLastStatus()->status == 'active';
+  }
+
+  /**
+   * The mod is a mod
+   * The user is recoMod
+   * The recommendation was made by the mod
+   */
+  public function cancelRecommendation(User $mod, User $user) {
+    return $mod->getLastStatus()->status == 'moderator' &&
+      $user->getLastStatus()->status == 'recoMod';
+      $user->getLastStatus()->moderator_id == $mod->id;
+  }
+
   public function closeAuction(User $mod, $auctionId) {
     $auction = Auction::find($auctionId);
   }
+
 }
  

@@ -5,36 +5,38 @@
   
     @if($user->getLastStatus() == null)
       <td class="align-middle text-danger">NO STATUS</td>
+      <td class=align-middle>-</td>
     @elseif($user->getLastStatus()->status == 'active')
-      <td class="align-middle text-success">{{ $user->getLastStatus()->status }}</td>
+      <td class="align-middle text-success">Active</td>
       <td class="align-middle">
-        <form action="{{route('promote', ['id' => $user->id])}}" method="post">
-          {{ csrf_field() }}
-          <button class="btn btn-outline-info btn-sm w-100 mb-1" name="promote" value="1">Recomend Moderator</button>
+        <form action="{{route('recommend', ['id' => $user->id])}}" method="post">
+            {{ csrf_field() }}
+            <button class="btn btn-outline-info btn-sm w-100 mb-1" name="recommend" value="1">Recomend Moderator</button>
         </form>
         <form action="{{route('banUser', ['id' => $user->id])}}" method="post">
-          {{ csrf_field() }}
-          <button class="btn btn-outline-danger btn-sm w-100" name="ban" value="1">Ban</button>
+            {{ csrf_field() }}
+            <button class="btn btn-outline-danger btn-sm w-100" name="ban" value="1">Ban</button>
         </form>
       </td>
     @elseif($user->getLastStatus()->status == 'moderator')
-      <td class="align-middle text-info">{{ $user->getLastStatus()->status }}</td>
+      <td class="align-middle text-info">Moderator</td>
       <td class=align-middle>-</td>
     @elseif($user->getLastStatus()->status == 'recoMod')
-      <td class="align-middle text-info">{{ $user->getLastStatus()->status }}</td>
+      <td class="align-middle text-info">Recomended Moderator</td>
       <td class="align-middle">
-        <form action="{{route('promote', ['id' => $user->id])}}" method="post">
-          {{ csrf_field() }}
-          <button class="btn btn-outline-info btn-sm w-100 mb-1" name="promote" value="1">Cancel Recomendation</button>
+        @if($user->getLastStatus()->moderator_id == Auth::id())
+        <form action="{{route('recommend', ['id' => $user->id])}}" method="post">
+            {{ csrf_field() }}
+            <button class="btn btn-outline-info btn-sm w-100 mb-1" name="recommend" value="0">Cancel Recomendation</button>
         </form>
-        {{-- TODO verificar se este user foi recomendado por mim --}}
+        @endif
         <form action="{{ route('banUser', ['id' => $user->id]) }}" method="post">
-          {{ csrf_field() }}
-          <button class="btn btn-outline-danger btn-sm w-100" name="ban" value="1">Ban</button>
+            {{ csrf_field() }}
+            <button class="btn btn-outline-danger btn-sm w-100" name="ban" value="1">Ban</button>
         </form>
       </td>
     @elseif($user->getLastStatus()->status == 'banned')
-      <td class="align-middle text-danger">{{ $user->getLastStatus()->status }}</td>
+      <td class="align-middle text-danger">Banned</td>
       <td class="align-middle">
         <form action="{{ route('banUser', ['id' => $user->id]) }}" method="post">
           {{ csrf_field() }}

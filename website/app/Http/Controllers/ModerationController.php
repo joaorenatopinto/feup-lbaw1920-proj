@@ -63,6 +63,35 @@ class ModerationController extends Controller
     return redirect()->back();
   }
 
+  public function recommendMod(Request $request, $userId) {
+    if (($request['recommend'] == '1' && Auth::user()->can('recommend',User::find($userId))) || 
+      ($request['recommend'] == 0 && Auth::user()->can('cancelRecommendation',User::find($userId)))) {
+      
+      $status = new UserStatus();
+
+      $status->moderator_id = Auth::id();
+      $status->datechanged = date("Y-m-d H:i:s");
+      $status->user_id = $userId;
+
+      if ($request['recommend'] == '1') {
+        $status->status = 'recoMod';
+      }
+      else if ($request['recommend'] == '0') {
+        $status->status = 'active';
+      }
+      else {
+        throw new AuthorizationException;
+      }
+
+      $status->save();
+
+      return redirect()->back();
+    }
+    else {
+      throw new AuthorizationException;
+    }
+  }
+
   public function cancelAuction(Request $request, $auctionId) {
     $status = new AuctionStatus();
 
