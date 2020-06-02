@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col">
             <form action="" method="get" class="form-inline my-lg-3 my-3">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="auction">
+                <input class="form-control border border-primary mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="auction">
                 {{ csrf_field() }}
             </form>
             <div class="table-responsive">

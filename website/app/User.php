@@ -62,6 +62,6 @@ class User extends Authenticatable
           return $query;
         $search = strtoupper($search);
         $search = "%{$search}%";
-        return $query->orWhereRaw("upper(username) LIKE ?", [$search]);
+        return $query->orWhereRaw("CONCAT(upper(name), ' ', upper(username), ' ', upper(email)) LIKE ?", [$search]);
     }
 }
