@@ -45,11 +45,13 @@
 
     @elseif($action->status == 'recoMod')
         <td class="align-middle text-info">{{ $action->status }}</td>
-        @if($action->auction->getLastStatus()->datechanged == $action->datechanged)
-            <form action="{{route('promote', ['id' => $user->id])}}" method="post">
-                {{ csrf_field() }}
-                <button class="btn btn-outline-warning btn-sm w-100 mb-1" name="promote" value="1">Accept Promotion</button>
-          </form>
+        @if($action->user->getLastStatus()->datechanged == $action->datechanged) 
+            <td>
+                <form action="{{route('promote', ['id' => $action->user->id])}}" method="post">
+                    {{ csrf_field() }}
+                    <button class="btn btn-outline-warning btn-sm w-100 mb-1" name="promote" value="1">Accept Promotion</button>
+                </form>
+            </td>
         @else 
             <td class="align-middle">-</td>
         @endif
