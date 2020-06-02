@@ -7,22 +7,23 @@ use App\Auction;
 use App\AuctionStatus;
 use App\User;
 use App\UserStatus;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
-//TODO use the policy instead of if
-{
+//Note: we can not use policies for admins because they use a custom guard
+
+class AdminController extends Controller {
 
   public function users() {
-    if (Auth::guard('admin')->check()) {
+    if(Auth::guard('admin')->check()) { 
       $users = User::orderBy('id')->paginate(10);
 
       return view('admin.users', ['users' => $users]);
     }
 
-    return redirect(route('home'));
+    return redirect()->route('home');
   }
 
   public function auctions() {
@@ -32,7 +33,7 @@ class AdminController extends Controller
       return view('admin.auctions', ['auctions' => $auctions]);
     }
 
-    return redirect(route('home'));
+    return redirect()->route('home');
   }
 
   public function mods(Request $request) {
@@ -57,7 +58,7 @@ class AdminController extends Controller
       return view('admin.mods', ['actions' => $pagination]);
     }
 
-    return redirect(route('home'));
+    return redirect()->route('home');
   }
 
   public function promote(Request $request, $userId) {
@@ -88,6 +89,6 @@ class AdminController extends Controller
       }
     }
 
-    return redirect(route('home'));
+    return redirect()->route('home');
   }
 }

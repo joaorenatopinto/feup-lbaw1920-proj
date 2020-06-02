@@ -36,6 +36,17 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <a class="navbar-brand text-light" href="/"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60"
         alt="SLASH AH"></a>
+
+    @if(Auth::user()->getLastStatus()->status == 'moderator')
+      <div class="nav-item dropdown"> 
+        <a href="" class="nav-link text-light dropdown-toggle" data-toggle="dropdown" id=dropdownMod>Moderation</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMod">
+        <a href="{{route('modUsers')}}" class="dropdown-item">Users</a>
+          <a href="{{route('modAuctions')}}" class="dropdown-item">Auctions</a>
+        </div>
+      </div>
+    @endif
+    
     <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
