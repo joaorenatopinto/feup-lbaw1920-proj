@@ -62,10 +62,5 @@ class UserPolicy
       $user->getLastStatus()->status == 'recoMod';
       $user->getLastStatus()->moderator_id == $mod->id;
   }
-
-  public function closeAuction(User $mod, $auctionId) {
-    $auction = Auction::find($auctionId);
-  }
-
 }
  

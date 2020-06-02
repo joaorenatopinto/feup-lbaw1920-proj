@@ -7,11 +7,11 @@
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead class="thead-dark text-center">
-                        <th scope="col">Username</th>
-                        <th scope="col">Name</a></th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col" class="align-middle">Username</th>
+                        <th scope="col" class="align-middle">Name</a></th>
+                        <th scope="col" class="align-middle">Email</th>
+                        <th scope="col" class="align-middle">Status</th>
+                        <th scope="col" class="align-middle">Actions</th>
                     </thead>
                     
                     <tbody class="text-center">

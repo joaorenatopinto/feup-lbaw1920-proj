@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Auction;
 use App\AuctionStatus;
 use App\User;
 use App\UserStatus;
@@ -21,7 +22,10 @@ class ModerationController extends Controller
 
   public function showAuctions() {
     $this->authorize('mod', Auth::user());
-    return view('pages.moderation,auctions');
+
+    $auctions = Auction::orderBy('id')->paginate(10);
+
+    return view('moderation.auctions',['auctions' => $auctions]);
   }
 
   public function showReports() {
@@ -98,8 +102,10 @@ class ModerationController extends Controller
     if (Auth::guard('admin')->check()) {
       $status->admin_id = Auth::guard('admin')->id();
     }
-    else if (Auth::user()->can('cancelAuction',$auctionId)) {
-      $status->moderator = Auth::id();
+    else if (($request['cancel'] == '1' && Auth::user()->can('cancel',Auction::find($auctionId))) ||
+      ($request['cancel'] == '0' && Auth::user()->can('undoCancel',Auction::find($auctionId)))) {
+
+      $status->moderator_id = Auth::id();
     }
     else {
       throw new AuthorizationException;

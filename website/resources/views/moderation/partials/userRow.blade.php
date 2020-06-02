@@ -1,6 +1,6 @@
 <tr>
-    <th class="align-middle">{{ $user->username }}</th>
-    <td class="align-middle"><a href="{{route('profile',['id' => $user->id])}}">{{ $user->name }}</a></td>
+    <th class="align-middle"><a href="{{route('profile',['id' => $user->id])}}">{{ $user->username }}</a></th>
+    <td class="align-middle">{{ $user->name }}</td>
     <td class="align-middle">{{ $user->email }}</td>
   
     @if($user->getLastStatus() == null)

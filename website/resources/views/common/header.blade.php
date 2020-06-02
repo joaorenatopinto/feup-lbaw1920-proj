@@ -38,7 +38,13 @@
         alt="SLASH AH"></a>
 
     @if(Auth::user()->getLastStatus()->status == 'moderator')
-      <a href="{{ route('modUsers') }}" class="nav-link text-light">Moderation</a>
+      <div class="nav-item dropdown"> 
+        <a href="" class="nav-link text-light dropdown-toggle" data-toggle="dropdown" id=dropdownMod>Moderation</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMod">
+        <a href="{{route('modUsers')}}" class="dropdown-item">Users</a>
+          <a href="{{route('modAuctions')}}" class="dropdown-item">Auctions</a>
+        </div>
+      </div>
     @endif
     
     <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
