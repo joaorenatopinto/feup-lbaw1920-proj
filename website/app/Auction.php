@@ -44,7 +44,8 @@ class Auction extends Model
     $search = str_replace($reservedSymbols, '', $search);
     if (!$search)
       return $query;
+    $search = strtoupper($search);
     $search = "%{$search}%";
-    return $query->orWhereRaw("CONCAT(title, ' ', description) LIKE ?", [$search]);
+    return $query->orWhereRaw("CONCAT(upper(title), ' ', upper(description)) LIKE ?", [$search]);
   }
 }
