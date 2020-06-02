@@ -21,15 +21,20 @@ class Auction extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function getImage(){
+  public function getImage() {
     $image = Image::where('auction_id', $this->id)->first();
     return $image;
   }
 
-  public function getHighestBid(){
+  public function getHighestBid() {
     $max = Bid::where('auction_id', $this-> id)->max('value');
     if($max == null) return $this->initialvalue;
     else return $max;
+  }
+
+  public function getWinner() {
+    $max = Bid::where('auction_id', $this-> id)->max('value');
+    return $max;
   }
 
   public function category() {
@@ -42,6 +47,10 @@ class Auction extends Model
 
   public function getLastStatus() {
     return $this->status->sortByDesc('datechanged')->first();
+  }
+
+  public function shouldClose() {
+    return $this->closeDate->isPast();
   }
 
   /**

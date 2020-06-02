@@ -10,6 +10,8 @@ use App\Category;
 use App\Report;
 use App\ReportStatus;
 use App\Transaction;
+use App\User;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +23,7 @@ class AuctionController extends Controller
   public function show($id)
   {
     $auction = Auction::find($id);
+
     return view('pages.auction', ['auction' => $auction]);
   }
 
@@ -127,9 +130,36 @@ class AuctionController extends Controller
     return redirect()->route('auction', ['id' => $id]);
   }
 
+
+  public function close($id){
+    $auction = Auction::find($id);
+    $status = new AuctionStatus();
+    $status->datechanged = date("Y-m-d H:i:s");
+    $status->auction_id = $auction->id;
+    $status->status = 'closed';
+    $status->save();
+
+    $bid = $auction->getWinner();
+    if($bid != null) {
+      $transaction = Transaction::where('auction',$auction->id,'value',$bid->value);
+      $transaction->is_reserved = false;
+      $transaction->description = 'Winner of ' . $auction->title;
+
+      $owner = User::find($auction->user_id);
+      $owner->balance = $owner->balance - $bid->value;
+      $owner->save();
+    }
+  }
+
+
   public function bid(Request $request, $id)
   {
     $auction = Auction::find($id);
+    if($auction->shouldClose()){
+      $this->close($id);
+      throw new AuthorizationException("Auction closed! Can't bid", 1);
+      return;
+    }
     $this->authorize('bid', $auction);
     $max = $auction->getHighestBid();
 
