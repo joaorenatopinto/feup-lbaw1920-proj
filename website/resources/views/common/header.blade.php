@@ -37,7 +37,9 @@
     <a class="navbar-brand text-light" href="/"><img src="{{ asset('img/logo_white.png') }}" width="80" height="60"
         alt="SLASH AH"></a>
 
-    <a href="{{ route('modUsers') }}" class="nav-link text-white">Moderation</a>
+    @if(Auth::user()->getLastStatus()->status == 'moderator')
+      <a href="{{ route('modUsers') }}" class="nav-link text-light">Moderation</a>
+    @endif
     
     <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

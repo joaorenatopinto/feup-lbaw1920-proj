@@ -27,7 +27,7 @@
   <body>
     <main>
       @auth('admin')
-        @include('common.adminHeader');
+        @include('common.adminHeader')
       @endauth
 
       @guest('admin')
