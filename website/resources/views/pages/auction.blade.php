@@ -101,7 +101,7 @@
                             class="rounded-circle mx-auto img-thumbnail w-25">
                     </div>
                     <h6 class="align-middle text-center">
-                        {{$auction->user->name}}
+                        {{$auction->getWinner()->getWinner()->name}}
                 </a>
                 </h6>
 
@@ -109,7 +109,7 @@
 
             @endif
             <div class="col text-right mt-2">
-                @if(Auth::user() != $auction->user)
+                @if(Auth::user() != $auction->user && App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
 
                 <a id="report" class="btn-sm btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}"
                     role="button">Report</a>
