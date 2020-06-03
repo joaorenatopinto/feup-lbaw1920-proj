@@ -33,7 +33,7 @@ class Auction extends Model
   }
 
   public function getWinner() {
-    $max = Bid::where('auction_id', $this-> id)->first();
+    $max = Bid::where('auction_id', $this-> id)->orderby('date','desc')->first();
     return $max;
   }
   

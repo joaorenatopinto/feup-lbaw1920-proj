@@ -177,7 +177,7 @@ class AuctionController extends Controller
 
     /* increment of 1 */
     $min_bid = $max + 1;
-
+    $oldbid = $auction->getWinner();
     $this->validate($request, [
       'value' => ['required', 'numeric' ,'min:' . $min_bid]
     ]);
@@ -202,7 +202,16 @@ class AuctionController extends Controller
     $transaction->auction =$id;
     $transaction->save();
 
-    //TODO REMOVE LINE AFTER TRIIGERS ON TRANSACTIONS WORK
+    //TODO REMOVE LINE AFTER TRIGERS ON TRANSACTIONS WORK
+    
+    if($oldbid != null){
+      $oldBidder = User::find($oldbid->user_id);
+      $oldBidder->balance = $oldBidder->balance + $oldbid->value;
+      $oldBidder->save();
+      Transaction::where('value',$oldbid->value)->where('sender_id', $oldBidder->id)->delete();
+    }
+    
+
     Auth::user()->balance = $balance - $bid->value;
     Auth::user()->save();
 
