@@ -141,7 +141,7 @@ class AuctionController extends Controller
 
     $bid = $auction->getWinner();
     if($bid != null) {
-      $transaction = Transaction::where('auction',$auction->id)->where('value', $bid->value);
+      $transaction = Transaction::where('auction',$auction->id)->where('value', $bid->value)->first();
       $transaction->is_reserved = false;
       $transaction->description = 'Value of ' . $auction->title;
       $transaction->save();
