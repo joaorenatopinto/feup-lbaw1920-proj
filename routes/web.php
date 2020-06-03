@@ -15,6 +15,7 @@
 
 Route::get('/', 'HomepageController@show');
 Route::get('home', 'HomepageController@show')->name('home');
+Route::get('/about', 'HomepageController@about');
 
 // User Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

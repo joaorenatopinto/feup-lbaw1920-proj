@@ -24,4 +24,8 @@ class HomepageController extends Controller
       $categories = Category::all();
       return view('pages.home', ['featured_id' => $featured_id, 'featured' => $featured, 'categories' => $categories]);
     }
+
+    public function about() {
+      return view('pages.about');
+    }
 }
