@@ -80,7 +80,7 @@ class UserController extends Controller
         $transaction->is_reserved = false;
         $transaction->auction = null;
         $transaction->save();
-    
+
 
         Auth::user()->balance = $balance + $request->money;
         Auth::user()->save();
@@ -103,7 +103,7 @@ class UserController extends Controller
         $transaction->is_reserved = false;
         $transaction->auction = null;
         $transaction->save();
-        
+
         Auth::user()->balance = $balance - $request->money;
         Auth::user()->save();
 

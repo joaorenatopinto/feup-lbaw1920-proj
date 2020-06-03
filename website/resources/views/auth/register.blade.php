@@ -9,7 +9,7 @@
 			</div>
     <div class="card-body">
         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-          
+
           {{ csrf_field() }}
 
 					<div class="input-group form-group d-flex">
@@ -36,6 +36,7 @@
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
             <input type="text" class="form-control" placeholder="Username" id="username" name="username" required>
+            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Username must have length between 3 and 32 characters"> ? </button>
           </div>
           @error('username')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -64,6 +65,7 @@
             </div>
             <input type="password" class="form-control mr-3" placeholder="Password" id="password" name="password" required>
             <input type="password" class="form-control" placeholder="Confirm Password" id="password_confirmation" name ="password_confirmation" required>
+            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="Password must have minimum length of 6 characters. Can contain letters (A-Z,a-z), numbers (0-9) and symbols (!, $, #, or %)"> ? </button>
           </div>
           @error('password')
             <div class="alert alert-danger">{{ $message }}</div>
