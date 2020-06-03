@@ -13,13 +13,14 @@
         </div>
 
         <div class="col-sm-4 ">
-            <h4 class ="text-center">Seller</h4>
+            <h4 class="text-center">Seller</h4>
             <a href="{{ route('profile',['id' => $auction->user->id ]) }}">
-            <div class="col text-center">
-                <img src="{{ $auction->user->getImage()->path }}" class="rounded-circle mx-auto img-thumbnail w-50">
-            </div>
-            <h6 class="align-middle text-center">
-                {{$auction->user->name}}</a>
+                <div class="col text-center">
+                    <img src="{{ $auction->user->getImage()->path }}" class="rounded-circle mx-auto img-thumbnail w-25">
+                </div>
+                <h6 class="align-middle text-center">
+                    {{$auction->user->name}}
+            </a>
             </h6>
 
             <div class="col-sm card p-0 text-left">
@@ -28,9 +29,12 @@
                 </div>
                 <h6 class="mt-3 card-title text-center ">Quick Bid</h6>
                 <div class="input-group d-flex justify-content-around">
-                    <button type="button" class="btn btn-outline-danger">{{$auction->getHighestBid()+150}}€</button>
-                    <button type="button" class="btn btn-outline-danger">{{$auction->getHighestBid()+300}}€</button>
-                    <button type="button" class="btn btn-outline-danger">{{$auction->getHighestBid()+450}}€</button>
+                    <button id="bid1" type="button"
+                        class="btn btn-outline-danger">{{$auction->getHighestBid()+150}}€</button>
+                    <button id="bid2" type="button"
+                        class="btn btn-outline-danger">{{$auction->getHighestBid()+300}}€</button>
+                    <button id="bid3" type="button"
+                        class="btn btn-outline-danger">{{$auction->getHighestBid()+450}}€</button>
                 </div>
                 <form action="{{$auction->id}}/bid" method="post">
                     {{ csrf_field() }}
@@ -41,7 +45,7 @@
                                     placeholder="Place your Bid">
                             </div>
                             <div class="col-sm-4">
-                                <button type="submit" class="btn btn-danger btn-block">Bid <i
+                                <button id="bid4" type="submit" class="btn btn-danger btn-block">Bid <i
                                         class="fas fa-coins"></i></button>
                             </div>
                         </div>
@@ -85,8 +89,11 @@
                 </script>
             </div>
             <div class="col text-right mt-2">
-                <a class="btn-sm btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}"
+                @if(Auth::user() != $auction->user)
+
+                <a id="report" class="btn-sm btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}"
                     role="button">Report</a>
+                @endif
             </div>
         </div>
 
@@ -104,6 +111,16 @@
         </div>
     </div>
 
+
+    @if(Auth::user() == $auction->user)
+    <script>
+        document.getElementById("bid1").disabled = true;
+        document.getElementById("bid2").disabled = true;
+        document.getElementById("bid3").disabled = true;
+        document.getElementById("bid4").disabled = true;
+        document.getElementById("report").disabled = true;
+    </script>
+    @endif
 </div>
 
 
