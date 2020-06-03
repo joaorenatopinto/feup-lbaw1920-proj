@@ -16,6 +16,10 @@
 Route::get('/', 'HomepageController@show');
 Route::get('home', 'HomepageController@show')->name('home');
 
+// About
+
+Route::get('about', 'HomepageController@showAbout')->name('about');
+
 // User Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');

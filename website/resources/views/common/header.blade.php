@@ -2,12 +2,12 @@
 
 @guest
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="max-height: 3em; padding: 0">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <a class="navbar-brand text-light" href="/" style="max-height: 2em; margin-left: 5%; padding:0">
       <img src="{{ asset('img/logo_white.png') }}" style="max-height: 2em; padding:0" alt="SLASH AH">
     </a>
     <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="max-height: 2em; margin-right: 5%; padding:0">
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
       <span class="navbar-toggler-icon"></span>
     </button>
 
