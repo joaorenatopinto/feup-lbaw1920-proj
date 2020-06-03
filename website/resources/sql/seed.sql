@@ -320,32 +320,48 @@ INSERT INTO "user" (username, "password", "name", email, balance, nif, descripti
 INSERT INTO "user" (username, "password", "name", email, balance, nif, description) VALUES ('glucose', '5d425db85436c4b58a6231258b5f59685dc290365f23d7bef5c82d15a5bcd844', 'Glu Cose', 'glucose@gmail.com',0 , '290694809', '');
 
 
---4 e 9 removed 8, 10, 11 e 13 closed
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Mercedes-Benz S 320 CDI ', ' Potência: 197 cv (3 2  2 cm3), usado e recondicionado','2021-02-10 09:00:00','2021-02-17 21:00:00', 25000, 1, 2);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('BMW 520d LUXURY 184cv', 'Excelente estado. Usado Prestige BMW ainda com 2 anos de garantia. Sempre assistido na BMW - Última revisão em Outubro. 150mil kms. Caixa automática ','2021-02-11 09:00:15','2021-02-20 16:45:00', 20000, 1, 2);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('AUDI A3 1.6TDI SLINE .sportback 5portas', 'Viatura em excelente estado de conservação. Tem gps,estofos em Pele, Ar condicionado aut, Metalizado, Abs, Radio cds','2021-04-10 09:00:00','2021-04-17 21:00:00', 17950, 1, 2);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Ford Fiesta 1.3 2003 ', ' Carro em bom estado apenas a precisar de uma pintura,valor pouco negociável ','2021-11-28 09:00:15','2021-12-17 09:00:15', 1800, 1, 10);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Porsche Cayenne 3.0 V6 Hybrid Plug-In 416cv ', 'em bom estado geral, filtro de oleo a ser mudado','2020-06-01 09:00:15','2020-06-17 09:00:15', 80000, 1, 12); 
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Yamaha GTS 1000 GT ', 'ABS punhos aquecidos em bom estado geral tem malas GTS','2021-02-17 09:00:15','2021-03-17 09:00:15', 3000, 2, 3);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Ducati multistrada 1200s gt ', 'Controlo de Tração. 4 Modos de condução: Enduro, Urban, Touring (150cv) e Sport (150cv)','2020-01-27 09:00:15','2020-03-27 09:00:15', 11000, 2, 3);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Keeway Blackster 250i', 'Revisão feita aos 4000 km e check-up geral. Super económica, confortável e fácil de conduzir.','2021-02-17 09:00:15','2021-03-17 09:00:15', 2900, 2, 17);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Famel Zundapp Mota Clássica ', 'Está em bom estado. Só tem a corrente solta. É dos anos 70.','2021-02-21 09:00:15','2021-02-28 09:00:15', 600, 2, 16);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Maxi scooter 125 sym gts tipo pcx ', 'Mota em bom estado. Óleo e filtro mudado. ','2021-07-17 09:00:15','2021-08-17 09:00:15', 1400, 2, 4); 
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Maquina Depilação LASER DIODO 808++ ', 'Maquina usada somente 3 vezes, está NOVA. 10 bar \ 600W','2020-07-17 09:00:15','2020-08-17 09:00:15', 3850, 3, 1);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Relogio CASIO', 'Relógios Casio de mergulho MT-1053D. Coroa de rosca ','2020-06-17 09:00:15','2020-07-17 09:00:15', 70, 3, 5);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Powerbeats 2 Wireless', 'Records are meant to be broken. Inspired by LeBron James, Powerbeats2 Wireless was designed to defy the ordinary while catapulting athletes towards their relentless pursuit of perfection. Lightweight and engineered with the power of dual-driver acoustics, the reimagined wireless earphones deliver the premium sound and performance needed to propel you through rigorous workouts. Backed by the King himself, the next level of performance, power, and freedom has arrived.','2021-11-28 09:00:15','2021-12-17 09:00:15', 75, 3, 4);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('PC Gaming NOVO | Ryzen 5 + GTX 1650skin P90 CS:GO', 'Todos os componentes são novos em folha ou recondicionados Tem cores e stickers e formas','2021-02-07 09:00:15','2021-02-17 09:41:14', 600, 4, 14);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Computador ASUS P5VD2-VM/S ', 'Sistema Operativo de 64 Bits. Office pro plus 2019 activo. Processador Core(TM)2 Duo E6850 3,00 Ghz ','2020-01-17 09:00:15','2020-02-17 09:00:15', 200, 4, 17); 
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Desktop core2duo E4400', '4 GB ram. Gráfica 512gb GeForce. Disco 320gb','2020-06-01 09:00:15','2020-06-17 09:00:15', 60, 4, 14);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Fujitsu S900 Thin Pc mSATA + HDD ', 'Fujitsu S900 Thin Client C\Novo com 1GB DDR 3, SSD-mSATA 32gb + HDD 250GB, Display Port e DVI','2021-02-17 09:00:15','2021-03-17 09:00:15', 80, 4, 11);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Portátil HP Compac Mini 110c ', 'Disco Rígido 160GB SATA (5400rpm)','2021-11-17 09:00:15','2021-12-17 09:00:15', 150, 4, 4);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES (' Moeda 50 centavos Republica Portuguesa 1938 rara ', ' Moeda 50 centavos Republica Portuguesa 1938 bela rara e verdadeira.','2020-01-27 09:00:15','2020-03-27 09:00:15', 250, 5, 12);
-INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES (' Parker Inflection ouro e laca preta ', ' Parker Inflection em ouro e laca em preto. Nova na caixa com certificado de autenticidade e garantia. ','2021-04-17 09:00:15','2021-05-17 09:00:15', 75, 5, 9);
+--4 e 9 removed 15, 19  closed
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Mercedes-Benz S 320 CDI ', ' Potência: 197 cv (3 2  2 cm3), usado e recondicionado','2020-02-10 09:00:00','2021-02-17 21:00:00', 25000, 1, 2); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('BMW 520d LUXURY 184cv', 'Excelente estado. Usado Prestige BMW ainda com 2 anos de garantia. Sempre assistido na BMW - Última revisão em Outubro. 150mil kms. Caixa automática ','2020-02-11 09:00:15','2021-02-20 16:45:00', 20000, 1, 2); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('AUDI A3 1.6TDI SLINE .sportback 5portas', 'Viatura em excelente estado de conservação. Tem gps,estofos em Pele, Ar condicionado aut, Metalizado, Abs, Radio cds','2020-04-10 09:00:00','2021-04-17 21:00:00', 17950, 1, 2); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Ford Fiesta 1.3 2003 ', ' Carro em bom estado apenas a precisar de uma pintura,valor pouco negociável ','2019-11-28 09:00:15','2020-12-17 09:00:15', 1800, 1, 10); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Porsche Cayenne 3.0 V6 Hybrid Plug-In 416cv ', 'em bom estado geral, filtro de oleo a ser mudado','2020-06-01 09:00:15','2020-06-17 09:00:15', 80000, 1, 12);  --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Yamaha GTS 1000 GT ', 'ABS punhos aquecidos em bom estado geral tem malas GTS','2020-02-17 09:00:15','2021-03-17 09:00:15', 3000, 2, 3); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Ducati multistrada 1200s gt ', 'Controlo de Tração. 4 Modos de condução: Enduro, Urban, Touring (150cv) e Sport (150cv)','2020-01-27 09:00:15','2020-06-27 09:00:15', 11000, 2, 3); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Keeway Blackster 250i', 'Revisão feita aos 4000 km e check-up geral. Super económica, confortável e fácil de conduzir.','2020-02-17 09:00:15','2021-03-17 09:00:15', 2900, 2, 17); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Famel Zundapp Mota Clássica ', 'Está em bom estado. Só tem a corrente solta. É dos anos 70.','2020-02-21 09:00:15','2021-02-28 09:00:15', 600, 2, 16); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Maxi scooter 125 sym gts tipo pcx ', 'Mota em bom estado. Óleo e filtro mudado. ','2020-05-17 09:00:15','2021-08-17 09:00:15', 1400, 2, 4); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Maquina Depilação LASER DIODO 808++ ', 'Maquina usada somente 3 vezes, está NOVA. 10 bar \ 600W','2020-05-17 09:00:15','2020-08-17 09:00:15', 3850, 3, 1); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Relogio CASIO', 'Relógios Casio de mergulho MT-1053D. Coroa de rosca ','2020-06-01 09:00:15','2020-07-17 09:00:15', 70, 3, 5); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Powerbeats 2 Wireless', 'Com bolsa e cabo original e oferta de outros formatos de auriculares','2019-11-28 10:00:15','2020-12-17 10:00:15', 75, 3, 4); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('PC Gaming NOVO | Ryzen 5 + GTX 1650skin P90 CS:GO', 'Todos os componentes são novos em folha ou recondicionados Tem cores e stickers e formas','2020-02-07 09:00:15','2021-01-17 09:41:14', 600, 4, 14); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Computador ASUS P5VD2-VM/S ', 'Sistema Operativo de 64 Bits. Office pro plus 2019 activo. Processador Core(TM)2 Duo E6850 3,00 Ghz ','2020-01-17 09:00:15','2020-02-17 09:00:15', 200, 4, 17);  --closed
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Desktop core2duo E4400', '4 GB ram. Gráfica 512gb GeForce. Disco 320gb','2020-06-01 09:00:15','2020-06-17 09:00:15', 60, 4, 14); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Fujitsu S900 Thin Pc mSATA + HDD ', 'Fujitsu S900 Thin Client C\Novo com 1GB DDR 3, SSD-mSATA 32gb + HDD 250GB, Display Port e DVI','2020-02-17 09:00:15','2021-03-17 09:00:15', 80, 4, 11); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES ('Portátil HP Compac Mini 110c ', 'Disco Rígido 160GB SATA (5400rpm)','2020-05-17 09:00:15','2020-12-17 09:00:15', 150, 4, 4); --ongoing
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES (' Moeda 50 centavos Republica Portuguesa 1938 rara ', ' Moeda 50 centavos Republica Portuguesa 1938 bela rara e verdadeira.','2020-01-27 09:00:15','2020-03-27 09:00:15', 250, 5, 12); --closed
+INSERT INTO auction (title, description, startDate, closeDate, initialvalue, category_id, user_id) VALUES (' Parker Inflection ouro e laca preta ', ' Parker Inflection em ouro e laca em preto. Nova na caixa com certificado de autenticidade e garantia. ','2020-04-17 09:00:15','2021-05-17 09:00:15', 75, 5, 9); --ongoing
 
 INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/1.jpg'   , 'Will',1);
 INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/2.jpg', 'Standby',2);
 INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/3.jpg'   , 'Risinhos',3);
 INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/4.jpg'   , 'Patilhas',4);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/5.jpg'   , 'user5',5);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/6.jpg'   , 'user6',6);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/7.jpg'   , 'user7',7);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/8.jpg'   , 'user8',8);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/9.jpg'   , 'user9',9);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/10.jpg'   , 'user10',10);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/11.jpg'   , 'user11',11);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/12.jpg'   , 'user12',12);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/13.jpg'   , 'user13',13);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/14.jpg'   , 'user14',14);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/15.jpg'   , 'user15',15);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/16.jpg'   , 'user16',16);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/17.jpg'   , 'user17',17);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/18.jpg'   , 'user18',18);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/19.jpg'   , 'user19',19);
+INSERT INTO "image" (path, alt,user_id) VALUES ('/img/user/20.jpg'   , 'user20',20);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction1/1.jpg'   , 'auction1',1);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction2/1.jpg'   , 'auction2',2);
 INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction3/1.jpg'   , 'auction3',3);
@@ -371,16 +387,16 @@ INSERT INTO "image" (path, alt,auction_id) VALUES ('/img/auction/auction20/1.jpg
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-10 09:00:00', 1);    
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-11 09:00:15', 2);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-04-10 09:00:00', 3);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-03-28 09:00:15', 4);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2019-11-28 09:00:15', 4);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-06-01 09:00:15', 5);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-03-17 09:00:15', 6);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-17 09:00:15', 6);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-01-27 10:00:15', 7);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-17 09:00:15', 8);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-28 09:00:15', 9);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-07-17 09:00:15', 10);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-07-17 09:00:15', 11);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-06-17 09:00:15', 12);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-03-28 09:00:15', 13);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-21 09:00:15', 9);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-05-17 09:00:15', 10);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-05-17 09:00:25', 11);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-06-01 09:00:15', 12);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2019-11-28 10:00:15', 13);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-07 09:00:15', 14);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-01-17 09:00:15', 15);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-06-01 09:00:15', 16);
@@ -392,10 +408,8 @@ INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '
 INSERT INTO auctionStatus (status, dateChanged, auction_id, moderator_id) VALUES ('removed', '2020-03-29 09:00:15', 4, 2);
 INSERT INTO auctionStatus (status, dateChanged, auction_id, admin_id) VALUES ('removed', '2020-02-28 19:00:15', 9, 2);
 -- closed
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('closed', '2020-08-17 09:00:15', 10);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('closed', '2020-12-17 09:00:15', 13);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('closed', '2020-03-17 09:00:15', 8);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('closed', '2020-08-17 09:00:15', 11);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('closed', '2020-02-17 09:00:20', 15);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('closed', '2020-03-27 09:00:20', 19);
 
 
 -- Acertar datas
@@ -477,76 +491,76 @@ INSERT INTO followsAuction (user_id,auction_id) VALUES (4, 2);
 
 
 -- Deposits
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (26080, '2020-02-10 19:00:00', 'Deposit', 1, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (10400, '2020-02-10 19:00:00', 'Deposit', 2, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (22850, '2020-02-10 19:00:00', 'Deposit', 3, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (18190, '2020-02-10 19:00:00', 'Deposit', 4, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (1870, '2020-02-10 19:00:00', 'Deposit', 5, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (85175, '2020-02-10 19:00:00', 'Deposit', 6, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (16000, '2020-02-10 19:00:00', 'Deposit', 7, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (3580, '2020-02-10 19:00:00', 'Deposit', 8, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (650, '2020-02-10 19:00:00', 'Deposit', 9, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (1785, '2020-02-10 19:00:00', 'Deposit', 10, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (4695, '2020-02-10 19:00:00', 'Deposit', 11, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (95, '2020-02-10 19:00:00', 'Deposit', 12, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (1250, '2020-02-10 19:00:00', 'Deposit', 13, 'false'); 
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (10620, '2020-02-10 19:00:00', 'Deposit', 14, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (25220, '2020-02-10 19:00:00', 'Deposit', 15, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (305, '2020-02-10 19:00:00', 'Deposit', 16, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (1050, '2020-02-10 19:00:00', 'Deposit', 17, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (180, '2020-02-10 19:00:00', 'Deposit', 18, 'false');
-INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (2800, '2020-02-10 19:00:00', 'Deposit', 19, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (26080, '2020-02-10 19:00:00', 'Deposit of 26080€', 1, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (10400, '2020-02-10 19:00:00', 'Deposit of 10400€', 2, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (22850, '2020-02-10 19:00:00', 'Deposit of 22850€', 3, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (18190, '2020-02-10 19:00:00', 'Deposit of 1819€', 4, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (1870, '2020-02-10 19:00:00', 'Deposit of 1870€', 5, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (85175, '2020-02-10 19:00:00', 'Deposit of 85175€', 6, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (16000, '2020-02-10 19:00:00', 'Deposit of 1600€', 7, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (3580, '2020-02-10 19:00:00', 'Deposit of 3580€', 8, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (650, '2020-02-10 19:00:00', 'Deposit of 650€', 9, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (1785, '2020-02-10 19:00:00', 'Deposit of 1785€', 10, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (4695, '2020-02-10 19:00:00', 'Deposit of 4695€', 11, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (95, '2020-02-10 19:00:00', 'Deposit of 95€', 12, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (1250, '2020-02-10 19:00:00', 'Deposit of 1250€', 13, 'false'); 
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (10620, '2020-02-10 19:00:00', 'Deposit of 10620€', 14, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (25220, '2020-02-10 19:00:00', 'Deposit of 25220€', 15, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (305, '2020-02-10 19:00:00', 'Deposit of 305€', 16, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (1050, '2020-02-10 19:00:00', 'Deposit of 1050€', 17, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (180, '2020-02-10 19:00:00', 'Deposit of 180€', 18, 'false');
+INSERT INTO "transaction" (value, date, description, receiver_id, is_reserved) VALUES (2800, '2020-02-10 19:00:00', 'Deposit of 2800€', 19, 'false');
 
 -- Bid Associated
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (26500  ,'2020-02-10 19:00:00', 'Bids', 1, 2, 'true', 1);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (21000 ,'2020-02-11 19:00:15', 'Bids', 3, 2, 'true', 2);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (19000 ,'2020-04-10 15:00:00', 'Bids', 4, 2, 'true', 3);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (1850  ,'2020-03-28 13:00:15', 'Bids', 5, 10, 'true', 4);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (85000  ,'2020-06-02 09:00:15', 'Bids', 6, 12, 'true', 5);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (3200  ,'2020-02-17 18:00:15', 'Bids', 2, 3, 'true', 6);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (11500  ,'2020-10-28 09:00:15', 'Bids', 7, 3, 'true', 7);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (3000  ,'2020-02-17 12:00:15', 'Bids', 8, 17, 'true', 8); 
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (650  ,'2020-02-28 23:00:15', 'Bids', 9, 16, 'true', 9);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (1500  ,'2020-07-17 09:45:15', 'Bids', 10, 4, 'true', 10);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (4000  ,'2020-07-18 09:00:15', 'Bids', 11, 1, 'true', 11); 
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (80  ,'2020-06-17 21:00:15', 'Bids', 12, 5, 'true', 12);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (85 ,'2020-03-29 09:00:15', 'Bids', 13, 4, 'true', 13); 
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (620 ,'2020-02-07 11:00:15', 'Bids', 14, 14, 'true', 14);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (220 ,'2020-01-18 09:00:15', 'Bids', 15, 17, 'true', 15);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (70 ,'2020-06-03 09:00:15', 'Bids', 16, 14, 'true', 16);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (100,'2020-02-18 09:00:15', 'Bids', 17, 11, 'true', 17);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (180,'2020-03-17 15:00:15', 'Bids', 18, 4, 'true', 18);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (300 ,'2020-10-27 12:20:15', 'Bids', 19, 12, 'true', 19);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (80, '2020-04-18 09:00:15', 'Bids', 1, 9, 'true', 20);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (3500, '2020-02-18 12:00:15', 'Bids', 1, 17, 'false', 8); 
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (1600 , '2020-07-18 09:45:15', 'Bids', 3, 4, 'false', 10); 
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (4200, '2020-07-19 09:00:15', 'Bids', 2, 1, 'false', 11);
-INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (90, '2020-03-30 09:00:15', 'Bids', 6, 4, 'false', 13);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (26500  ,'2020-02-10 19:00:00', 'Bid of value 26500€', 1, 2, 'true', 1);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (21000 ,'2020-02-11 19:00:15', 'Bid of value 21000€', 3, 2, 'true', 2);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (19000 ,'2020-04-10 15:00:00', 'Bid of value 19000€', 4, 2, 'true', 3);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (1850  ,'2020-03-28 13:00:15', 'Bid of value 1850€', 5, 10, 'true', 4);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (85000  ,'2020-05-02 09:00:15', 'Bid of value 85000€', 6, 12, 'true', 5);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (3200  ,'2020-02-17 18:00:15', 'Bid of value 3200€', 2, 3, 'true', 6);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (11500  ,'2020-01-28 09:00:15', 'Bid of value 11500€', 7, 3, 'true', 7);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (3000  ,'2020-02-17 12:00:15', 'Bid of value 3000€', 8, 17, 'true', 8); 
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (650  ,'2020-02-28 23:00:15', 'Bid of value 650€', 9, 16, 'true', 9);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (1500  ,'2020-04-17 09:45:15', 'Bid of value 1500€', 10, 4, 'true', 10);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (4000  ,'2020-05-18 09:00:15', 'Bid of value 4000€', 11, 1, 'true', 11); 
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (80  ,'2020-05-17 21:00:15', 'Bid of value 80€', 12, 5, 'true', 12);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (85 ,'2020-03-29 09:00:15', 'Bid of value 85€', 13, 4, 'true', 13); 
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (620 ,'2020-02-07 11:00:15', 'Bid of value 620€', 14, 14, 'true', 14);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (220 ,'2020-01-18 09:00:15', 'Value of Auction', 15, 17, 'false', 15);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (70 ,'2020-05-03 09:00:15', 'Bid of value 70€', 16, 14, 'true', 16);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (100,'2020-02-18 09:00:15', 'Bid of value 100€', 17, 11, 'true', 17);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (180,'2020-03-17 15:00:15', 'Bid of value 180€', 18, 4, 'true', 18);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (300 ,'2020-01-27 12:20:15', 'Value of Auction', 19, 12, 'false', 19);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (80, '2020-04-18 09:00:15', 'Bid of value 80€', 1, 9, 'true', 20);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (3500, '2020-02-18 12:00:15', 'Bid of value 3500€', 1, 17, 'true', 8); 
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (1600 , '2020-03-18 09:45:15', 'Bid of value 1600€', 3, 4, 'true', 10); 
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (4200, '2020-03-19 09:00:15', 'Bid of value 4200€', 2, 1, 'true', 11);
+INSERT INTO "transaction" (value, date, description, sender_id, receiver_id, is_reserved, auction) VALUES (90, '2020-03-30 09:00:15', 'Bid of value 90€', 6, 4, 'true', 13);
 
 
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (26500, '2020-02-10 19:00:00', 1, 1);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (21000, '2020-02-11 19:00:15', 2, 3); 
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (19000, '2020-04-10 15:00:00', 3, 4); 
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (1850, '2020-03-28 13:00:15', 4, 5); 
-INSERT INTO bid (value, date, auction_id, user_id) VALUES (85000, '2020-06-02 09:00:15', 5, 6); 
+INSERT INTO bid (value, date, auction_id, user_id) VALUES (85000, '2020-05-02 09:00:15', 5, 6); 
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (3200, '2020-02-17 18:00:15', 6, 2); 
-INSERT INTO bid (value, date, auction_id, user_id) VALUES (11500, '2020-10-28 09:00:15', 7, 7); 
+INSERT INTO bid (value, date, auction_id, user_id) VALUES (11500, '2020-01-28 09:00:15', 7, 7); 
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (3000, '2020-02-17 12:00:15', 8, 8); 
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (650, '2020-02-28 23:00:15', 9, 9);  
-INSERT INTO bid (value, date, auction_id, user_id) VALUES (1500, '2020-07-17 09:45:15', 10, 10); 
-INSERT INTO bid (value, date, auction_id, user_id) VALUES (4000, '2020-07-18 09:00:15', 11, 11);
-INSERT INTO bid (value, date, auction_id, user_id) VALUES (80, '2020-06-17 21:00:15', 12, 12);
+INSERT INTO bid (value, date, auction_id, user_id) VALUES (1500, '2020-04-17 09:45:15', 10, 10); 
+INSERT INTO bid (value, date, auction_id, user_id) VALUES (4000, '2020-05-18 09:00:15', 11, 11);
+INSERT INTO bid (value, date, auction_id, user_id) VALUES (80, '2020-05-17 21:00:15', 12, 12);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (85, '2020-03-29 09:00:15', 13, 13); 
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (620, '2020-02-07 11:00:15', 14, 15);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (220, '2020-01-18 09:00:15', 15, 14);
-INSERT INTO bid (value, date, auction_id, user_id) VALUES (70, '2020-06-03 09:00:15', 16, 16);
+INSERT INTO bid (value, date, auction_id, user_id) VALUES (70, '2020-05-03 09:00:15', 16, 16);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (100, '2020-02-18 09:00:15', 17, 17);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (180, '2020-03-17 15:00:15', 18, 18);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (300, '2020-10-27 12:20:15', 19, 19);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (80, '2020-04-18 09:00:15', 20, 1);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (3500, '2020-02-18 12:00:15', 8, 1);
-INSERT INTO bid (value, date, auction_id, user_id) VALUES (1600 , '2020-07-18 09:45:15', 10, 3); 
-INSERT INTO bid (value, date, auction_id, user_id) VALUES (4200, '2020-07-19 09:00:15', 11, 2);
+INSERT INTO bid (value, date, auction_id, user_id) VALUES (1600 , '2020-03-18 09:45:15', 10, 3); 
+INSERT INTO bid (value, date, auction_id, user_id) VALUES (4200, '2020-03-19 09:00:15', 11, 2);
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (90, '2020-03-30 09:00:15', 13, 6); 
 
 
