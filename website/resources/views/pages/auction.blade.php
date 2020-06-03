@@ -3,11 +3,15 @@
 @section('content')
 
 <div class="container">
-    <div class="row text-center pt-4 mt-3 mb-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active "><a href="{{route('category', [$id = $auction->category_id])}}">{{App\Category::Where('id',$auction->category_id)->first()->name}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Auction </li>
+        </ol>
+    </nav>
+    <div class="row text-center pt-4 mt-0 mb-3">
         <h3 class="col-sm">
-            <div class="text-muted">
-                {{App\Category::Where('id',$auction->category_id)->first()->name}}/
-              </div>
             {{$auction->title}}
         </h3>
     </div>
