@@ -21,4 +21,8 @@ class Bid extends Model
   public function auction() {
     return $this->hasOne('App\Auction');
   }
+  
+  public function getWinner(){
+    return User::where('id', $this->user_id)->first();
+  }
 }

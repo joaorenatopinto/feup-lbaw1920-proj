@@ -22,7 +22,7 @@
                     {{$auction->user->name}}
             </a>
             </h6>
-            
+
             @if(App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
             <div class="col-sm card p-0 text-left">
                 <div class="card-header">
@@ -93,10 +93,19 @@
             @if(App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'closed')
             <div class="col-sm card p-0 text-left">
                 <div class="card-header">
-                    <h4>Winning  Bid: {{$auction->getHighestBid()}}€</h4>
+                    <h4>Winning Bid: {{$auction->getHighestBid()}}€</h4>
                 </div>
-                
-                
+                <h4 class="text-center">Winner</h4>
+                <a href="{{ route('profile',['id' => $auction->user->id ]) }}">
+                    <div class="col text-center">
+                        <img src="{{ $auction->getWinner()->getWinner()->getImage()->path }}"
+                            class="rounded-circle mx-auto img-thumbnail w-25">
+                    </div>
+                    <h6 class="align-middle text-center">
+                        {{$auction->user->name}}
+                </a>
+                </h6>
+
             </div>
 
             @endif
