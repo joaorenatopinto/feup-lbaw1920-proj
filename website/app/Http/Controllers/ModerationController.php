@@ -150,7 +150,7 @@ class ModerationController extends Controller
   }
 
   public function reportPage($id) {
-    if (Auth::user()->can('mod', User::class) || Auth::guard('admin')->check()) {
+    if (Auth::guard('admin')->check() || Auth::user()->can('mod', User::class)) {
       $report = Report::find($id);
 
       //mark the report as seen if not seen yet
@@ -160,17 +160,17 @@ class ModerationController extends Controller
         $status->datechanged = date("Y-m-d H:i:s");
         $status->report_id = $id;
 
-        if (Auth::user()->can('mod', User::class)) {
-          $status->moderator_id = Auth::id();
+        if (Auth::guard('admin')->check()) {
+          $status->admin_id = Auth::guard('admin')->id();
         }
         else {
-          $status->admin_id = Auth::guard('admin')->id();
+          $status->moderator_id = Auth::id();
         }
 
         $status->save();
       }
 
-      return view('moderation.reportPage',['report' => $report]);
+      return view('pages.reportPage',['report' => $report]);
     }
     
     throw new AuthorizationException();
