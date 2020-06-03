@@ -10,11 +10,12 @@
         </ol>
     </nav>
 
-<div class="d-flex justify-content-center" id="search_auctions">
-        <div id="auction_cards">
-            @each('partials.auctionCard', $auctions, 'auction')
-            {{ $auctions->links() }}
-        </div>
+<div class="container">
+    <div class="row">
+        @each('partials.auctionCard', $auctions, 'auction')
+    </div>
+    <div class="mt-3" id="pag">
+        {{ $auctions->links() }}
     </div>
 </div>
 @endsection
