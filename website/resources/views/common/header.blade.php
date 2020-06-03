@@ -96,6 +96,12 @@
           </li>
 
           <li class="nav-item">
+            <a class="navbar-brand" href="{{ route('notifications',['id' => Auth::id()]) }}">
+              <i class='far fa-bell' style='font-size:18px;color:white'></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="navbar-brand" href="{{ route('profile',['id' => Auth::id()]) }}">
               <img src="{{ Auth::user()->getImage()->path }}" class="rounded-circle" width="35"
                 height="35" alt="">

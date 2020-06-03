@@ -47,6 +47,13 @@ class User extends Authenticatable
         $transactions = Transaction::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->orderBy('date','desc')->paginate(10);
         return $transactions;
     }
+
+    public function notifications()
+    {
+        $notifications = Notification::where('user_id', $this->id)->orderBy('date','desc')->paginate(10);
+        return $notifications;
+    }
+
     public function status() {
         return $this->hasMany('App\UserStatus');
     }
