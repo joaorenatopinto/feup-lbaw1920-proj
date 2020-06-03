@@ -35,7 +35,7 @@
 
 @auth('web')
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="max-height: 3em; padding: 0">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <a class="navbar-brand text-light" href="/" style="max-height: 2em; margin-left: 5%; padding:0">
         <img src="{{ asset('img/logo_white.png') }}" style="max-height: 2em; padding:0" alt="SLASH AH">
     </a>
@@ -59,6 +59,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="d-flex justify-content-end flex-grow w-100">
         <ul class="navbar-nav" style="align-items: center; display: flex;">
+          <li class="nav-item">
+          <a class="btn btn-danger mr-2 text-light" href=" {{ route('createAuction') }}">Create Auction</a>
+          </li>
           <li class="nav-item">
             <form action="/auction/search" method="get" class="form-inline" style="max-height: 2em; margin: auto 5% 0 auto; padding:0">
               {{ csrf_field() }}
