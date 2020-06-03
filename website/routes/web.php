@@ -71,3 +71,4 @@ Route::get('moderation/reports', 'ModerationController@showReports');
 Route::post('user/{id}/ban', 'ModerationController@banUser')->name('banUser');
 Route::post('user/{id}/recommend', 'ModerationController@recommendMod')->name('recommend');
 Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction')->name('cancelAuction');
+Route::post('report/{id}/seen', 'ModerationController@markSeen')->name('markSeen');

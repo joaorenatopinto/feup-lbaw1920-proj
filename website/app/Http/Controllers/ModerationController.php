@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Auction;
 use App\AuctionStatus;
+use App\Report;
+use App\ReportStatus;
 use App\User;
 use App\UserStatus;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,9 +31,24 @@ class ModerationController extends Controller
     return view('moderation.auctions',['auctions' => $auctions]);
   }
 
-  public function showReports() {
+  public function showReports(Request $request) {
     $this->authorize('mod', Auth::user());
-    return view('pages.moderation_reports');
+
+    //we reverse report order so that the most recent reports (higher id)
+    //show first
+    $reports = Report::orderBy('id')->get()->reverse();
+
+    $perPage = 10;
+    $page = $request['page'];
+
+    $pagination = new LengthAwarePaginator(
+      $reports->forPage($page,$perPage),
+      $reports->count(),
+      $perPage,
+      $page
+    );
+
+    return view('moderation.reports',['reports' => $pagination]);
   }
      
   public function banUser(Request $request, $userId) {
@@ -98,6 +116,41 @@ class ModerationController extends Controller
 
   public function cancelAuction(Request $request, $auctionId) {
     $status = new AuctionStatus();
+
+    if (Auth::guard('admin')->check()) {
+      $status->admin_id = Auth::guard('admin')->id();
+    }
+    else if (($request['cancel'] == '1' && Auth::user()->can('cancel',Auction::find($auctionId))) ||
+      ($request['cancel'] == '0' && Auth::user()->can('undoCancel',Auction::find($auctionId)))) {
+
+      $status->moderator_id = Auth::id();
+    }
+    else {
+      throw new AuthorizationException;
+    }
+
+    $status->datechanged = date("Y-m-d H:i:s");
+    $status->auction_id = $auctionId;
+      
+    if ($request['cancel'] == '1') {
+      //cancel the auction
+      $status->status = 'removed';
+    }
+    else if ($request['cancel'] == '0') {
+      //uncancel the auction
+      $status->status = 'ongoing';
+    }
+    else {
+      throw new AuthorizationException;
+    }
+
+    $status->save();
+        
+    return redirect()->back();
+  }
+
+  public function markSeen() {
+    $status = new ReportStatus();
 
     if (Auth::guard('admin')->check()) {
       $status->admin_id = Auth::guard('admin')->id();

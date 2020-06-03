@@ -54,8 +54,7 @@ class AdminController extends Controller {
         $allStatus->forPage($page,$perPage),
         $allStatus->count(),
         $perPage,
-        $page,
-        ['path' => route('adminMods')]
+        $page
       );
 
       return view('admin.mods', ['actions' => $pagination]);
