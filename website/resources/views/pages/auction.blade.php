@@ -43,11 +43,10 @@
                         <div class="row justify-content-between">
                             <div class="col-sm-8">
                                 <input type="number" id="value" name="value" class="form-control"
-                                    placeholder="Place your Bid">
+                                    placeholder="Place your Bid" required>
                             </div>
                             <div class="col-sm-4">
-                                <button id="bid4" type="submit" class="btn btn-danger btn-block">Bid <i
-                                        class="fas fa-coins"></i></button>
+                                <button id="bid4" type="submit" class="btn btn-danger btn-block">Bid <i class="fas fa-coins"></i></button>
                             </div>
                         </div>
                     </div>
