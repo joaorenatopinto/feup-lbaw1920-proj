@@ -35,7 +35,8 @@ Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
 Route::get('auction/{id}/report', 'AuctionController@showReportForm')->name('reportAuction');
 Route::post('auction/{id}/report', 'AuctionController@report')->name('report');
-Route::get('auction/search/{term}', 'AuctionController@search');
+Route::get('auction/search/{term}', 'AuctionController@searchPage');
+Route::post('auction/search', 'AuctionController@searchPost');
 
 //Balance
 Route::get('user/statement', 'UserController@showStatement')->name('showStatement');

@@ -6,7 +6,7 @@
 <div class="container">
   <div id="center" class="d-flex p-3 bd-highlight justify-content-center">
     <!-- Featured Auctions Carousel -->
-    <div id="featuredAuctions" class="carousel slide w-100 " data-ride="carousel">
+    <div id="featuredAuctions" class="carousel slide w-100 " data-ride="carousel" style="height: 10%; width: 100%">
       <ol class="carousel-indicators">
         <li data-target="#featuredAuctions" data-slide-to="0" class="active"></li>
         <li data-target="#featuredAuctions" data-slide-to="1"></li>
@@ -60,15 +60,14 @@
   <div class="d-flex p-2 bd-highlight justify-content-center">
     <div class="container w-100 m-3">
       <div class="row">
-        <div class="col m-2"><a href="{{route('category', [$id = 2])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/motos.png"
-              alt="Category Motos"></a></div>
-        <div class="col m-2"><a href="{{route('category', [$id = 1])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/cars.png"
-              alt="Category Cars"></a></div>
-        <div class="w-100"></div>
-        <div class="col m-2"><a href="{{route('category', [$id = 5])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/antiques.png"
-              alt="Category antiques"></a></div>
-        <div class="col m-2"><a href="{{route('category', [$id = 4])}}"><img class="d-block w-100 img-rounded img-fluid" src="img/computers.png"
-              alt="Category Computers"></a></div>
+        @foreach ($categories->chunk(4) as $chunk)
+          @foreach ($chunk as $category)
+            <div class="col m-2">
+              <a href="{{route('category', [$id = $category->id])}}">
+              <img class="d-block img-rounded img-fluid" src="img/{{$category->name}}.png" alt="Category {{$category->name}}"></a></div>
+          @endforeach
+          <div class="w-100"></div>
+        @endforeach
       </div>
     </div>
   </div>
