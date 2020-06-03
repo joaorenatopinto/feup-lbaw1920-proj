@@ -41,7 +41,7 @@ class AuctionController extends Controller
     $this->validate($request, [
       'title' => 'bail|required|max:255',
       'description' => 'bail|required|max:1500',
-      'closeDate' => 'bail|required|date_format:Y-m-d|after:' . now()->format('Y-m-d'),
+      'closeDate' => 'bail|required|date_format:Y-m-d|after:' . now()->modify('-1 day')->format('Y-m-d'),
       'initialValue' => 'bail|required|numeric|min:1',
       'category' => ['bail', 'required', Rule::in($categories)]
     ]);
