@@ -64,7 +64,7 @@
           @foreach ($chunk as $category)
             <div class="col m-2">
               <a href="{{route('category', [$id = $category->id])}}">
-              <img class="d-block img-rounded img-fluid" src="img/{{$category->name}}.png" alt="Category {{$category->name}}"></a></div>
+              <img class="d-block img-rounded img-fluid" src="img/category/{{$category->name}}.png" alt="Category {{$category->name}}"></a></div>
           @endforeach
           <div class="w-100"></div>
         @endforeach
