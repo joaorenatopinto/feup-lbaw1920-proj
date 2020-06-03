@@ -6,7 +6,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active "><a href="{{route('category', [$id = $auction->category_id])}}">{{App\Category::Where('id',$auction->category_id)->first()->name}}</a></li>
+            <li class="breadcrumb-item active "><a
+                    href="{{route('category', [$id = $auction->category_id])}}">{{App\Category::Where('id',$auction->category_id)->first()->name}}</a>
+            </li>
             <li class="breadcrumb-item active" aria-current="page"> Auction </li>
         </ol>
     </nav>
@@ -39,12 +41,27 @@
                 </div>
                 <h6 class="mt-3 card-title text-center ">Quick Bid</h6>
                 <div class="input-group d-flex justify-content-around">
-                    <button id="bid1" type="button"
-                        class="btn btn-outline-danger">{{$auction->getHighestBid()+150}}€</button>
-                    <button id="bid2" type="button"
-                        class="btn btn-outline-danger">{{$auction->getHighestBid()+300}}€</button>
-                    <button id="bid3" type="button"
-                        class="btn btn-outline-danger">{{$auction->getHighestBid()+450}}€</button>
+                    <form action="{{$auction->id}}/bid" method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" id="value" name="value" value="{{$auction->getHighestBid()+150}}">
+                        <button id="bid1" type="submit" class="btn btn-outline-danger">
+                            {{$auction->getHighestBid()+150}}€
+                        </button>
+                    </form>
+                    <form action="{{$auction->id}}/bid" method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" id="value" name="value" value="{{$auction->getHighestBid()+300}}">
+                        <button id="bid2" type="submit" class="btn btn-outline-danger">
+                            {{$auction->getHighestBid()+300}}€
+                        </button>
+                    </form>
+                    <form action="{{$auction->id}}/bid" method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" id="value" name="value" value="{{$auction->getHighestBid()+450}}">
+                        <button id="bid3" type="submit" class="btn btn-outline-danger">
+                            {{$auction->getHighestBid()+450}}€
+                        </button>
+                    </form>
                 </div>
                 <form action="{{$auction->id}}/bid" method="post">
                     {{ csrf_field() }}
@@ -55,7 +72,7 @@
                                     placeholder="Place your Bid" min="{{$auction->getHighestBid()+1}}" required>
                             </div>
                             @error('value')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="col-sm-4">
                                 <button id="bid4" type="submit" class="btn btn-danger btn-block">Bid <i
@@ -102,6 +119,7 @@
                 </script>
             </div>
             @endif
+
             @if(App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'closed')
             <div class="col-sm card p-0 text-left">
                 <div class="card-header">
@@ -119,16 +137,16 @@
                 </h6>
 
             </div>
-
             @endif
-            <div class="col text-right mt-2">
-                @if(Auth::user() != $auction->user &&
-                App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
 
+            @if(Auth::user() != $auction->user &&
+            App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
+            <div class="col text-right mt-2">
                 <a id="report" class="btn-sm btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}"
                     role="button">Report</a>
-                @endif
             </div>
+            @endif
+
         </div>
 
     </div>
