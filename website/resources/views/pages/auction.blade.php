@@ -4,7 +4,12 @@
 
 <div class="container">
     <div class="row text-center pt-4 mt-3 mb-5">
-        <h3 class="col-sm">{{$auction->title}}</h3>
+        <h3 class="col-sm">
+            <div class="text-muted">
+                {{App\Category::Where('id',$auction->category_id)->first()->name}}/
+              </div>
+            {{$auction->title}}
+        </h3>
     </div>
     <div class="row justify-content-between">
         <div class="col-sm-7 ">
@@ -23,6 +28,7 @@
             </a>
             </h6>
 
+            @if(App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
             <div class="col-sm card p-0 text-left">
                 <div class="card-header">
                     <h4>Current Bid: {{$auction->getHighestBid()}}€</h4>
@@ -42,7 +48,7 @@
                         <div class="row justify-content-between">
                             <div class="col-sm-8">
                                 <input type="number" id="value" name="value" class="form-control"
-                                    placeholder="Place your Bid">
+                                    placeholder="Place your Bid" required>
                             </div>
                             <div class="col-sm-4">
                                 <button id="bid4" type="submit" class="btn btn-danger btn-block">Bid <i
@@ -88,8 +94,29 @@
                     }, 1000);
                 </script>
             </div>
+            @endif
+            @if(App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'closed')
+            <div class="col-sm card p-0 text-left">
+                <div class="card-header">
+                    <h4>Winning Bid: {{$auction->getHighestBid()}}€</h4>
+                </div>
+                <h4 class="text-center">Winner</h4>
+                <a href="{{ route('profile',['id' => $auction->user->id ]) }}">
+                    <div class="col text-center">
+                        <img src="{{ $auction->getWinner()->getWinner()->getImage()->path }}"
+                            class="rounded-circle mx-auto img-thumbnail w-25">
+                    </div>
+                    <h6 class="align-middle text-center">
+                        {{$auction->getWinner()->getWinner()->name}}
+                </a>
+                </h6>
+
+            </div>
+
+            @endif
             <div class="col text-right mt-2">
-                @if(Auth::user() != $auction->user)
+                @if(Auth::user() != $auction->user &&
+                App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
 
                 <a id="report" class="btn-sm btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}"
                     role="button">Report</a>
