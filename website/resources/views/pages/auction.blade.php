@@ -4,7 +4,12 @@
 
 <div class="container">
     <div class="row text-center pt-4 mt-3 mb-5">
-        <h3 class="col-sm">{{$auction->title}}</h3>
+        <h3 class="col-sm">
+            <div class="text-muted">
+                {{App\Category::Where('id',$auction->category_id)->first()->name}}/
+              </div>
+            {{$auction->title}}
+        </h3>
     </div>
     <div class="row justify-content-between">
         <div class="col-sm-7 ">
@@ -46,7 +51,8 @@
                                     placeholder="Place your Bid" required>
                             </div>
                             <div class="col-sm-4">
-                                <button id="bid4" type="submit" class="btn btn-danger btn-block">Bid <i class="fas fa-coins"></i></button>
+                                <button id="bid4" type="submit" class="btn btn-danger btn-block">Bid <i
+                                        class="fas fa-coins"></i></button>
                             </div>
                         </div>
                     </div>
@@ -109,7 +115,8 @@
 
             @endif
             <div class="col text-right mt-2">
-                @if(Auth::user() != $auction->user && App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
+                @if(Auth::user() != $auction->user &&
+                App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
 
                 <a id="report" class="btn-sm btn-danger" href="{{ route('reportAuction',['id' => $auction->id ]) }}"
                     role="button">Report</a>
