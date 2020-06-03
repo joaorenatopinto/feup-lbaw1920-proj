@@ -42,10 +42,11 @@ class AuctionUpdate extends Command
     public function handle()
     {   
         foreach(Auction::all() as $auction){
-            if($auction->getLastStatus()->status == 'ongoing')
+            if($auction->getLastStatus()->status == 'ongoing'){
                 if($auction->shouldClose()){
                     app('App\Http\Controllers\AuctionController')->close($auction->id);
                 } 
+            }  
         }
     }
 }

@@ -371,7 +371,7 @@ INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-03-28 09:00:15', 4);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-06-01 09:00:15', 5);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-03-17 09:00:15', 6);
-INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-10-27 09:00:15', 7);
+INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-01-27 10:00:15', 7);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-17 09:00:15', 8);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-02-28 09:00:15', 9);
 INSERT INTO auctionStatus (status, dateChanged, auction_id) VALUES ('ongoing', '2020-07-17 09:00:15', 10);
