@@ -22,7 +22,8 @@
                     {{$auction->user->name}}
             </a>
             </h6>
-
+            
+            @if(App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'ongoing')
             <div class="col-sm card p-0 text-left">
                 <div class="card-header">
                     <h4>Current Bid: {{$auction->getHighestBid()}}€</h4>
@@ -88,6 +89,17 @@
                     }, 1000);
                 </script>
             </div>
+            @endif
+            @if(App\AuctionStatus::where('auction_id',$auction->id)->orderBy('id','desc')->first()->status == 'closed')
+            <div class="col-sm card p-0 text-left">
+                <div class="card-header">
+                    <h4>Winning  Bid: {{$auction->getHighestBid()}}€</h4>
+                </div>
+                
+                
+            </div>
+
+            @endif
             <div class="col text-right mt-2">
                 @if(Auth::user() != $auction->user)
 
