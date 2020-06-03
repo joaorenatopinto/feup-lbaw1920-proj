@@ -286,6 +286,9 @@ INSERT INTO  "category" ("name") VALUES ('Motorcycles');
 INSERT INTO  "category" ("name") VALUES ('Electronics'); 
 INSERT INTO  "category" ("name") VALUES ('Computers');
 INSERT INTO  "category" ("name") VALUES ('Antiques');
+INSERT INTO  "category" ("name") VALUES ('Clothes');
+INSERT INTO  "category" ("name") VALUES ('Sunglasses');
+INSERT INTO  "category" ("name") VALUES ('Music Instruments');
 
 -- Passwords dos admin são o username+99 
 INSERT INTO "admin" (username, password) VALUES ('guizinhos', '$2y$10$jORNEtuu/Ll1jpxbQDDvAeC7HqcckvS2Rn4Sxe6DyAtEX7245FG.m');
