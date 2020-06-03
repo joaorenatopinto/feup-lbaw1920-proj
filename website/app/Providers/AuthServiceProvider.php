@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Admin;
 use App\Auction;
-use App\Policies\AdminPolicy;
 use App\Policies\AuctionPolicy;
+use App\Policies\ReportPolicy;
 use App\Policies\UserPolicy;
+use App\Report;
 use App\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -20,7 +20,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
       User::class => UserPolicy::class,
       Auction::class => AuctionPolicy::class,
-      Admin::class => AdminPolicy::class,
+      Report::class => ReportPolicy::class,
     ];
 
     /**

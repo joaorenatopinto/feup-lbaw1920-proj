@@ -22,4 +22,8 @@ class Report extends Model
     public function auction() {
         return $this->belongsTo('App\Auction');
     }
+
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }

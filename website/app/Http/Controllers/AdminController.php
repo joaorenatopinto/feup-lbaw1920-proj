@@ -6,6 +6,7 @@ use App\Admin;
 use App\Auction;
 use App\AuctionStatus;
 use App\Category;
+use App\Report;
 use App\User;
 use App\UserStatus;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -64,8 +65,7 @@ class AdminController extends Controller {
         $allStatus->forPage($page,$perPage),
         $allStatus->count(),
         $perPage,
-        $page,
-        ['path' => route('adminMods')]
+        $page
       );
 
       return view('admin.mods', ['actions' => $pagination]);
@@ -81,6 +81,28 @@ class AdminController extends Controller {
     }
 
     throw new AuthorizationException;
+  }
+
+  public function reports(Request $request) {
+    if(Auth::guard('admin')->check()) {
+      //we reverse report order so that the most recent reports (higher id)
+      //show first
+      $reports = Report::orderBy('id')->get()->reverse();
+
+      $perPage = 10;
+      $page = $request['page'];
+
+      $pagination = new LengthAwarePaginator(
+        $reports->forPage($page,$perPage),
+        $reports->count(),
+        $perPage,
+        $page
+      );
+
+      return view('admin.reports',['reports' => $pagination]);
+    }
+
+    return new AuthorizationException();
   }
 
   public function getStats() {

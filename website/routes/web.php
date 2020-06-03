@@ -59,6 +59,7 @@ Route::get('administration/logout', 'Auth\AdminLoginController@logout')->name('a
 Route::get('administration/users', 'AdminController@users')->name('adminUsers');
 Route::get('administration/auctions', 'AdminController@auctions')->name('adminAuctions');
 Route::get('administration/mods', 'AdminController@mods')->name('adminMods');
+Route::get('administration/reports', 'AdminController@reports')->name('adminReports');
 Route::get('administration/statistics', 'AdminController@stats')->name('adminStats');
 Route::get('administration/categories', 'AdminController@categories')->name('adminCategories');
 Route::post('user/{id}/promote', 'AdminController@promote')->name('promote');
@@ -71,6 +72,8 @@ Route::get('api/administration/statistics', 'AdminController@getStats');
 Route::get('moderation/users', 'ModerationController@showUsers')->name('modUsers');
 Route::get('moderation/auctions', 'ModerationController@showAuctions')->name('modAuctions');
 Route::get('moderation/reports', 'ModerationController@showReports')->name('modReports');
+Route::get('report/{id}', 'ModerationController@reportPage')->name('reportPage');
 Route::post('user/{id}/ban', 'ModerationController@banUser')->name('banUser');
 Route::post('user/{id}/recommend', 'ModerationController@recommendMod')->name('recommend');
 Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction')->name('cancelAuction');
+Route::post('report/{id}/close', 'ModerationController@closeReport')->name('closeReport');

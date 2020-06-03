@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
-@section('content')
+@section('adminContent')
 <div class="container mt-3">
     <div class="row">
         <div class="col">
@@ -19,7 +19,7 @@
                     </thead>
                     
                     <tbody class="text-center">
-                        @each('moderation.partials.reportRow', $reports, 'report')
+                        @each('admin.partials.reportRow', $reports, 'report')
                     </tbody>
                 </table>
                 {{ $reports->links() }}

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Auction;
 use App\AuctionStatus;
 use App\Report;
+use App\ReportStatus;
 use App\User;
 use App\UserStatus;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,12 +39,24 @@ class ModerationController extends Controller
     return view('moderation.auctions',['auctions' => $auctions]);
   }
 
-  public function showReports() {
+  public function showReports(Request $request) {
     $this->authorize('mod', Auth::user());
 
-    $reports = Report::orderBy('id')->paginate(10);
+    //we reverse report order so that the most recent reports (higher id)
+    //show first
+    $reports = Report::orderBy('id')->get()->reverse();
 
-    return view('moderation.reports',['reports' => $reports]);
+    $perPage = 10;
+    $page = $request['page'];
+
+    $pagination = new LengthAwarePaginator(
+      $reports->forPage($page,$perPage),
+      $reports->count(),
+      $perPage,
+      $page
+    );
+
+    return view('moderation.reports',['reports' => $pagination]);
   }
 
   public function banUser(Request $request, $userId) {
@@ -140,6 +154,69 @@ class ModerationController extends Controller
 
     $status->save();
 
+    return redirect()->back();
+  }
+
+  public function reportPage($id) {
+    if (Auth::guard('admin')->check() || Auth::user()->can('mod', User::class)) {
+      $report = Report::find($id);
+
+      //mark the report as seen if not seen yet
+      if ($report->getLastStatus()->type == 'notSeen') {
+        $status = new ReportStatus();
+        $status->type = 'seen';
+        $status->datechanged = date("Y-m-d H:i:s");
+        $status->report_id = $id;
+
+        if (Auth::guard('admin')->check()) {
+          $status->admin_id = Auth::guard('admin')->id();
+        }
+        else {
+          $status->moderator_id = Auth::id();
+        }
+
+        $status->save();
+      }
+
+      return view('pages.reportPage',['report' => $report]);
+    }
+    
+    throw new AuthorizationException();
+  }
+
+
+  public function closeReport(Request $request, $id) {
+    $status = new ReportStatus();
+
+    if (Auth::guard('admin')->check()) {
+      $status->admin_id = Auth::guard('admin')->id();
+    }
+    else if (($request['close'] == '1' && Auth::user()->can('close',Report::find($id))) ||
+      ($request['close'] == '0' && Auth::user()->can('reopen',Report::find($id)))) {
+
+      $status->moderator_id = Auth::id();
+    }
+    else {
+      throw new AuthorizationException;
+    }
+
+    $status->datechanged = date("Y-m-d H:i:s");
+    $status->report_id = $id;
+      
+    if ($request['close'] == '1') {
+      //cancel the auction
+      $status->type = 'closed';
+    }
+    else if ($request['close'] == '0') {
+      //uncancel the auction
+      $status->type = 'notSeen';
+    }
+    else {
+      throw new AuthorizationException;
+    }
+
+    $status->save();
+        
     return redirect()->back();
   }
 }
