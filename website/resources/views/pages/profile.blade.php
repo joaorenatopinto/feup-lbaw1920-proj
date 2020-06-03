@@ -51,8 +51,11 @@
 
   </div>
   
-  @each('partials.auctionCard', $user->auctions, 'auction')
-
+  <div class="container">
+    <div class="row">
+      @each('partials.auctionCard', $user->auctions, 'auction')
+    </div>
+  </div>
 </div>
 
 </div>
