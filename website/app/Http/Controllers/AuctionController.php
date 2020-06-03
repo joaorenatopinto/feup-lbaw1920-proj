@@ -158,7 +158,6 @@ class AuctionController extends Controller
   {
     $auction = Auction::find($id);
    
-    return  $bid = $auction->getWinner();
     if($auction->getLastStatus()->status == 'closed'){
       throw new AuthorizationException("Auction closed! Can't bid", 1);
       return;
