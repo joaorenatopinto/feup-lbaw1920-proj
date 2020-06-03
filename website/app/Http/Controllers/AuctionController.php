@@ -13,6 +13,7 @@ use App\Transaction;
 use App\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -208,24 +209,33 @@ class AuctionController extends Controller
     return redirect()->route('auction', ['id' => $id]);
   }
 
-  public function searchPost(Request $request)
+  public function searchPage(Request $request)
   {
-    $input = $request->input('search');
-    $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~'];
-    $input = str_replace($reservedSymbols, '', $input);
-    if(!$input)
-      return redirect('/');
+    $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~', '\'', '|', '&'];
+    $term= str_replace($reservedSymbols, '',$request['search']);
 
-    return redirect('/auction/search/' . $input);
-  }
+    $auctions = DB::select("select id, ts_rank_cd(search1 || search2,\"query\") AS \"rank\" FROM auction, to_tsquery(?) AS \"query\", setweight(to_tsvector('english',auction.title), 'A') AS search1, setweight(to_tsvector('english',auction.description), 'B') AS search2 WHERE search1 || search2  @@ \"query\" ORDER BY \"rank\" DESC",[$term]);
 
-  public function searchPage($term)
-  {
-    # TODO Need to check if auction is open
-    $auctions = Auction::search($term)->paginate(10);
-    if($auctions->isEmpty())
-      return view('pages.fail_search');
 
-    return view('pages.search', compact('auctions'));
+    if(sizeof($auctions) == 0)
+    return view('pages.fail_search');
+
+    $collection = collect([Auction::find($auctions[0]->id)]);
+
+    for($i = 1; $i < sizeof($auctions); $i++) {
+      $collection->add(Auction::find($auctions[$i]->id));
+    }
+
+    $perPage = 9;
+    $page = $request['page'];
+
+    $pagination = new LengthAwarePaginator(
+      $collection->forPage($page,$perPage),
+      $collection->count(),
+      $perPage,
+      $page
+    );
+
+    return view('pages.search', ['auctions' => $pagination]);
   }
 }

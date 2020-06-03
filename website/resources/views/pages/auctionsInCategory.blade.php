@@ -11,11 +11,12 @@
         </ol>
     </nav>
 
-    <div class="d-flex justify-content-center" id="category_auctions" data-id="{{ $id }}">
-        <div id="auction_cards">
-            @each('partials.auctionCard', $auctions, 'auction')
-            {{ $auctions->links() }}
-        </div>
+<div class="container" id="category_auctions" data-id="{{ $id }}">
+    <div class="row" id="auction_cards">
+        @each('partials.auctionCard', $auctions, 'auction')
+    </div>
+    <div class="mt-3" id="pag">
+        {{ $auctions->links() }}
     </div>
 </div>
 @endsection

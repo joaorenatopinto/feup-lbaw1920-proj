@@ -12,13 +12,13 @@ class CategoryController extends Controller
 
   public function show($id)
   {
-    $auctions = Auction::where('category_id', $id)->paginate(3);
+    $auctions = Auction::where('category_id', $id)->paginate(9);
 
     return view('pages.auctionsInCategory', compact('auctions', 'id'));
   }
 
   public function getCategoryPageAjax(Request $request, $id) {
-    $auctions = Auction::where('category_id', $id)->paginate(3);
+    $auctions = Auction::where('category_id', $id)->paginate(9);
 
     $bids = [];
     $images = [];

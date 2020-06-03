@@ -27,6 +27,7 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('category/{id}', 'CategoryController@show')->name('category');
 
 // Auctions
+Route::get('auction/search', 'AuctionController@searchPage');
 Route::get('auction/create', 'AuctionController@showCreateForm')->name('createAuction');
 Route::post('auction/create', 'AuctionController@create')->name('auctionCreate');
 Route::get('auction/{id}', 'AuctionController@show')->name('auction');
@@ -35,8 +36,6 @@ Route::post('auction/{id}/edit', 'AuctionController@edit');
 Route::post('auction/{id}/bid', 'AuctionController@bid');
 Route::get('auction/{id}/report', 'AuctionController@showReportForm')->name('reportAuction');
 Route::post('auction/{id}/report', 'AuctionController@report')->name('report');
-Route::get('auction/search/{term}', 'AuctionController@searchPage');
-Route::post('auction/search', 'AuctionController@searchPost');
 
 //Notifications
 Route::get('/user/notifications','UserController@showNotifications')->name('notifications');

@@ -12,6 +12,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ModerationController extends Controller
 {
@@ -30,8 +31,32 @@ class ModerationController extends Controller
   public function showAuctions(Request $request) {
     $this->authorize('mod', Auth::user());
     if($request->filled('auction')) {
-      $term = $request->auction;
-      $auctions = Auction::search($term)->paginate(10);
+      $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~', '\'', '|', '&'];
+      $term= str_replace($reservedSymbols, '',$request['auction']);
+
+      $auctions = DB::select("select id, ts_rank_cd(search1 || search2,\"query\") AS \"rank\" FROM auction, to_tsquery(?) AS \"query\", setweight(to_tsvector('english',auction.title), 'A') AS search1, setweight(to_tsvector('english',auction.description), 'B') AS search2 WHERE search1 || search2  @@ \"query\" ORDER BY \"rank\" DESC",[$term]);
+
+
+      if(sizeof($auctions) == 0)
+      return view('pages.fail_search');
+
+      $collection = collect([Auction::find($auctions[0]->id)]);
+
+      for($i = 1; $i < sizeof($auctions); $i++) {
+        $collection->add(Auction::find($auctions[$i]->id));
+      }
+
+      $perPage = 9;
+      $page = $request['page'];
+
+      $pagination = new LengthAwarePaginator(
+        $collection->forPage($page,$perPage),
+        $collection->count(),
+        $perPage,
+        $page
+      );
+
+      $auctions = $pagination;
     } else {
       $auctions = Auction::orderBy('id')->paginate(10);
     }

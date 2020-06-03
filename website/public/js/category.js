@@ -38,26 +38,29 @@ function paginationResponseHandler() {
     let newAuctionCard = document.createElement('div');
     let auctionImage = response.images[auction.id];
 
-    newAuctionCard.className = 'card mx-auto m-3';
+    newAuctionCard.className = 'col-sm-4 p-0 card';
     newAuctionCard.innerHTML = `
-    <div class="row no-gutters">
-      <img class="card-img col-md-5" src="${auctionImage.path}" alt="${auctionImage.alt}">
-      <div class="card-body col-md-7 p-3">
-          <h5 class="card-title"> ${auction.title}  </h5>
-          <p class="card-text"> ${auction.description}</p>
-          <p class="card-text"> ${auction.closedate} </p>
-          <h3><a href="/auction/${auction.id}" class="btn btn-primary" style="width: 10rem;">BID NOW</a> <span
-                  class="badge"> ${response.bids[auction.id]} €</span></h3>
-      </div>
+    <img class="card-img-top" src="${auctionImage.path}" height="200" alt="${auctionImage.alt}">
+    <div class="card-body">
+        <h5 class="card-title">  ${auction.title} </h5>
+        <p class="card-text"> ${auction.description}</p>
+        <p class="card-text mt-auto"> ${auction.closedate} </p>
+        <h3><a href="/auction/${auction.id}" class="btn btn-primary" style="width: 10rem;">BID NOW</a> <span
+                    class="badge">${response.bids[auction.id]} €</span></h3>
     </div>
     `;
+
+
 
     auction_cards.appendChild(newAuctionCard);
   }
 
+  let pagDiv = document.getElementById('pag');
+  pagDiv.innerHTML = '';
+
   //Add the pagination
   let pagination = document.createElement('nav');
-  auction_cards.appendChild(pagination);
+  pagDiv.appendChild(pagination);
 
   let paginationList = document.createElement('ul');
   paginationList.className = "pagination";
