@@ -16,8 +16,14 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-signature"></i></span>
 						</div>
-            <input type="text" class="form-control mr-3" placeholder="First Name" id="name" name="name" required>
-            <input type="text" class="form-control" placeholder="Last Name" name="lastName" required>
+            <label for="name">
+              First Name
+              <input type="text" class="form-control mr-3" placeholder="First Name" id="name" name="name" required>
+            </label>
+            <label for="lastName">
+              Last Name
+              <input type="text" class="form-control" placeholder="Last Name" name="lastName" required>
+            </label>
           </div>
           @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -26,7 +32,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Email" id="email" name="email" required>
+            <label for="email">
+              Email
+              <input type="text" class="form-control" placeholder="Email" id="email" name="email" required>
+            </label>
           </div>
           @error('email')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -35,7 +44,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Username" id="username" name="username" required>
+            <label for="username">
+              Username
+              <input type="text" class="form-control" placeholder="Username" id="username" name="username" required>
+            </label>
             <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Username must have length between 3 and 32 characters"> ? </button>
           </div>
           @error('username')
@@ -45,7 +57,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="NIF" id="nif" name="nif" required>
+            <label for="nif">
+              NIF
+              <input type="text" class="form-control" placeholder="NIF" id="nif" name="nif" required>
+            </label>
           </div>
           @error('nif')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -54,7 +69,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-file-picture-o"></i></span>
             </div>
-            <input type="file" class="form-control" name="image"/>
+            <label for="image">
+              Image
+              <input type="file" class="form-control" name="image"/>
+            </label>
           </div>
           @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -63,8 +81,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input type="password" class="form-control mr-3" placeholder="Password" id="password" name="password" required>
-            <input type="password" class="form-control" placeholder="Confirm Password" id="password_confirmation" name ="password_confirmation" required>
+            <label for="password">
+              Password
+              <input type="password" class="form-control mr-3" placeholder="Password" id="password" name="password" required>
+            </label>
+            <label for="password_confirmation">
+              Confirm Password
+              <input type="password" class="form-control" placeholder="Confirm Password" id="password_confirmation" name ="password_confirmation" required>
+            </label>
             <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="Password must have minimum length of 6 characters. Can contain letters (A-Z,a-z), numbers (0-9) and symbols (!, $, #, or %)"> ? </button>
           </div>
           @error('password')

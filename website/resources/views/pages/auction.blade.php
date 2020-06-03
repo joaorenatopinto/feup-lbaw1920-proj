@@ -128,8 +128,7 @@
                 <h4 class="text-center">Winner</h4>
                 <a href="{{ route('profile',['id' => $auction->user->id ]) }}">
                     <div class="col text-center">
-                        <img src="{{ $auction->getWinner()->getWinner()->getImage()->path }}"
-                            class="rounded-circle mx-auto img-thumbnail w-25">
+                        <img src="{{ $auction->getWinner()->getWinner()->getImage()->path }}" class="rounded-circle mx-auto img-thumbnail w-25" alt="{{ $auction->getWinner()->getWinner()->username }}">
                     </div>
                     <h6 class="align-middle text-center">
                         {{$auction->getWinner()->getWinner()->name}}

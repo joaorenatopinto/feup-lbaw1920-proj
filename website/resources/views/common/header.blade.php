@@ -103,8 +103,7 @@
 
           <li class="nav-item">
             <a class="navbar-brand" href="{{ route('profile',['id' => Auth::id()]) }}">
-              <img src="{{ Auth::user()->getImage()->path }}" class="rounded-circle" width="35"
-                height="35" alt="">
+              <img src="{{ Auth::user()->getImage()->path }}" class="rounded-circle" width="35" height="35" alt="">
             </a>
           </li>
 

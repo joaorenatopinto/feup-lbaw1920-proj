@@ -14,8 +14,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-signature"></i></span>
                         </div>
-                    <input type="text" class="form-control mr-3" placeholder="First Name" value="{{ Auth::user()->name }}" id="name" name="name" required>
-                        <input type="text" class="form-control" placeholder="Last Name" name="lastName">
+                        <label for="name">
+                            First Name
+                            <input type="text" class="form-control mr-3" placeholder="First Name" value="{{ Auth::user()->name }}" id="name" name="name" required>
+                        </label>
+                        <label for="lastName">
+                            Last Name
+                            <input type="text" class="form-control" placeholder="Last Name" name="lastName">
+                        </label>
                     </div>
                     @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -24,7 +30,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Email" value="{{ Auth::user()->email }}" id="email" name="email" required>
+                        <label for="email">
+                            Email
+                            <input type="text" class="form-control" placeholder="Email" value="{{ Auth::user()->email }}" id="email" name="email" required>
+                        </label>
                     </div>
                     @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -33,7 +42,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Username" value="{{ Auth::user()->username }}" id="username" name="username" required>
+                        <label for="username">
+                            Username
+                            <input type="text" class="form-control" placeholder="Username" value="{{ Auth::user()->username }}" id="username" name="username" required>
+                        </label>
                     </div>
                     @error('username')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -48,12 +60,15 @@
                     @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                    @else 
+                    @else
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-font"></i></span>
 						</div>
-                        <textarea class="form-control" placeholder="Description" id="description" name="description">{{ Auth::user()->description }}</textarea>
+                        <label for="description">
+                            Description
+                            <textarea class="form-control" placeholder="Description" id="description" name="description">{{ Auth::user()->description }}</textarea>
+                        </label>
                     </div>
                     @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>

@@ -11,8 +11,11 @@
             <div class="card-body">
                 <form method="POST" action="{{ route('deposit') }}">
                     {{ csrf_field() }}
-                    <div class="input-group form-group d-flex">
-                        <input  type="number" class="form-control mr-3" placeholder="Money to deposit" value="{{ Auth::user()->name }}" name = "money" min="1" required>
+                    <div class="input-group form-group">
+                        <label for="money">
+                            Money to deposit
+                            <input  type="number" class="form-control mr-3" placeholder="Money to deposit" value="{{ Auth::user()->name }}" name="money" min="1" required>
+                        </label>
                     </div>
                     @error('money')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -22,7 +25,7 @@
                     </div>
                 </form>
             </div>
-    
+
         </div>
 	</div>
 </div>
