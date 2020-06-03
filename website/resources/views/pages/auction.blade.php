@@ -48,8 +48,11 @@
                         <div class="row justify-content-between">
                             <div class="col-sm-8">
                                 <input type="number" id="value" name="value" class="form-control"
-                                    placeholder="Place your Bid" required>
+                                    placeholder="Place your Bid" min="{{$auction->getHighestBid()+1}}" max="{{ Auth::user()->balance }}" required>
                             </div>
+                            @error('value')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="col-sm-4">
                                 <button id="bid4" type="submit" class="btn btn-danger btn-block">Bid <i
                                         class="fas fa-coins"></i></button>
