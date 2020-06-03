@@ -147,7 +147,7 @@ class AuctionController extends Controller
       $transaction->save();
       
       $owner = User::find($auction->user_id);
-      $owner->balance = $owner->balance - $bid->value;
+      $owner->balance = $owner->balance + $bid->value;
       $owner->save();
     }
   }
@@ -156,6 +156,10 @@ class AuctionController extends Controller
   public function bid(Request $request, $id)
   {
     $auction = Auction::find($id);
+    if($auction->getLastStatus()->status == 'closed'){
+      throw new AuthorizationException("Auction closed! Can't bid", 1);
+      return;
+    }
     if($auction->shouldClose()){
       $bid = $auction->getWinner();
       $this->close($id);
