@@ -564,10 +564,8 @@ INSERT INTO bid (value, date, auction_id, user_id) VALUES (4200, '2020-03-19 09:
 INSERT INTO bid (value, date, auction_id, user_id) VALUES (90, '2020-03-30 09:00:15', 13, 6); 
 
 
-INSERT INTO review (stars,description,auction_id,user_id) VALUES (5,'Very Nice watch, works fine', 10, 3);
-INSERT INTO review (stars,description,auction_id,user_id) VALUES (3,'Medium Bycicle, expected more', 11, 2);
-INSERT INTO review (stars,description,auction_id,user_id) VALUES (5,'Very Nice watch, works fine', 13, 6);
-INSERT INTO review (stars,description,auction_id,user_id) VALUES (3,'Medium Bycicle, expected more', 8, 1);
+INSERT INTO review (stars,description,auction_id,user_id) VALUES (5,'Very Nice watch, works fine', 15, 14);
+INSERT INTO review (stars,description,auction_id,user_id) VALUES (3,'Medium Bycicle, expected more', 19, 19);
 
 INSERT INTO report (description, auction_id, user_id) VALUES ('Illegal Item', 4, 15);
 INSERT INTO report (description, auction_id, user_id) VALUES ('Image does not correspond', 9, 13);
