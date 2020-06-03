@@ -33,7 +33,7 @@ class Auction extends Model
   }
 
   public function getWinner() {
-    $max = Bid::where('auction_id', $this-> id)->max('value');
+    $max = Bid::where('auction_id', $this-> id)->first();
     return $max;
   }
 
@@ -50,7 +50,7 @@ class Auction extends Model
   }
 
   public function shouldClose() {
-    return $this->closeDate->isPast();
+    return new DateTime() >  new DateTime($this->closedate);
   }
 
   /**
