@@ -54,7 +54,7 @@ class AuctionController extends Controller
     $auction->category_id = $category->id;
     $auction->user_id = Auth::user()->id;
     $auction->save();
-    
+
     $path = '/img/auction/auction'.$auction->id.'/1.'.$request['image']->getClientOriginalExtension();
     $request['image']->move(public_path('img/auction/auction'.$auction->id), '1.' . $request['image']->getClientOriginalExtension());
 
@@ -117,7 +117,7 @@ class AuctionController extends Controller
     $report->auction_id = $id;
     $report->description = $request['description'];
     $report->save();
-    
+
     $report_status = new ReportStatus();
     $report_status->datechanged = date("Y-m-d H:i:s");
     $report_status->type = 'notSeen';
@@ -144,13 +144,13 @@ class AuctionController extends Controller
     if($balance < $request->input('value')){
       abort(401, 'No sei que msg ou nr meter... :/');
     }
-    
+
     $bid = new Bid;
     $bid->value = $request->input('value');
     $bid->user_id = Auth::user()->id;
     $bid->auction_id = $auction->id;
     $bid->save();
-    
+
     $transaction = new Transaction;
     $transaction->value = $bid->value;
     $transaction->description = 'New bid of value ' . $bid->value . ' $ on auction ' . $auction->title;
@@ -165,5 +165,26 @@ class AuctionController extends Controller
     Auth::user()->save();
 
     return redirect()->route('auction', ['id' => $id]);
+  }
+
+  public function searchPost(Request $request)
+  {
+    $input = $request->input('search');
+    $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~'];
+    $input = str_replace($reservedSymbols, '', $input);
+    if(!$input)
+      return redirect('/');
+
+    return redirect('/auction/search/' . $input);
+  }
+
+  public function searchPage($term)
+  {
+    # TODO Need to check if auction is open
+    $auctions = Auction::search($term)->paginate(10);
+    if($auctions->isEmpty())
+      return view('pages.fail_search');
+
+    return view('pages.search', compact('auctions'));
   }
 }

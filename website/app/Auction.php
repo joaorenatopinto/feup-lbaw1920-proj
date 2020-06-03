@@ -32,6 +32,20 @@ class Auction extends Model
     else return $max;
   }
 
+  public function getCategory() {
+    return $this->belongsTo('App\Category');
+  }
+
+  public function scopeSearch($query, $search) {
+    $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~'];
+    $search = str_replace($reservedSymbols, '', $search);
+    if (!$search)
+      return $query;
+    $search = strtoupper($search);
+    $search = "%{$search}%";
+    return $query->orWhereRaw("CONCAT(upper(title), ' ', upper(description)) LIKE ?", [$search]);
+  }
+
   public function category() {
     return $this->belongsTo('App\Category');
   }
