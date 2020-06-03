@@ -16,7 +16,7 @@ section with all acess to moderation information and actions, and acess to
 website statistics such as auctions per category and money spent on each 
 category.
 
-## 1. Installation
+## Installation
 
 The release source code can be accessed [here](https://git.fe.up.pt/lbaw/lbaw1920/lbaw2062/-/tree/A9)
 
@@ -36,6 +36,23 @@ docker run -it -p 8000:80 -e DB_DATABASE="lbaw2062" -e DB_USERNAME="lbaw2062" -e
 ```
 
 The local image can then be accessed in `localhost:8000`
+
+## Administration Credentials
+
+The adminsitration page is accessible [here](http://lbaw2062.lbaw-prod.fe.up.pt/administration/login "Administration") 
+
+| Username        | Password          |
+| --------------- | ----------------- |
+| HangOn          | HangOn99          |
+
+## User Credentials
+
+The login page is accessible [here](http://lbaw2062.lbaw-prod.fe.up.pt/login)
+
+| Type          |  Username    |  Password    |
+| ------------- |  ---------   |  --------    |
+| Regular User  |  spaceship   |  spaceship99 |
+| Moderator     |  lmoura      |  lmoura99    |
 
 ### Team
 
