@@ -50,6 +50,11 @@ class UserController extends Controller
         return redirect()->route('profile', ['id' => $user->id]);
     }
 
+    public function showNotifications()
+    {
+        return view('pages.notifications');
+    }
+
     public function showStatement()
     {
         return view('pages.statement');

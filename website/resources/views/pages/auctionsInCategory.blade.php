@@ -11,7 +11,7 @@
         </ol>
     </nav>
 
-<div class="d-flex justify-content-center" id="category_auctions" data-id="{{ $id }}">
+    <div class="d-flex justify-content-center" id="category_auctions" data-id="{{ $id }}">
         <div id="auction_cards">
             @each('partials.auctionCard', $auctions, 'auction')
             {{ $auctions->links() }}

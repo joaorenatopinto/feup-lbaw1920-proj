@@ -48,7 +48,7 @@
                         <div class="row justify-content-between">
                             <div class="col-sm-8">
                                 <input type="number" id="value" name="value" class="form-control"
-                                    placeholder="Place your Bid" min="{{$auction->getHighestBid()+1}}" max="{{ Auth::user()->balance }}" required>
+                                    placeholder="Place your Bid" min="{{$auction->getHighestBid()+1}}" required>
                             </div>
                             @error('value')
                                 <div class="alert alert-danger">{{ $message }}</div>

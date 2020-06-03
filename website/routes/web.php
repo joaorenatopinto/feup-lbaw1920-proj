@@ -38,6 +38,9 @@ Route::post('auction/{id}/report', 'AuctionController@report')->name('report');
 Route::get('auction/search/{term}', 'AuctionController@searchPage');
 Route::post('auction/search', 'AuctionController@searchPost');
 
+//Notifications
+Route::get('/user/notifications','UserController@showNotifications')->name('notifications');
+
 //Balance
 Route::get('user/statement', 'UserController@showStatement')->name('showStatement');
 Route::get('deposit', 'UserController@showDepositForm')->name('showDeposit');
