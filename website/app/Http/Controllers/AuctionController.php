@@ -10,6 +10,8 @@ use App\Category;
 use App\Report;
 use App\ReportStatus;
 use App\Transaction;
+use App\User;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +23,7 @@ class AuctionController extends Controller
   public function show($id)
   {
     $auction = Auction::find($id);
+
     return view('pages.auction', ['auction' => $auction]);
   }
 
@@ -38,8 +41,8 @@ class AuctionController extends Controller
     $this->validate($request, [
       'title' => 'bail|required|max:255',
       'description' => 'bail|required|max:1500',
+      'closeDate' => 'bail|required|date_format:Y-m-d|after:' . now()->modify('-1 day')->format('Y-m-d'),
       'image' => 'bail|required|dimensions:ratio=16/9',
-      'closeDate' => 'bail|required|date_format:Y-m-d|after:' . now()->format('Y-m-d'),
       'initialValue' => 'bail|required|numeric|min:1',
       'category' => ['bail', 'required', Rule::in($categories)]
     ]);
@@ -128,9 +131,47 @@ class AuctionController extends Controller
     return redirect()->route('auction', ['id' => $id]);
   }
 
+
+  public function close($id){
+    $auction = Auction::find($id);
+    $status = new AuctionStatus();
+    $status->datechanged = date("Y-m-d H:i:s");
+    $status->auction_id = $auction->id;
+    $status->status = 'closed';
+    $status->save();
+
+    $bid = $auction->getWinner();
+    if($bid != null) {
+      $transaction = Transaction::where('auction',$auction->id)->where('value', $bid->value)->first();
+      $transaction->is_reserved = false;
+      $transaction->description = 'Value of ' . $auction->title;
+      $transaction->save();
+      
+      $owner = User::find($auction->user_id);
+      $owner->balance = $owner->balance + $bid->value;
+      $owner->save();
+    }
+  }
+
+
   public function bid(Request $request, $id)
   {
     $auction = Auction::find($id);
+   
+    return  $bid = $auction->getWinner();
+    if($auction->getLastStatus()->status == 'closed'){
+      throw new AuthorizationException("Auction closed! Can't bid", 1);
+      return;
+    }
+    if($auction->getLastStatus()->status == 'removed'){
+      throw new AuthorizationException("Auction Removed! Can't bid", 1);
+      return;
+    }
+    if($auction->shouldClose()){
+      $this->close($id);
+      throw new AuthorizationException("Auction closed! Can't bid", 1);
+      return;
+    }
     $this->authorize('bid', $auction);
     $max = $auction->getHighestBid();
 
