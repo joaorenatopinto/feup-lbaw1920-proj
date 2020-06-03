@@ -47,6 +47,6 @@
     @endif
 
     <td class="align-middle">
-        <a class="btn btn-outline-info btn-sm w-100 mb-1" href="#" role="button">View Report</a>
+    <a class="btn btn-outline-info btn-sm w-100 mb-1" href="{{route('reportPage',['id' => $report->id])}}" role="button">View Report</a>
     </td>
   </tr>

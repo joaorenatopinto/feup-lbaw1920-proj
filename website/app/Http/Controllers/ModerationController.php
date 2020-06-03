@@ -149,14 +149,42 @@ class ModerationController extends Controller
     return redirect()->back();
   }
 
-  public function markSeen() {
+  public function reportPage($id) {
+    if (Auth::user()->can('mod', User::class) || Auth::guard('admin')->check()) {
+      $report = Report::find($id);
+
+      //mark the report as seen if not seen yet
+      if ($report->getLastStatus()->type == 'notSeen') {
+        $status = new ReportStatus();
+        $status->type = 'seen';
+        $status->datechanged = date("Y-m-d H:i:s");
+        $status->report_id = $id;
+
+        if (Auth::user()->can('mod', User::class)) {
+          $status->moderator_id = Auth::id();
+        }
+        else {
+          $status->admin_id = Auth::guard('admin')->id();
+        }
+
+        $status->save();
+      }
+
+      return view('moderation.reportPage',['report' => $report]);
+    }
+    
+    throw new AuthorizationException();
+  }
+
+
+  public function closeReport(Request $request, $id) {
     $status = new ReportStatus();
 
     if (Auth::guard('admin')->check()) {
       $status->admin_id = Auth::guard('admin')->id();
     }
-    else if (($request['cancel'] == '1' && Auth::user()->can('cancel',Auction::find($auctionId))) ||
-      ($request['cancel'] == '0' && Auth::user()->can('undoCancel',Auction::find($auctionId)))) {
+    else if (($request['close'] == '1' && Auth::user()->can('close',Report::find($id))) ||
+      ($request['close'] == '0' && Auth::user()->can('reopen',Report::find($id)))) {
 
       $status->moderator_id = Auth::id();
     }
@@ -165,15 +193,15 @@ class ModerationController extends Controller
     }
 
     $status->datechanged = date("Y-m-d H:i:s");
-    $status->auction_id = $auctionId;
+    $status->report_id = $id;
       
-    if ($request['cancel'] == '1') {
+    if ($request['close'] == '1') {
       //cancel the auction
-      $status->status = 'removed';
+      $status->type = 'closed';
     }
-    else if ($request['cancel'] == '0') {
+    else if ($request['close'] == '0') {
       //uncancel the auction
-      $status->status = 'ongoing';
+      $status->type = 'notSeen';
     }
     else {
       throw new AuthorizationException;

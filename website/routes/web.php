@@ -67,8 +67,9 @@ Route::get('api/administration/statistics', 'AdminController@getStats');
 // Moderation
 Route::get('moderation/users', 'ModerationController@showUsers')->name('modUsers');
 Route::get('moderation/auctions', 'ModerationController@showAuctions')->name('modAuctions');
-Route::get('moderation/reports', 'ModerationController@showReports');
+Route::get('moderation/reports', 'ModerationController@showReports')->name('modReports');
+Route::get('moderation/report/{id}', 'ModerationController@reportPage')->name('reportPage');
 Route::post('user/{id}/ban', 'ModerationController@banUser')->name('banUser');
 Route::post('user/{id}/recommend', 'ModerationController@recommendMod')->name('recommend');
 Route::post('auction/{id}/cancel', 'ModerationController@cancelAuction')->name('cancelAuction');
-Route::post('report/{id}/seen', 'ModerationController@markSeen')->name('markSeen');
+Route::post('moderation/report/{id}/close', 'ModerationController@closeReport')->name('closeReport');

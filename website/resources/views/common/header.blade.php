@@ -41,8 +41,9 @@
       <div class="nav-item dropdown"> 
         <a href="" class="nav-link text-light dropdown-toggle" data-toggle="dropdown" id=dropdownMod>Moderation</a>
         <div class="dropdown-menu" aria-labelledby="dropdownMod">
-        <a href="{{route('modUsers')}}" class="dropdown-item">Users</a>
+          <a href="{{route('modUsers')}}" class="dropdown-item">Users</a>
           <a href="{{route('modAuctions')}}" class="dropdown-item">Auctions</a>
+          <a href="{{route('modReports')}}" class="dropdown-item">Reports</a>
         </div>
       </div>
     @endif
